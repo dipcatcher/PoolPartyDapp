@@ -38,27 +38,8 @@ class _home(_homeTemplate):
     self.init_components(**properties)
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
-      
-    t = '''
-    - exercise price floor ui
-    - build disttribution UI
-    '''
-    #alert(t)
-    ''' result = self.get_and_tally_convert_points_events()
-    total = 0
-    for r in result:
-      total+=r['total_amount']
-    #TODO help me write a function here that creates a list of all nameclaim contract events called ConvertPoints and tallies up each users point conversions. it should output a list of dictionaries with keys "address" and "total_amount" 
-    alert(total)'''
-  def referral_check(self):
-    url_hash = get_url_hash()
     self.referral = None
-    if url_hash not in [None]:
-      if 'ref' in url_hash:
-        self.referral = anvil.server.call_s('ref_log', url_hash['ref'])
-        anvil.js.window.history.replaceState("", "Pool Party", anvil.server.get_app_origin())
-    if self.referral is None:
-      self.referral = anvil.server.call_s('get_referrer')
+
   def activate_default_providers(self):
     self.default_network = "PLS"
     self.current_network=self.default_network
@@ -105,7 +86,7 @@ class _home(_homeTemplate):
     elif self.connected_chain in [369, 31337]:
       self.current_network = "PLS"
       
-    c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
+    '''c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
     if c:
       chain_id = "0x1"
     else:
@@ -119,7 +100,7 @@ class _home(_homeTemplate):
       
     except Exception as e:
       raise e
-      alert("Connect to the network you want in your wallet and refresh the page.")
+      alert("Connect to the network you want in your wallet and refresh the page.")'''
     self.metamask.update_signer()
     self.metamask_connect()
     self.menu_click(sender=self.latest)    
@@ -183,11 +164,6 @@ class _home(_homeTemplate):
 
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
-    import time
-    t0 = time.time()
-    self.referral_check()
-    t1 = time.time()
-    print(t1-t0)
     self.menu_click(sender=self.link_mint)
     
     
@@ -202,7 +178,7 @@ class _home(_homeTemplate):
   def metamask_connect(self, **event_args):
     self.connected_chain = self.metamask.provider.getNetwork()['chainId']
     print(self.connected_chain)
-    if self.connected_chain != 943:
+    if False:#self.connected_chain != 943:
       a  = alert("You must be connected to PulseChain Testnet V4. Want to connect?", buttons=[("Connect to PLS Testnet", True), ("Cancel", False)])
       if a:
         self.button_1_click()
