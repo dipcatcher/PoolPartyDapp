@@ -1,0 +1,293 @@
+from ._anvil_designer import _homeTemplate
+from anvil import *
+import anvil.server
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+import anvil.js
+from datetime import datetime
+from ..nft_display import nft_display
+from .. import contract_hub as ch
+try:
+  from anvil.js.window import ethereum
+  is_ethereum=True
+except:
+  is_ethereum=False
+#pages
+from ..mint_party import mint_party
+from ..stake_party import stake_party
+from ..airdrop import airdrop
+from ..nft_claim import nft_claim
+from ..create_stake_pool import create_stake_pool
+from ..ticker_auctions import ticker_auctions
+from ..referral_program import referral_program
+from ..pool_list import pool_list
+from ..party_rewards import party_rewards
+from ..pool_page import pool_page
+from ..burn_team import burn_team
+from ..price_floor import price_floor
+from ..user_wallet import user_wallet
+from anvil.js.window import ethers
+
+pulsechain_url = "https://rpc.v4.testnet.pulsechain.com"
+ethereum_url ="https://rpc.v4.testnet.pulsechain.com"#  "https://eth-mainnet.g.alchemy.com/v2/CjAeOzPYt5r6PmpSkW-lL1NL7qfZGzIY"
+
+class _home(_homeTemplate):
+  def __init__(self, **properties):
+    # Set Form properties and Data Bindings.
+    self.init_components(**properties)
+    self.activate_default_providers()
+    self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
+      
+    t = '''
+    - exercise price floor ui
+    - build disttribution UI
+    '''
+    #alert(t)
+    ''' result = self.get_and_tally_convert_points_events()
+    total = 0
+    for r in result:
+      total+=r['total_amount']
+    #TODO help me write a function here that creates a list of all nameclaim contract events called ConvertPoints and tallies up each users point conversions. it should output a list of dictionaries with keys "address" and "total_amount" 
+    alert(total)'''
+  def referral_check(self):
+    url_hash = get_url_hash()
+    self.referral = None
+    if url_hash not in [None]:
+      if 'ref' in url_hash:
+        self.referral = anvil.server.call_s('ref_log', url_hash['ref'])
+        anvil.js.window.history.replaceState("", "Pool Party", anvil.server.get_app_origin())
+    if self.referral is None:
+      self.referral = anvil.server.call_s('get_referrer')
+  def activate_default_providers(self):
+    self.default_network = "PLS"
+    self.current_network=self.default_network
+    urls = {"PLS":pulsechain_url, "ETH":ethereum_url}
+    self.providers = {}
+    self.providers['ETH'] = ethers.providers.JsonRpcProvider(urls["ETH"])
+    self.providers["PLS"]= ethers.providers.JsonRpcProvider(urls["PLS"])
+    self.contract_data = ch.contract_data()
+  def events_catalog(self, event_name, from_block = 0, to_block = "latest"):
+    party_contract_read = self.get_contract_read("PARTY")
+    party_abi = contract_data = self.contract_data["PARTY"]['abi']
+    # TODO: return event query results of the input event_name. The event_name should be in the available events from the party_abi.
+    event_names = [event['name'] for event in party_abi if event['type'] == 'event']
+    
+    if event_name not in event_names:
+        raise ValueError(f"The event {event_name} is not in the ABI.")
+    
+    # Query the event logs
+    event_filter = party_contract_read.filters[event_name]()
+    logs = party_contract_read.queryFilter(event_filter, fromBlock=from_block, toBlock=to_block)
+    
+    # Process the logs to extract useful information (if needed)
+    processed_logs = [log.args for log in logs]  # Replace with your own logic if necessary
+    
+    return processed_logs
+  def get_contract_read(self, ticker):
+    chain = "PLS"
+    contract_data = self.contract_data[ticker]
+    return ethers.Contract(contract_data['address'], contract_data['abi'], self.providers[chain])
+  def get_perpetual_pool_contract_write(self, address):
+    return ethers.Contract(address, ch.contract_data()['PERPETUAL_POOL']['abi'],self.metamask.signer)
+  def get_perpetual_pool_contract_read(self, address):
+    chain = "PLS"
+    return ethers.Contract(address, ch.contract_data()['PERPETUAL_POOL']['abi'],self.providers[chain])
+      
+  def get_contract_write(self, ticker):
+    
+    contract_data = self.contract_data[ticker]
+    return ethers.Contract(contract_data['address'], contract_data['abi'],self.metamask.signer)
+  def button_switch_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.connected_chain in [1]:
+      self.current_network = "ETH" 
+    elif self.connected_chain in [369]:
+      self.current_network = "PLS"
+      
+    c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
+    if c:
+      chain_id = "0x1"
+    else:
+      chain_id = "0x171"
+    try:
+      a = ethereum.request({
+                'method': 'wallet_switchEthereumChain',
+                'params': [{ "chainId": chain_id }] 
+            })
+      b = anvil.js.await_promise(a)
+      
+    except Exception as e:
+      raise e
+      alert("Connect to the network you want in your wallet and refresh the page.")
+    self.metamask.update_signer()
+    self.metamask_connect()
+    self.menu_click(sender=self.latest)    
+    
+    # Any code you write here will run before the form opens.
+
+  def menu_click(self, **event_args):
+    self.content_panel.clear()
+    not_yet =[]# [self.link_create_stake_pool,  self.button_pools]
+    if event_args['sender'] in not_yet:
+      alert("The '{}' feature will be available when testnet Stage 2 begins.".format(event_args['sender'].text))
+      return False
+    self.latest = event_args['sender']
+    if event_args['sender']==self.link_mint:
+      self.page = mint_party()
+    elif event_args['sender'] == self.link_stake:
+      self.page = stake_party()
+    elif event_args['sender'] == self.link_mint_nft:
+      self.page = nft_claim()
+    elif event_args['sender'] == self.link_ticker_auctions:
+      self.page = ticker_auctions()
+    elif event_args['sender'] == self.link_claim:
+      self.page = airdrop()
+    elif event_args['sender'] == self.link_create_stake_pool:
+      self.page = create_stake_pool()
+    elif event_args['sender']==self.link_referral:
+      self.page = referral_program()
+    elif event_args['sender']==self.button_pools:
+      
+      self.content_panel.add_component(Label(align="center",text="Loading Pools...", icon="https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif", role='headline'))
+      
+      if "goto" in event_args:
+        self.page = pool_list(goto=event_args['goto'])
+      else:
+        self.page = pool_list()
+      self.content_panel.clear()
+    elif event_args['sender']==self.link_party_rewards_manage:
+      self.page = party_rewards()
+    elif event_args['sender']==self.link_burn_team:
+      self.page = burn_team()
+    elif event_args['sender']==self.link_price_floor:
+      self.page = price_floor()
+    elif event_args['sender']==self.link_wallet:
+      self.page = user_wallet()
+  
+    
+    if len(self.pool_panel.get_components())>0:
+      if 'is_btn' not in event_args:
+        if self.content_panel.visible ==False:
+          self.pool_panel.clear()
+          self.content_panel.visible = True
+    
+    self.content_panel.add_component(self.page)
+
+  def link_disclaimer_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    text = '''
+    You are responsible for your actions, no one else.
+    '''
+    alert(text)
+
+  def form_show(self, **event_args):
+    """This method is called when the HTML panel is shown on the screen"""
+    import time
+    t0 = time.time()
+    self.referral_check()
+    t1 = time.time()
+    print(t1-t0)
+    self.menu_click(sender=self.link_mint)
+    
+    
+
+
+  def get_contract(self, name, read_or_write):
+    if read_or_write=='read':
+      pass
+    else:
+      pass
+
+  def metamask_connect(self, **event_args):
+    self.connected_chain = self.metamask.provider.getNetwork()['chainId']
+    print(self.connected_chain)
+    if self.connected_chain != 943:
+      a  = alert("You must be connected to PulseChain Testnet V4. Want to connect?", buttons=[("Connect to PLS Testnet", True), ("Cancel", False)])
+      if a:
+        self.button_1_click()
+        self.metamask.button_1_click(sender=self.metamask.button_1)
+      else:
+        anvil.js.window.location.reload()
+    self.button_switch.visible = False#True
+    if self.connected_chain==1:
+      self.button_switch.text = "ETH" 
+    elif self.connected_chain in [369, 943]:
+      self.button_switch.text = "PLS"
+    self.menu_click(sender=self.latest, is_btn=True)
+    if len(self.pool_panel.get_components())>0:
+      print("OK")
+      self.pool_panel.get_components()[0].refresh()
+      self.pool_panel.get_components()[0].display.refresh()
+  def link_switch_network_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def block_to_time(self, block_number):
+    # Convert the block number to a block'chain
+    chain = self.button_switch.text
+    block = anvil.js.await_promise(self.providers[chain].getBlock(block_number))
+    
+    timestamp = block['timestamp']
+    
+    dt_object = datetime.fromtimestamp(timestamp)
+    
+    return dt_object
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+
+
+    if ethereum is not None:
+      ethereum.request(
+        dict(method='wallet_addEthereumChain',
+        params=[
+          {
+            'chainId': '0x3AF',  # 31337 in hexadecimal
+            'chainName': 'PulseChain Testnet V4',
+            'nativeCurrency': {
+              'name': 'tPLS',
+              'symbol': 'tPLS',
+              'decimals': 18,
+            },
+            'rpcUrls': ['https://rpc.v4.testnet.pulsechain.com'],
+          },
+        ],
+      ))
+    else:
+      print('MetaMask is not installed. Please install it and try again.')
+
+
+
+  def get_and_tally_convert_points_events(self):
+    # Create a filter for the ConvertPoints event
+    event_filter = self.nameclaim_contract.filters.ConvertPoints(None, None)
+    
+    # Query past events
+    past_events = self.nameclaim_contract.queryFilter(event_filter)
+    
+    # Initialize a dictionary to store tallies
+    tally_dict = {}
+    
+    # Loop through each event to tally up amounts
+    for event in past_events:
+      user_address = event.args[0]
+      converted_points = int(event.args[1].toString())
+      
+      # Update the tally for the user
+      if user_address in tally_dict:
+        tally_dict[user_address] += converted_points
+      else:
+        tally_dict[user_address] = converted_points
+    
+    # Create a list of dictionaries with keys "address" and "total_amount"
+    output_list = []
+    for address, total_amount in tally_dict.items():
+      output_list.append({"address": address, "total_amount": total_amount})
+    
+    return output_list
+
+
+
+  

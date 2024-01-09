@@ -1,0 +1,60 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'These pools are publicly operated and fully trustless, meaning anyone can
+      run the required functions to operate the pool when those functions are eligible
+      to run. Whoever runs these pays the gas on behalf of the pool for that action.',
+    font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'WJOCHP,QNUZAL'}
+- type: ColumnPanel
+  properties: {role: referral-code-contain, tooltip: '', border: '', foreground: '',
+    visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'ABYZWN,FPRMDP'}
+  components:
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: mint HDRN, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_mint_hdrn
+    layout_properties: {grid_position: 'PYKBQE,IFFFMM'}
+    event_bindings: {click: button_mint_hdrn_click}
+  - type: Label
+    properties: {}
+    name: label_hdrn_mint_data
+    layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: start stake, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: button_start_stake
+  layout_properties: {grid_position: 'HOBSWJ,ELFEDW'}
+  event_bindings: {click: button_start_stake_click}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: 'end stake
+
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: button_end_stake
+  layout_properties:
+    col_widths: {}
+    grid_position: BQJFFO,YQMEUG
+  event_bindings: {click: button_end_stake_click}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: contribute to end stake gas pool, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false, icon: ''}
+  name: button_contribute
+  layout_properties: {grid_position: 'FORMYB,BYMHCE'}
+  event_bindings: {click: button_contribute_click}
+is_package: true

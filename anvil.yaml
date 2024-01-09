@@ -1,0 +1,52 @@
+correct_dependency_ids: {CY6SHX5TPGTSZ6UY: CY6SHX5TPGTSZ6UY}
+dependencies:
+- app_id: CY6SHX5TPGTSZ6UY
+  version: {dev: false}
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: _home}
+package_name: Pool_Party
+allow_embedding: false
+name: Clone of Pool Party Testnet
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python2-full
+  server_spec: null
+  server_spec_disabled: {requirements: PIL, base: python310-standard}
+metadata: {title: Pool Party Testnet, logo_img: 'asset:link image.jpeg', description: Pool Party Testnet}
+startup_form: null
+native_deps: {head_html: '<style>
+
+    @import url(''https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Poppins&display=swap'');
+
+    </style>
+
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>'}
+db_schema:
+  contract:
+    client: none
+    server: full
+    columns:
+    - name: address
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: abi
+      admin_ui: {order: 1, width: 200}
+      type: simpleObject
+    title: contract
+  table_2:
+    client: none
+    server: full
+    columns: []
+    title: Table 2
+secrets:
+  moralis:
+    value: {? '' : /iQTQWUK0H3/QsR06f0B3d5rDvXNGBgTLhzZ/F7hn8JoYdw8b5sjnzDMHQXAjZkJtuM43V0SWmqeJwBeAwqweL6tIsl6BhdRyNAN7HBpPlWSZtKAx7/bjkVHoOLe2l6ATOuqFTlnjiJc4ghv4i38JlZbfBNc3RrqpgKNO1nq0JD03Wtf7jdfecEOS7f0ZcDfZVDJYlAAtTKqW6WTwqF8t9emT/Gvu03TxiKMUmd1yAuhsQ+Ou9FiGfSSy3/zPRwAGnoRs46Chknl+HlvTwgQOCI3D1OkBRQ8Z+emq8FYva2XJqqyvBF/Y61FT+FvzPQ9ZVOT1YYOi97kFBW8ZWZ1I6pHJwP9abQ5afmIlFYhIXUQqqDccPkKf6sJ7hOmNlBViO+AnXc+WfFespCr4qBV8DK+l/2LCAiTQ8m9TktPfRHYE2ELLIoOlnOwrjFYn0U7LUce/eq6VotrEb6Mec48ylbHyvwnvFvYu97B2HxOWW3OgbS1geqb98ClwXQLicAgBTnEHCqbzeMeqcvz26rVxJktX0uVywIqrK3iQ1jCLMSeJYI=}
+    type: secret

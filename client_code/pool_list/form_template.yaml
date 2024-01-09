@@ -1,0 +1,91 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'BBWVZV,IHWNIW', full_width_row: true}
+  components:
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Mintable Pools, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'FVYAAL,QWIWLL'}
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: PTATRF, title: '', data_key: column_1, $$hashKey: 'object:101120'}
+      - {id: OENAYH, title: Ticker, data_key: column_2, $$hashKey: 'object:101121'}
+      - {id: LDHHSQ, title: Length, data_key: column_3, $$hashKey: 'object:101122'}
+      - {id: UZHXTA, title: Pooled HEX, data_key: column_4, $$hashKey: 'object:101494'}
+      - {id: XHLPBH, title: Organizer Fee, data_key: column_5, $$hashKey: 'object:101496'}
+      - {id: IQMTTG, title: '', data_key: column_6, $$hashKey: 'object:138456'}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 25
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'DPZUVF,SHTBRE'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: pool_list.RowTemplate7}
+      name: repeating_panel_1
+      layout_properties: {}
+- type: ColumnPanel
+  properties: {}
+  name: column_panel_2
+  layout_properties: {grid_position: 'OOYMOZ,JCKEKW'}
+  components:
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Purchasable Pools, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: MILZAO,LAFJBL
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: PTATRF, title: '', data_key: column_1, $$hashKey: 'object:101120'}
+    - {id: OENAYH, title: Ticker, data_key: column_2, $$hashKey: 'object:101121'}
+    - {id: LDHHSQ, title: Length, data_key: column_3, $$hashKey: 'object:101122'}
+    - {id: UZHXTA, title: Pooled HEX, data_key: column_4, $$hashKey: 'object:101494'}
+    - {id: XHLPBH, title: Organizer Fee, data_key: column_5, $$hashKey: 'object:101496'}
+    - {id: IQMTTG, title: '', data_key: column_6, $$hashKey: 'object:138456'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 25
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1_copy
+  layout_properties:
+    col_widths: {}
+    grid_position: RVGUZJ,EKOBKX
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: pool_list.RowTemplate7}
+    name: repeating_panel_is_staked
+    layout_properties: {}
+is_package: true

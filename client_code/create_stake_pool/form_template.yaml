@@ -1,0 +1,254 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'SWWUPV,CQXOPS'}
+  components:
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Pool Brand, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'DWXGGR,RFMOUK'}
+  - type: ColumnPanel
+    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZGTAKA":15,"PCTDRX":45}',
+      spacing_below: small, background: ''}
+    name: card_1
+    layout_properties: {grid_position: 'YWZBJU,VPASYL'}
+    components:
+    - type: Image
+      properties: {role: null, vertical_align: center, height: 139, tooltip: '', border: '',
+        foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+        source: '', spacing_below: small, background: '', horizontal_align: center}
+      name: image_logo
+      layout_properties: {grid_position: 'MNAZVG,PKJMRF'}
+    - type: FileLoader
+      properties:
+        role: filled
+        show_state: true
+        align: center
+        tooltip: ''
+        border: ''
+        file_types: image/png
+        enabled: true
+        files: []
+        foreground: ''
+        visible: true
+        text: Upload Token Logo
+        font_size: null
+        font: ''
+        spacing_above: small
+        icon_align: left
+        spacing_below: small
+        italic: false
+        file: null
+        background: ''
+        bold: false
+        underline: false
+        multiple: false
+        icon: fa:upload
+      name: file_loader_1
+      layout_properties: {grid_position: 'TNJEQR,CUKYJX'}
+      event_bindings: {change: file_loader_1_change}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Name, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'TUYJOY,JBGAZW'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_name
+      layout_properties: {grid_position: 'EWXDZW,WUYROL'}
+      event_bindings: {change: text_box_name_change}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Ticker, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'CCCDKW,ZGTAKA'}
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Get a Ticker, font_size: null, wrap_on: mobile, font: '',
+        col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: link_get_ticker
+      layout_properties: {grid_position: 'CCCDKW,PCTDRX'}
+      event_bindings: {click: link_get_ticker_click}
+    - type: DropDown
+      properties:
+        role: null
+        align: full
+        tooltip: ''
+        placeholder: Select Ticker
+        border: ''
+        enabled: true
+        foreground: ''
+        items: ['']
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
+      name: drop_down_tickers
+      layout_properties: {grid_position: 'BNZNFG,IYHGYH'}
+      event_bindings: {change: drop_down_tickers_change}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Description, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'WPXLSI,BFMBLK'}
+    - type: TextArea
+      properties: {role: null, align: left, height: 87, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        auto_expand: false, font: '', spacing_above: small, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false}
+      name: text_area_description
+      layout_properties: {grid_position: 'WFHSVX,CZJYBJ'}
+      event_bindings: {change: text_area_description_change}
+  - type: Label
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Pool Parameters, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: QQGGOD,DTDYGG
+  - type: ColumnPanel
+    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_2
+    layout_properties: {grid_position: 'UKBVEZ,OKKKVJ'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Initial Mint Phase Length, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_5
+      layout_properties: {grid_position: 'QRCYRU,ZLTLJI'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_initial_mint_length
+      layout_properties: {grid_position: 'EMGNYF,PHEBCB'}
+      event_bindings: {change: number_entry_change}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Ongoing Mint Phase Length, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_8
+      layout_properties: {grid_position: 'IXDJFJ,NWFELJ'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_ongoing_mint_length
+      layout_properties: {grid_position: 'WQNNLK,CEWEVV'}
+      event_bindings: {change: number_entry_change}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Stake Length, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_9
+      layout_properties: {grid_position: 'DIWRDJ,WCBWHC'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_stake_length
+      layout_properties: {grid_position: 'ERSXSN,JTFXXE'}
+      event_bindings: {change: number_entry_change}
+    - type: CheckBox
+      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', allow_indeterminate: false, visible: true, text: Organizer Fee,
+        font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
+        background: '', bold: false, checked: false, underline: false}
+      name: check_box_organizer
+      layout_properties: {grid_position: 'MILCPP,WARPSN'}
+      event_bindings: {change: check_box_organizer_change}
+    - type: ColumnPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: column_panel_organizer
+      layout_properties: {grid_position: 'JKESZT,TYHULM'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Organizer Address, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_7
+        layout_properties: {grid_position: 'UDZTVX,XCSBWC'}
+      - type: TextBox
+        properties: {}
+        name: text_box_organizer_address
+        layout_properties: {grid_position: 'LQJLJZ,BPFKKF'}
+        event_bindings: {change: text_box_organizer_address_change}
+      - type: RichText
+        properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+          foreground: '', visible: true, font_size: null, content: '{C}{a}{v}', font: '',
+          spacing_above: small, spacing_below: none, data: null, background: '', format: markdown}
+        name: rich_text_1
+        layout_properties: {grid_position: 'JJEMWO,NZDPBM'}
+        components:
+        - type: TextBox
+          properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+            border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+            font: '', spacing_above: small, type: number, spacing_below: none, italic: false,
+            background: '', bold: false, underline: false}
+          name: text_box_organizer_fee
+          layout_properties: {grid_position: 'LOCRMH,NAYFMI', slot: a, width: 85.43799999999999}
+          event_bindings: {change: number_entry_change}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: '%', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: none, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_10
+          layout_properties: {slot: v}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: 'Organizer Fee   ', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: none, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_6
+          layout_properties: {grid_position: 'YWVMND,DRGJJZ', slot: C}
+    - type: Button
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Deploy Stake Pool, font_size: null, font: '',
+        spacing_above: none, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: button_deploy
+      layout_properties: {grid_position: 'HCOGSJ,FYQAYV'}
+      event_bindings: {click: button_deploy_click}
+is_package: true

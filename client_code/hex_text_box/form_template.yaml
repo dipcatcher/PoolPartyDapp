@@ -1,0 +1,29 @@
+container:
+  type: HtmlTemplate
+  properties: {html: "<div id=\"parent\">\n    <div id=\"child\" class=\"floating\"\
+      >\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n\
+      \      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"\
+      float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\
+      \n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n    top: 0px;\n\
+      \    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n\
+      }\n#child {\n  position:absolute;\n  \n}\n</style><div id=\"parent\">\n    <div\
+      \ id=\"child\" class=\"floating\">\n      <div anvil-slot-repeat=\"float\" class=\"\
+      anvil-measure-this\"></div>\n      <div class=\"placeholder drop-here anvil-designer-only\"\
+      \ anvil-if-slot-empty=\"float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n\
+      </div>\n\n<style>\n\n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n\
+      \    top: 0px;\n    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent\
+      \ {\n  position:relative;\n}\n#child {\n  position:absolute;\n  \n}\n</style>"}
+components:
+- type: TextBox
+  properties: {}
+  name: text_box_1
+  layout_properties: {slot: default}
+  event_bindings: {change: text_box_1_change}
+- type: Label
+  properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: HEX, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {slot: float}
+is_package: true

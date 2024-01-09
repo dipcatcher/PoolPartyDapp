@@ -1,0 +1,95 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: content-contain, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_1
+  layout_properties: {grid_position: 'FTZRIP,OHPGPC'}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'WWPFFZ,WXNOLR'}
+    components:
+    - type: Label
+      properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: PARTY Buy and Burn Price Floor, font_size: 24, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      name: label_1
+      layout_properties:
+        col_widths: {}
+        grid_position: EASZUO,AGFUIX
+    - type: Label
+      properties: {role: body, align: left, tooltip: '', border: '', foreground: '#8E8E93',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_days_left
+      layout_properties:
+        col_widths: {}
+        grid_position: YVAGYH,QDVBHU
+    - type: GridPanel
+      properties: {spacing_above: medium, spacing_below: small, background: '', foreground: '',
+        border: '', visible: true, role: null, tooltip: ''}
+      name: grid_panel_1
+      layout_properties:
+        col_widths: {}
+        grid_position: APFWQT,ENHXYF
+      components:
+      - type: Label
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: ETH Balance, font_size: null, font: '', spacing_above: none,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_2
+        layout_properties: {row: WSREZW, width_xs: 5, col_xs: 0, width: 144.164}
+      - type: Label
+        properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
+          visible: true, text: '0', font_size: null, font: '', spacing_above: none,
+          icon_align: right, spacing_below: small, italic: false, background: '',
+          bold: false, underline: false, icon: ''}
+        name: label_eth_balance
+        layout_properties: {row: WSREZW, width_xs: 6, col_xs: 6, width: 179}
+      - type: Label
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: PARTY Balance, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3
+        layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5,
+          col_xs: 0, width: 144.164}
+      - type: Label
+        properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
+          visible: true, text: '0', font_size: null, font: '', spacing_above: small,
+          icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_party_balance
+        layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
+    - type: form:max_text_box
+      properties: {}
+      name: custom_1
+      layout_properties: {grid_position: 'TFPSUC,EYFUUR'}
+      event_bindings: {text_change: custom_1_text_change}
+    - type: Button
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Burn PARTY, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: button_burn
+      layout_properties: {grid_position: 'AQHBMC,ZUGNKV'}
+      event_bindings: {click: button_burn_click}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: yellow,
+        visible: true, text: 'WARNING: If the market price is above this ratio and
+          you run this, you may be sad.', font_size: 12, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties:
+        col_widths: {}
+        grid_position: VLPJNG,DOXGWI
+is_package: true

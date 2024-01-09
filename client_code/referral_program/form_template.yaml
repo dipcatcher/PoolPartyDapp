@@ -1,0 +1,139 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  event_bindings: {show: form_show}
+components:
+- type: ColumnPanel
+  properties: {role: content-contain, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_2
+  layout_properties: {grid_position: 'XRLBFI,NUULSK'}
+  components:
+  - type: ColumnPanel
+    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_1
+    layout_properties: {grid_position: 'CPISUU,HDJRDL'}
+    components:
+    - type: Label
+      properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: PARTY Referral Program, font_size: 21, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'UTAVAL,ZKQECZ'}
+    - type: Label
+      properties: {role: body, align: left, tooltip: '', border: '', foreground: '#8E8E93',
+        visible: true, text: 'Share your unique PARTY minting referral link with your
+          friends, family, and followers. If people use your link to mint, you earn
+          PARTY.', font_size: null, font: '', spacing_above: small, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'FXIWRQ,FPAQUL'}
+    - type: Button
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: create new referral link, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: link_new
+      layout_properties: {grid_position: 'KZFSLW,IJKAKH'}
+      event_bindings: {click: link_new_click}
+    - type: ColumnPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: column_panel_generate
+      layout_properties: {grid_position: 'NAHKOT,ZFWPLS'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Paste an address you control. This will be the address that you can claim the referral rewards to.,
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false, icon: ''}
+        name: label_3
+        layout_properties: {grid_position: 'DSRWJW,KOVXGU'}
+      - type: TextBox
+        properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+          border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+          font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false}
+        name: text_box_new_address
+        layout_properties: {grid_position: 'FPNBDX,SIRTGX'}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_3
+      layout_properties: {grid_position: 'QCVGYF,QQFQPW'}
+      components:
+      - type: ColumnPanel
+        properties: {role: referral-code-contain, tooltip: '', border: '', foreground: '',
+          visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: medium,
+          col_widths: '{}', spacing_below: small, background: ''}
+        name: column_panel_1
+        layout_properties: {grid_position: 'QJVJRM,ZTRVJU'}
+        components:
+        - type: Link
+          properties: {role: null, url: '', align: left, tooltip: '', border: '',
+            foreground: white, visible: true, text: '', font_size: 12, wrap_on: mobile,
+            font: '', col_spacing: medium, spacing_above: small, icon_align: left_edge,
+            col_widths: '{}', spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: 'fa:clipboard'}
+          name: link_ref
+          layout_properties: {grid_position: 'VUDOMC,VJKWXK'}
+          components: []
+          event_bindings: {click: link_ref_click}
+      - type: Link
+        properties: {col_widths: '{}'}
+        name: link_tweet
+        layout_properties: {grid_position: 'XMGZDF,CXCTQI'}
+        components:
+        - type: Button
+          properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+            foreground: '', visible: true, text: Share on Twitter, font_size: null,
+            font: '', spacing_above: medium, icon_align: left, spacing_below: none,
+            italic: false, background: '#1DA1F2', bold: false, underline: false, icon: 'fa:twitter'}
+          name: button_1
+          layout_properties: {grid_position: 'IISYFB,CJUFQM'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: yellow,
+      visible: true, text: 'To protect your privacy when referring, please create
+        a brand new address that is not connected by transactions to your main PARTY
+        address. You can do this by clicking "New Account" in your metamask wallet.',
+      font_size: 12, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: label_4
+    layout_properties: {grid_position: 'POGRPV,USWAQQ'}
+  - type: Spacer
+    properties: {visible: true, spacing_above: small, spacing_below: small, height: '24',
+      tooltip: ''}
+    name: spacer_1
+    layout_properties: {grid_position: 'VQLQTE,IBINBC'}
+  - type: Label
+    properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Details, font_size: 21, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_1_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: BNQWXA,XCCAYF
+  - type: Label
+    properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'The PARTY minting referral programmed is designed to grow
+        the PARTY airdrop by giving people an opportunity to earn PARTY and incentivizing
+        the top performers.
+
+
+        1% of the total initial PARTY supply is allocated for a referral program.
+        Referrers get 1 referral point per PARTY minted through their referral link.
+        Once the minting phase is over, the referrers will be ranked by referral points.
+        Then the referral points are scaled based on the order of the ranking.', font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: label_2_copy
+    layout_properties:
+      col_widths: {}
+      grid_position: ZTYAWQ,TJEWBS
+is_package: true

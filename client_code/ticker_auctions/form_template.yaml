@@ -1,0 +1,138 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: Label
+  properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: NFT Auctions, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_1
+  layout_properties: {grid_position: 'FEJOBQ,ETULFS'}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Pool Party Nametag NFTs are mintable by winning the auction for a name.
+      These are general purpose NFTs linked to a 9 character text string. While holders
+      of these NFTs can choose what to do with them, they were designed to be a unique
+      ticker name registrar for community organized assets launched in the Pool Party
+      ecosystem.', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_4
+  layout_properties: {grid_position: 'HYDVYP,ZZSUMW'}
+- type: GridPanel
+  properties: {}
+  name: grid_panel_1
+  layout_properties:
+    col_widths: {}
+    grid_position: LYQMBB,BMOMKO
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Search, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_2
+    layout_properties: {grid_position: 'TLFTSO,WWOAUX', row: YHDWCR, width_xs: 12,
+      col_xs: 0}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: text_box_search
+    layout_properties: {grid_position: 'LQNSGJ,WHMNYL', full_width_row: false, row: DKANAA,
+      width_xs: 8, col_xs: 0, width: 419.328}
+    event_bindings: {change: text_box_search_change, pressed_enter: button_claim_click}
+  - type: Button
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Search, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_claim
+    layout_properties: {grid_position: 'LQNSGJ,TGAOMX', full_width_row: false, row: DKANAA,
+      width_xs: 4, col_xs: 0}
+    event_bindings: {click: button_claim_click}
+  - type: Label
+    properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+      visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_error
+    layout_properties: {row: KZGGUE, width_xs: 8, col_xs: 0, width: 451.328}
+- type: ColumnPanel
+  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: false,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_results
+  layout_properties:
+    col_widths: {}
+    grid_position: DROADK,LHXMIW
+    full_width_row: false
+  components:
+  - type: ColumnPanel
+    properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_1
+    layout_properties: {grid_position: 'YLYFPP,QNPOGW'}
+    components:
+    - type: ColumnPanel
+      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
+      name: card_2
+      layout_properties: {grid_position: 'IBNKAG,KHWAHX', row: DJYABP, width_xs: 12,
+        col_xs: 0}
+      components:
+      - type: Label
+        properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Auction Activation, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_3
+        layout_properties: {grid_position: 'FEJAVP,TCDHRN'}
+      - type: Label
+        properties: {}
+        name: label_name
+        layout_properties: {grid_position: 'OGDCFN,OQXLBE'}
+      - type: form:max_text_box
+        properties: {}
+        name: text_box_bid
+        layout_properties: {grid_position: 'IUXXYC,MDCRDC'}
+        event_bindings: {text_change: text_box_bid_change}
+      - type: Button
+        properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+          foreground: '', visible: true, text: Start Auction, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        name: button_available
+        layout_properties: {grid_position: 'BOOCBG,KAHYUA'}
+        event_bindings: {click: button_available_click}
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: FEJYZG, title: Ticker, data_key: ticker, $$hashKey: 'object:97085'}
+    - {id: QLHIAE, title: Current Bid, data_key: bidAmount, $$hashKey: 'object:97086'}
+    - {id: VYYQPJ, title: Time Remaining, data_key: column_1, $$hashKey: 'object:99330'}
+    - {id: XOJZQF, title: Action, data_key: column_2, $$hashKey: 'object:99697'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties: {grid_position: 'ZNQCUG,MNMCTK'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: ticker_auctions.RowTemplate5}
+    name: repeating_panel_1
+    layout_properties: {}
+is_package: true

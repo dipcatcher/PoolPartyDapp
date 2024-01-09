@@ -1,0 +1,78 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: column_panel_2
+  layout_properties:
+    col_widths: {}
+    grid_position: WLXGIU,RPMREP
+  components:
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_1
+    layout_properties: {grid_position: 'WDULFK,AHCWOW'}
+    components:
+    - type: Label
+      properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Mint Ticker NFTs, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_1_copy
+      layout_properties: {grid_position: 'DOCCCC,KNAMTI', row: FQZQUZ, width_xs: 5,
+        col_xs: 0, slot: b}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_1
+      layout_properties: {grid_position: 'UEVUII,TERPMX'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: Below are your ticker names that you claimed during the Ticker Name Claim. You can now mint them as NFTs to utilize for your pools or to list on NFT marketplaces.,
+          font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+          italic: false, background: '', bold: false, underline: false, icon: ''}
+        name: label_content
+        layout_properties: {grid_position: 'VTRBFB,YEONGP'}
+    - type: DataGrid
+      properties:
+        role: null
+        columns:
+        - {id: TGPXWA, title: Column 1, data_key: column_1, $$hashKey: 'object:57782',
+          width: 247, expand: false}
+        - {id: RINAOC, title: Column 2, data_key: column_2, $$hashKey: 'object:57783'}
+        auto_header: false
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 200
+        visible: true
+        wrap_on: never
+        show_page_controls: false
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_1
+      layout_properties: {grid_position: 'ESXHWU,NGUOCW'}
+      components:
+      - type: DataRowPanel
+        properties: {}
+        name: data_row_panel_1
+        layout_properties: {}
+        components:
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: My Ticker Names, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: true, underline: false, icon: ''}
+          name: label_2
+          layout_properties: {column: TGPXWA}
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: nft_claim.RowTemplate4}
+        name: repeating_panel_2
+        layout_properties: {}
+is_package: true
