@@ -29,7 +29,7 @@ from ..price_floor import price_floor
 from ..user_wallet import user_wallet
 from anvil.js.window import ethers
 
-pulsechain_url = "https://rpc.v4.testnet.pulsechain.com"
+pulsechain_url = "http://127.0.0.1:8545"#"https://rpc.v4.testnet.pulsechain.com"
 ethereum_url ="https://rpc.v4.testnet.pulsechain.com"#  "https://eth-mainnet.g.alchemy.com/v2/CjAeOzPYt5r6PmpSkW-lL1NL7qfZGzIY"
 
 class _home(_homeTemplate):
@@ -102,7 +102,7 @@ class _home(_homeTemplate):
     """This method is called when the button is clicked"""
     if self.connected_chain in [1]:
       self.current_network = "ETH" 
-    elif self.connected_chain in [369]:
+    elif self.connected_chain in [369, 31337]:
       self.current_network = "PLS"
       
     c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
@@ -212,7 +212,7 @@ class _home(_homeTemplate):
     self.button_switch.visible = False#True
     if self.connected_chain==1:
       self.button_switch.text = "ETH" 
-    elif self.connected_chain in [369, 943]:
+    elif self.connected_chain in [369, 943, 31337]:
       self.button_switch.text = "PLS"
     self.menu_click(sender=self.latest, is_btn=True)
     if len(self.pool_panel.get_components())>0:
