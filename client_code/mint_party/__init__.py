@@ -40,10 +40,10 @@ class mint_party(mint_partyTemplate):
         if self.data['Referrer'] is not None:
           self.data['Mint Rate'] = int(42069*1.0369)
       else:
-        scalar = int(self.party_contract_read.PLS_MINT_SCALAR().toString())
+        scalar = int(self.party_contract_read.MINT_SCALAR().toString())
         self.data['Mint Rate']= scalar / (10**8)
         if self.data['Referrer'] is not None:
-          self.data['Mint Rate'] = 1.0369/431
+          self.data['Mint Rate'] = 1.02 * self.data['Mint Rate']
 
     else:
       self.button_mint.enabled =True
@@ -65,7 +65,7 @@ class mint_party(mint_partyTemplate):
           if self.data['Referrer'] is not None:
             self.data['Mint Rate'] = int(42069*1.0369)
       else:
-        scalar = int(self.party_contract_read.PLS_MINT_SCALAR().toString())
+        scalar = int(self.party_contract_read.MINT_SCALAR().toString())
         base = scalar / (10**8) 
         self.data['Mint Rate'] = base * 1.15 if self.data['Mint Multiplier Eligible'] else base
         
