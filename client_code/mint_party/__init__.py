@@ -35,15 +35,8 @@ class mint_party(mint_partyTemplate):
       self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
       
       self.data['Referrer'] = get_open_form().referral
-      if get_open_form().current_network =="ETH":
-        self.data['Mint Rate'] = 42069
-        if self.data['Referrer'] is not None:
-          self.data['Mint Rate'] = int(42069*1.0369)
-      else:
-        scalar = int(self.party_contract_read.MINT_SCALAR().toString())
-        self.data['Mint Rate']= scalar / (10**8)
-        if self.data['Referrer'] is not None:
-          self.data['Mint Rate'] = 1.02 * self.data['Mint Rate']
+      self.data['Mint Rate'] = int(self.party_contract_read.MINT_SCALAR().toString())
+      
 
     else:
       self.button_mint.enabled =True
@@ -58,39 +51,22 @@ class mint_party(mint_partyTemplate):
   
       
       self.data['Referrer'] = get_open_form().referral
-  
-      if get_open_form().current_network =="ETH":
-        self.data['Mint Rate'] = =self.party_contract_read.
-        if not self.is_eligible:
-          if self.data['Referrer'] is not None:
-            self.data['Mint Rate'] = int(42069*1.0369)
-      else:
-        scalar = int(self.party_contract_read.MINT_SCALAR().toString())
-        base = scalar / (10**8) 
-        self.data['Mint Rate'] = base * 1.15 if self.data['Mint Multiplier Eligible'] else base
-        
-        if not self.is_eligible:
-          if self.data['Referrer'] is not None:
-            self.data['Mint Rate'] = self.data['Mint Rate']* 1.0369
+      self.data['Mint Rate'] = int(self.party_contract_read.MINT_SCALAR().toString())
+      
+      if self.data['Referrer'] is not None:
+          self.data['Mint Rate'] = self.data['Mint Rate']* .98
       
    
     self.label_eth_balance.text = "{:,.8f}".format(self.data['ETH Balance']/(10**18))
     self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Balance']/(10**18))
-    if get_open_form().current_network =="ETH":
-      self.label_days_left.text = "{} {} left to mint {:,} PARTY per 1 ETH.".format(
+    self.label_days_left.text = "{} {} left to mint {:,} PARTY per {} {}.".format(
         self.data['Days Remaining'], 
         "Days" if self.data['Days Remaining'] >1 else "Day",
-        self.data['Mint Rate']
+        48000 if self.data['Referrer']is None else 48960,
+        self.data['Mint Rate'],  
+        get_open_form().current_network
       )
-    else:
-      print(self.data['Mint Rate'])
-      print(1/self.data['Mint Rate'])
-      units = int(1/self.data['Mint Rate'])
-      self.label_days_left.text = "{} {} left to mint 1 PARTY per {} PLS.".format(
-        self.data['Days Remaining'], 
-        "Days" if self.data['Days Remaining'] >1 else "Day",
-        units 
-      )
+    
     if self.data['Days Remaining']<0:
       self.button_mint.visible=False
       self.custom_1.text_box_1.enabled=False
@@ -145,7 +121,7 @@ class mint_party(mint_partyTemplate):
     self.input = self.custom_1.input
     
     self.button_mint.enabled=self.check_button_enable()
-    self.raw_mintable = self.raw_value * self.data['Mint Rate']
+    self.raw_mintable = self.raw_value * 48000 / self.data['Mint Rate']
     self.display_mintable = self.raw_mintable / (10**18)
     self.button_mint.text = "Mint {} PARTY".format(self.display_mintable) if self.raw_value > 0 else "Mint PARTY"
     
