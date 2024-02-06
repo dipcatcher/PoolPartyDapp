@@ -25,7 +25,6 @@ from ..pool_list import pool_list
 from ..party_rewards import party_rewards
 from ..pool_page import pool_page
 from ..burn_team import burn_team
-from ..price_floor import price_floor
 from ..user_wallet import user_wallet
 from anvil.js.window import ethers
 
@@ -39,6 +38,7 @@ class _home(_homeTemplate):
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
     self.referral = None
+    self.referral_check()
 
   def activate_default_providers(self):
     self.default_network = "PLS"
@@ -48,6 +48,14 @@ class _home(_homeTemplate):
     self.providers['ETH'] = ethers.providers.JsonRpcProvider(urls["ETH"])
     self.providers["PLS"]= ethers.providers.JsonRpcProvider(urls["PLS"])
     self.contract_data = ch.contract_data()
+  def referral_check(self):
+    url_hash = get_url_hash()
+    if url_hash not in [None]:
+      if 'ref' in url_hash:
+        self.referral = anvil.server.call_s('ref_log', url_hash['ref'])
+        anvil.js.window.history.replaceState("", "Pool Party", anvil.server.get_app_origin())
+    if self.referral is None:
+      self.referral = anvil.server.call_s('get_referrer')
   def events_catalog(self, event_name, from_block = 0, to_block = "latest"):
     party_contract_read = self.get_contract_read("PARTY")
     party_abi = contract_data = self.contract_data["PARTY"]['abi']

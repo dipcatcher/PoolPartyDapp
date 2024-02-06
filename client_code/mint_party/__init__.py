@@ -33,7 +33,7 @@ class mint_party(mint_partyTemplate):
       self.data['PARTY Balance'] = 0
       mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
       self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
-      self.data['Mint Multiplier Eligible'] =False
+      
       self.data['Referrer'] = get_open_form().referral
       if get_open_form().current_network =="ETH":
         self.data['Mint Rate'] = 42069
@@ -56,11 +56,11 @@ class mint_party(mint_partyTemplate):
       mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
       self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
   
-      self.data['Mint Multiplier Eligible'] = self.is_eligible
+      
       self.data['Referrer'] = get_open_form().referral
-      self.button_mint_multiplier.visible = self.is_eligible
+  
       if get_open_form().current_network =="ETH":
-        self.data['Mint Rate'] = 42069+(self.data['Mint Multiplier Eligible'] * 6309)
+        self.data['Mint Rate'] = =self.party_contract_read.
         if not self.is_eligible:
           if self.data['Referrer'] is not None:
             self.data['Mint Rate'] = int(42069*1.0369)
