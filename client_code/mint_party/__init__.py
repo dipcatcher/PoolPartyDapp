@@ -106,8 +106,6 @@ class mint_party(mint_partyTemplate):
     try:
       a = anvil.js.await_promise(self.write_party_contract.claimMintedTokens())
       a.wait()
-      confetti()
-      get_open_form().menu_click(sender=get_open_form().latest)
     except Exception as e:
       try:
         alert(e.original_error.reason)
