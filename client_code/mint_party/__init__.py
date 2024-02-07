@@ -50,11 +50,13 @@ class mint_party(mint_partyTemplate):
         get_open_form().current_network
       )
     
-    if self.data['Days Remaining']<0:
+    if True:#self.data['Days Remaining']<0:
       self.button_mint.visible=False
       self.custom_1.text_box_1.enabled=False
+      self.custom_1.visible=False
       self.label_days_left.text = "Launch Phase is Complete"
-    
+      self.label_4.text = "You may now claim the PARTY you reserved."
+      
 
   def button_mint_click(self, **event_args):
     """This method is called when the button is clicked"""
