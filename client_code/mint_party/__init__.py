@@ -53,7 +53,7 @@ class mint_party(mint_partyTemplate):
         get_open_form().current_network
       )
     
-    if True:#self.data['Days Remaining']<0:
+    if self.data['Days Remaining']<0:
       self.button_mint.visible=False
       self.custom_1.text_box_1.enabled=False
       self.custom_1.visible=False
