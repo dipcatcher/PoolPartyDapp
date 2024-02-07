@@ -26,6 +26,7 @@ from ..party_rewards import party_rewards
 from ..pool_page import pool_page
 from ..burn_team import burn_team
 from ..user_wallet import user_wallet
+from ..liquidity_fund import liquidity_fund
 from anvil.js.window import ethers
 
 pulsechain_url = "http://127.0.0.1:8545"#"https://rpc.v4.testnet.pulsechain.com"
@@ -151,6 +152,8 @@ class _home(_homeTemplate):
       self.page = burn_team()
     elif event_args['sender']==self.link_wallet:
       self.page = user_wallet()
+    elif event_args['sender']==self.link_liquidity_fund:
+      self.page = liquidity_fund()
   
     
     if len(self.pool_panel.get_components())>0:
