@@ -174,26 +174,19 @@ class _home(_homeTemplate):
     """This method is called when the HTML panel is shown on the screen"""
     self.menu_click(sender=self.link_mint)
     
-    
 
-
-  def get_contract(self, name, read_or_write):
-    if read_or_write=='read':
-      pass
-    else:
-      pass
 
   def metamask_connect(self, **event_args):
     self.connected_chain = self.metamask.provider.getNetwork()['chainId']
     print(self.connected_chain)
-    if False:#self.connected_chain != 943:
+    if self.connected_chain != 943:
       a  = alert("You must be connected to PulseChain Testnet V4. Want to connect?", buttons=[("Connect to PLS Testnet", True), ("Cancel", False)])
       if a:
         self.button_1_click()
         self.metamask.button_1_click(sender=self.metamask.button_1)
       else:
         anvil.js.window.location.reload()
-    self.button_switch.visible = False#True
+    self.button_switch.visible = True
     if self.connected_chain==1:
       self.button_switch.text = "ETH" 
     elif self.connected_chain in [369, 943, 31337]:
@@ -241,37 +234,6 @@ class _home(_homeTemplate):
       ))
     else:
       print('MetaMask is not installed. Please install it and try again.')
-
-
-
-  def get_and_tally_convert_points_events(self):
-    # Create a filter for the ConvertPoints event
-    event_filter = self.nameclaim_contract.filters.ConvertPoints(None, None)
-    
-    # Query past events
-    past_events = self.nameclaim_contract.queryFilter(event_filter)
-    
-    # Initialize a dictionary to store tallies
-    tally_dict = {}
-    
-    # Loop through each event to tally up amounts
-    for event in past_events:
-      user_address = event.args[0]
-      converted_points = int(event.args[1].toString())
-      
-      # Update the tally for the user
-      if user_address in tally_dict:
-        tally_dict[user_address] += converted_points
-      else:
-        tally_dict[user_address] = converted_points
-    
-    # Create a list of dictionaries with keys "address" and "total_amount"
-    output_list = []
-    for address, total_amount in tally_dict.items():
-      output_list.append({"address": address, "total_amount": total_amount})
-    
-    return output_list
-
 
 
   
