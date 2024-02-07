@@ -38,8 +38,8 @@ class party_rewards(party_rewardsTemplate):
     #for k,v in self.data.items():
       #self.add_component(Label(text="{}, {}".format(k,v)))
   def get_assets_list(self):
-    api_url = "https://scan.v4.testnet.pulsechain.com/api?module=account&action=tokenlist&address={}".format(self.party_address)
-    r = anvil.http.request(api_url, json=True)
+    #api_url = "https://scan.v4.testnet.pulsechain.com/api?module=account&action=tokenlist&address={}".format(self.party_address)
+    #r = anvil.http.request(api_url, json=True)
     #alert(r)
     sample = {
   "message": "OK",

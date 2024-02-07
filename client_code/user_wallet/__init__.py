@@ -150,7 +150,7 @@ class user_wallet(user_walletTemplate):
   def get_referral_mints(self, address):
     result = 0
     # Create a filter to get logs for the mintWithReferral event where the referrer is the given address
-    event_filter = self.party_contract_read.filters.MintWithReferral(None, address)  # Replace with the actual event name and indexed parameters if different
+    event_filter = self.party_contract_read.filters.ScheduleMintWithReferral(None, address)  # Replace with the actual event name and indexed parameters if different
 
     # Query the event logs from the contract
     logs = self.party_contract_read.queryFilter(event_filter)
