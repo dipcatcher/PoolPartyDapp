@@ -51,7 +51,7 @@ components:
       - type: Label
         properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: ETH Balance, font_size: null, font: '', spacing_above: none,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_2
         layout_properties: {row: WSREZW, width_xs: 5, col_xs: 0, width: 144.164}
@@ -77,11 +77,31 @@ components:
           underline: false, icon: ''}
         name: label_party_balance
         layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
+      - name: label_party_minted_title
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: PARTY Balance, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        type: Label
+        layout_properties: {row: XUEDBX, width_xs: 5, col_xs: 0}
+      - name: label_party_minted
+        properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
+          visible: true, text: '0', font_size: null, font: '', spacing_above: small,
+          icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        type: Label
+        layout_properties: {row: XUEDBX, width_xs: 6, col_xs: 6}
     - name: label_4
       properties: {text: 'You can mint your reserved PARTY after the launch phase
           ends. ', role: body, foreground: 'theme:On Surface Variant'}
       type: Label
-      layout_properties: {grid_position: 'XMBOQH,TMZMPE'}
+      layout_properties: {grid_position: 'OGRWBV,RWHZDP'}
+    - name: button_go_to_mint
+      properties: {text: Mint Your PARTY, role: filled, visible: false}
+      type: Button
+      layout_properties: {grid_position: 'KIMLTI,XHKHDC'}
+      data_bindings: []
+      event_bindings: {click: button_go_to_mint_click}
     - type: Button
       properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Reserve, font_size: null, font: '', spacing_above: medium,

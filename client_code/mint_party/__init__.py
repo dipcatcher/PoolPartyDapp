@@ -33,15 +33,18 @@ class mint_party(mint_partyTemplate):
       self.button_mint.enabled = False
       self.data['ETH Balance'] = 0
       self.data['PARTY Reserved'] = 0
+      self.data['PARTY Balance'] = 0
     else:
       self.button_mint.enabled =True
       self.write_party_contract = get_open_form().get_contract_write("PARTY")
       self.data['ETH Balance'] = int(get_open_form().metamask.provider.getBalance(self.address).toString())
       self.data['PARTY Reserved'] = int(self.party_contract_read.SCHEDULED_MINT(self.address).toString())
+      self.data['PARTY Balance'] = int(self.party_contract_read.balanceOf(self.address).toString())
       
     self.target_units = 48000 if self.data['Referrer']is None else 48960
     self.label_eth_balance.text = "{:,.8f}".format(self.data['ETH Balance']/(10**18))
     self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Reserved']/(10**18))
+    self.label_party_minted.text = "{:,.8f}".format(self.data['PARTY Balance']/(10**18))
     self.label_days_left.text = "{} {} left to reserve {:,} PARTY per {} {} deposited into the Liquidity Fund.".format(
         self.data['Days Remaining'], 
         "Days" if self.data['Days Remaining'] >1 else "Day",
@@ -55,7 +58,13 @@ class mint_party(mint_partyTemplate):
       self.custom_1.text_box_1.enabled=False
       self.custom_1.visible=False
       self.label_days_left.text = "Launch Phase is Complete"
-      self.label_4.text = "You may now claim the PARTY you reserved."
+      self.is_ready =True#self.party_contract_read.IS_TIME_TO_MINT()
+      if self.is_ready:
+        
+        self.label_4.text = "Reserved PARTY can now be minted."
+        self.button_go_to_mint.visible = True
+      else:
+        self.label_4.text = "Liquidity Pools are being deployed, you may claim your PARTY shortly."
       
 
   def button_mint_click(self, **event_args):
@@ -109,9 +118,21 @@ class mint_party(mint_partyTemplate):
       a = anvil.js.await_promise(self.write_party_contract.claimMintedTokens())
       a.wait()
     except Exception as e:
+  
       try:
         alert(e.original_error.reason)
       except:
         alert(e.original_error.message)
+
+  def button_go_to_mint_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if get_open_form().metamask.address is None:
+      alert("Connect wallet first.")
+      return False
+    if self.data['PARTY Reserved']>0:
+      self.claimMintedTokens()
+      get_open_form().menu_click(sender=get_open_form().latest)
+    else:
+      alert("No PARTY reserved by connected address.")
     
 
