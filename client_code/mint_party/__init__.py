@@ -30,7 +30,7 @@ class mint_party(mint_partyTemplate):
     if self.address is None:
       self.button_mint.enabled = False
       self.data['ETH Balance'] = 0
-      self.data['PARTY Balance'] = 0
+      self.data['PARTY Pending Balance'] = 0
       mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
       self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
       
@@ -45,7 +45,7 @@ class mint_party(mint_partyTemplate):
       self.is_eligible = self.airdrop_record is not None
       
       self.data['ETH Balance'] = int(get_open_form().metamask.provider.getBalance(self.address).toString())
-      self.data['PARTY Balance'] = int(self.party_contract_read.balanceOf(self.address).toString())
+      self.data['PARTY Pending Balance'] = int(self.party_contract_read.SCHEDULED_MINT(self.address).toString())
       mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
       self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
   
@@ -58,7 +58,7 @@ class mint_party(mint_partyTemplate):
       
    
     self.label_eth_balance.text = "{:,.8f}".format(self.data['ETH Balance']/(10**18))
-    self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Balance']/(10**18))
+    self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Pending Balance']/(10**18))
     self.label_days_left.text = "{} {} left to mint {:,} PARTY per {} {}.".format(
         self.data['Days Remaining'], 
         "Days" if self.data['Days Remaining'] >1 else "Day",

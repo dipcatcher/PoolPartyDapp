@@ -149,8 +149,6 @@ class _home(_homeTemplate):
       self.page = party_rewards()
     elif event_args['sender']==self.link_burn_team:
       self.page = burn_team()
-    elif event_args['sender']==self.link_price_floor:
-      self.page = price_floor()
     elif event_args['sender']==self.link_wallet:
       self.page = user_wallet()
   
@@ -179,13 +177,6 @@ class _home(_homeTemplate):
   def metamask_connect(self, **event_args):
     self.connected_chain = self.metamask.provider.getNetwork()['chainId']
     print(self.connected_chain)
-    if self.connected_chain != 943:
-      a  = alert("You must be connected to PulseChain Testnet V4. Want to connect?", buttons=[("Connect to PLS Testnet", True), ("Cancel", False)])
-      if a:
-        self.button_1_click()
-        self.metamask.button_1_click(sender=self.metamask.button_1)
-      else:
-        anvil.js.window.location.reload()
     self.button_switch.visible = True
     if self.connected_chain==1:
       self.button_switch.text = "ETH" 

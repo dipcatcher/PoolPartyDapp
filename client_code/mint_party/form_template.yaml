@@ -17,31 +17,13 @@ components:
     name: card_1
     layout_properties: {grid_position: 'WDULFK,AHCWOW'}
     components:
-    - type: RichText
-      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-        foreground: '', visible: true, font_size: null, content: '{a}       {b}',
-        font: '', spacing_above: none, spacing_below: none, data: null, background: '',
-        format: plain_text}
-      name: rich_text_1
-      layout_properties: {grid_position: 'PWJIQD,JAGIIC'}
-      components:
-      - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: Mint Party, font_size: 24, font: '', spacing_above: small,
-          icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
-        name: label_1
-        layout_properties: {grid_position: 'JTQIBI,MLFYBB', row: FQZQUZ, width_xs: 5,
-          col_xs: 0, slot: a}
-      - type: Button
-        properties: {role: link-mm, align: center, tooltip: '', border: '', enabled: true,
-          foreground: '#10E25B', visible: false, text: Mint multiplier eligible, font_size: 8,
-          font: '', spacing_above: none, icon_align: left, spacing_below: none, italic: false,
-          background: '#10E25B33', bold: false, underline: false, icon: 'fa:check'}
-        name: button_mint_multiplier
-        layout_properties: {grid_position: 'JTQIBI,CCXVPR', row: FQZQUZ, width_xs: 7,
-          col_xs: 4, slot: b}
-        event_bindings: {click: button_mint_multiplier_click}
+    - type: Label
+      properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
+        visible: true, text: Mint Party, font_size: 24, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'GNXWUU,QYWBVO'}
     - type: ColumnPanel
       properties: {col_widths: '{}'}
       name: column_panel_1
@@ -49,7 +31,7 @@ components:
       components:
       - type: Label
         properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: '25 days left to mint 42,069 PARTY per 1 ETH.', font_size: null,
+          visible: true, text: '25 days left to mint 48,000 PARTY per 1 ETH.', font_size: null,
           font: '', spacing_above: none, icon_align: left, spacing_below: medium,
           italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_days_left
@@ -81,11 +63,11 @@ components:
         layout_properties: {row: WSREZW, width_xs: 6, col_xs: 6, width: 179}
       - type: Label
         properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: PARTY Balance, font_size: null, font: '', spacing_above: small,
+          visible: true, text: Pending PARTY Balance, font_size: null, font: '', spacing_above: small,
           icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_3
-        layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5,
+        layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 6,
           col_xs: 0, width: 144.164}
       - type: Label
         properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
@@ -94,6 +76,11 @@ components:
           underline: false, icon: ''}
         name: label_party_balance
         layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
+    - name: label_4
+      properties: {text: 'You can mint your pending PARTY balance after the mint phase
+          ends. ', role: body, foreground: 'theme:On Surface Variant'}
+      type: Label
+      layout_properties: {grid_position: 'XMBOQH,TMZMPE'}
     - type: Button
       properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Mint, font_size: null, font: '', spacing_above: medium,
