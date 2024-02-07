@@ -27,7 +27,7 @@ components:
     event_bindings: {click: menu_click}
   - type: Link
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Mint Party, font_size: null, wrap_on: mobile, font: '',
+      visible: true, text: Reserve PARTY, font_size: null, wrap_on: mobile, font: '',
       col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
       spacing_below: small, italic: false, background: '', bold: false, underline: false,
       icon: 'fa:exchange'}

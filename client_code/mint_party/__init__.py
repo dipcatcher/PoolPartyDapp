@@ -21,48 +21,31 @@ class mint_party(mint_partyTemplate):
     self.refresh_page()
     
   def refresh_page(self):
-    
     self.label_2.text = "{} Balance".format(get_open_form().current_network)
     self.party_contract_read= get_open_form().get_contract_read('PARTY')
-    
     self.address = get_open_form().metamask.address
+    mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
     self.data= {}
+    self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
+    self.data['Referrer'] = get_open_form().referral
+    self.data['Mint Rate'] = int(self.party_contract_read.MINT_SCALAR().toString())
     if self.address is None:
       self.button_mint.enabled = False
       self.data['ETH Balance'] = 0
-      self.data['PARTY Pending Balance'] = 0
-      mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
-      self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
-      
-      self.data['Referrer'] = get_open_form().referral
-      self.data['Mint Rate'] = int(self.party_contract_read.MINT_SCALAR().toString())
-      
-
+      self.data['PARTY Reserved'] = 0
     else:
       self.button_mint.enabled =True
       self.write_party_contract = get_open_form().get_contract_write("PARTY")
-      self.airdrop_record = app_tables.user_record.get(address=q.full_text_match(self.address))
-      self.is_eligible = self.airdrop_record is not None
-      
       self.data['ETH Balance'] = int(get_open_form().metamask.provider.getBalance(self.address).toString())
-      self.data['PARTY Pending Balance'] = int(self.party_contract_read.SCHEDULED_MINT(self.address).toString())
-      mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
-      self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
-  
+      self.data['PARTY Reserved'] = int(self.party_contract_read.SCHEDULED_MINT(self.address).toString())
       
-      self.data['Referrer'] = get_open_form().referral
-      self.data['Mint Rate'] = int(self.party_contract_read.MINT_SCALAR().toString())
-      
-      if self.data['Referrer'] is not None:
-          self.data['Mint Rate'] = self.data['Mint Rate']* .98
-      
-   
+    self.target_units = 48000 if self.data['Referrer']is None else 48960
     self.label_eth_balance.text = "{:,.8f}".format(self.data['ETH Balance']/(10**18))
-    self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Pending Balance']/(10**18))
-    self.label_days_left.text = "{} {} left to mint {:,} PARTY per {} {}.".format(
+    self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Reserved']/(10**18))
+    self.label_days_left.text = "{} {} left to reserve {:,} PARTY per {} {} deposited into the Liquidity Fund.".format(
         self.data['Days Remaining'], 
         "Days" if self.data['Days Remaining'] >1 else "Day",
-        48000 if self.data['Referrer']is None else 48960,
+        self.target_units,
         self.data['Mint Rate'],  
         get_open_form().current_network
       )
@@ -70,12 +53,8 @@ class mint_party(mint_partyTemplate):
     if self.data['Days Remaining']<0:
       self.button_mint.visible=False
       self.custom_1.text_box_1.enabled=False
-      self.label_days_left.text = "Mint Phase is Complete"
+      self.label_days_left.text = "Launch Phase is Complete"
     
-  def button_mint_multiplier_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    text = """All users who were eligible for the Maximus Community PARTY Airdrop are able to mint PARTY at a discounted rate. The Mint Multiplier gives minters 6309 extra PARTY per ETH, increasing the mint ratefrom 42,069 to 48,378 PARTY per ETH."""
-    alert(text, title="Mint Multiplier Info")
 
   def button_mint_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -85,20 +64,15 @@ class mint_party(mint_partyTemplate):
     event_args['sender'].enabled = False
     existing_text = event_args['sender'].text
     sending = event_args['sender'].text
-    minting = sending.replace("Mint", "Minting")
+    minting = sending.replace("Reserve", "Reserving")
     event_args['sender'].text =minting
     t = "{:f}".format(self.input)
-    
     try:
-      if self.is_eligible:
-        a = anvil.js.await_promise(self.write_party_contract.mintWithMultiplier(json.loads(self.airdrop_record['merkle_proof']), self.airdrop_record['merkle_points'], {'value': ethers.utils.parseEther(t)}))
+      if self.data['Referrer'] is None:
+        tx = {'to':get_open_form().contract_data['PARTY']['address'], 'value':ethers.utils.parseEther(t)}
+        a = anvil.js.await_promise(get_open_form().metamask.signer.sendTransaction(tx))
       else:
-        if self.data['Referrer'] is None:
-          tx = {'to':get_open_form().contract_data['PARTY']['address'], 'value':ethers.utils.parseEther(t)}
-          a = anvil.js.await_promise(get_open_form().metamask.signer.sendTransaction(tx))
-        else:
-          a = anvil.js.await_promise(self.write_party_contract.mintWithReferral(self.data['Referrer'], {'value': ethers.utils.parseEther(t)}))
-        
+        a = anvil.js.await_promise(self.write_party_contract.scheduleMintWithReferral(self.data['Referrer'], {'value': ethers.utils.parseEther(t)}))
       a.wait()
       confetti()
       get_open_form().menu_click(sender=get_open_form().latest)
@@ -107,25 +81,19 @@ class mint_party(mint_partyTemplate):
         alert(e.original_error.reason)
       except:
         alert(e.original_error.message)
+      event_args['sender'].enabled = True
 
-      '''if "object Object" in str(e):
-        event_args['sender'].text = existing_text
-        event_args['sender'].enabled = True
-        alert('Transaction not completed.')'''
-      
     
 
   def custom_1_text_change(self, **event_args):
     """This method is called when the text box changes"""
     self.raw_value = self.custom_1.raw_value
     self.input = self.custom_1.input
-    
     self.button_mint.enabled=self.check_button_enable()
-    self.raw_mintable = self.raw_value * 48000 / self.data['Mint Rate']
+    self.raw_mintable = self.raw_value * self.target_units / self.data['Mint Rate']
     self.display_mintable = self.raw_mintable / (10**18)
-    self.button_mint.text = "Mint {} PARTY".format(self.display_mintable) if self.raw_value > 0 else "Mint PARTY"
+    self.button_mint.text = "Reserve {} PARTY".format(self.display_mintable) if self.raw_value > 0 else "Reserve PARTY"
     
-
   def check_button_enable(self):
     return all([self.raw_value>0, get_open_form().metamask.address not in [None]])
 
@@ -134,5 +102,16 @@ class mint_party(mint_partyTemplate):
     get_open_form().referral_check()
 
 
-
+  def claimMintedTokens(self):
+    try:
+      a = anvil.js.await_promise(self.write_party_contract.claimMintedTokens())
+      a.wait()
+      confetti()
+      get_open_form().menu_click(sender=get_open_form().latest)
+    except Exception as e:
+      try:
+        alert(e.original_error.reason)
+      except:
+        alert(e.original_error.message)
+    
 

@@ -11,12 +11,7 @@ class airdrop(airdropTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
-    
-
-    
-    
-    # Any code you write here will run before the form opens.
+ 
   def refresh(self):
     self.party_contract = get_open_form().get_contract_read("PARTY")
     self.is_minting_active = self.party_contract.isMintPhaseOngoing()
@@ -31,7 +26,7 @@ class airdrop(airdropTemplate):
     if self.is_eligible:
       if self.is_minting_active:
         
-        self.party_per_point = int(self.party_contract.TOTAL_PARTY_MINTED().toString())/(10*2650394346)
+        self.party_per_point = int(self.party_contract.TOTAL_PARTY_SCHEDULED_TO_MINT().toString())/(10*2650394346)
         self.claimable_party = self.airdrop_record['merkle_points']* self.party_per_point/(10**18)
         self.label_status.text = "You can claim your airdrop once the minting phase ends. The more PARTY that gets minted, the larger your airdrop becomes. Current value: {}".format(self.claimable_party)
       else:

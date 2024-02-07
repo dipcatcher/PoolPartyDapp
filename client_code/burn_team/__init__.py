@@ -13,10 +13,11 @@ class burn_team(burn_teamTemplate):
     self.custom_1.label_1.text = "TEAM"
     self.team_contract_read = get_open_form().get_contract_read("TEAM")
     self.party_contract_read = get_open_form().get_contract_read("PARTY")
-   
-    
     self.party_contract_write = None
     self.team_contract_write = None
+    self.team_mint_scalar = int(self.party_contract_read.TEAM_MINT_SCALAR().toString())
+    
+    
   def refresh(self):
     if get_open_form().metamask.address is None:
       self.balance = 0
@@ -26,12 +27,23 @@ class burn_team(burn_teamTemplate):
       self.party_contract_write =  get_open_form().get_contract_write("PARTY")
       self.team_contract_write = get_open_form().get_contract_write("TEAM")
       self.balance = int(self.team_contract_read.balanceOf(get_open_form().metamask.address).toString())
-      self.party_balance=int(self.party_contract_read.balanceOf(get_open_form().metamask.address).toString())
+      self.party_balance=int(self.party_contract_read.SCHEDULED_MINT(get_open_form().metamask.address).toString())
       spender=get_open_form().contract_data['PARTY']['address']
       self.approval = int(self.team_contract_read.allowance(get_open_form().metamask.address, spender).toString())
+    mint_length = int(self.party_contract_read.MINT_PHASE_LENGTH().toString())
+    self.data= {}
+    self.data['Days Remaining'] =mint_length - int(self.party_contract_read.day().toString())
+    self.target_units = 48000
+    self.data['Mint Rate'] = self.team_mint_scalar
     self.label_team_balance.text = "{:,.8f}".format(self.balance/(10**8))
     self.label_party_balance.text = "{:,.8f}".format(self.party_balance/(10**18))
     self.label_approved_team.text = "{:,.8f}".format(self.approval/(10**8))
+    self.label_days_left.text = "{} {} left to reserve {:,} PARTY per {} TEAM Burnt.".format(
+        self.data['Days Remaining'], 
+        "Days" if self.data['Days Remaining'] >1 else "Day",
+        self.target_units,
+        self.data['Mint Rate']
+      )
     
     
   # Any code you write here will run before the form opens.
@@ -81,16 +93,15 @@ class burn_team(burn_teamTemplate):
       try:
         alert(e.original_error.reason)
       except:
-        raise e
+        alert(e.original_error.message)
 
   def button_mint_click(self, **event_args):
     """This method is called when the button is clicked"""
     try:
       self.button_mint.text = "Burning..."
       self.button_mint.enabled=False
-      a=anvil.js.await_promise(self.party_contract_write.mintWithTeam(self.input_value))
+      a=anvil.js.await_promise(self.party_contract_write.scheduleMintWithTeam(self.input_value))
       a.wait()
-      
       get_open_form().menu_click(sender=get_open_form().link_burn_team)
     except Exception as e:
       try:

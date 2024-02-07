@@ -27,9 +27,9 @@ components:
       components:
       - type: Label
         properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: Burn TEAM for PARTY, font_size: 24, font: '', spacing_above: small,
-          icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+          visible: true, text: Burn TEAM to Reserve PARTY, font_size: 24, font: '',
+          spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+          background: '', bold: true, underline: false, icon: ''}
         name: label_1
         layout_properties: {grid_position: 'JTQIBI,MLFYBB', row: FQZQUZ, width_xs: 5,
           col_xs: 0, slot: a}
@@ -40,7 +40,7 @@ components:
       components:
       - type: Label
         properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: Receive 100 PARTY for every TEAM burnt., font_size: null,
+          visible: true, text: Reserve 100 PARTY for every TEAM burnt., font_size: null,
           font: '', spacing_above: none, icon_align: left, spacing_below: medium,
           italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_days_left
