@@ -45,6 +45,7 @@ class referral_program(referral_programTemplate):
       self.link_tweet.url = "https://twitter.com/intent/tweet?text={}".format(t)
     else:
       self.column_panel_3.visible = False
+      
   def link_ref_click(self, **event_args):
     """This method is called when the link is clicked"""
     navigator.clipboard.writeText(event_args['sender'].text)

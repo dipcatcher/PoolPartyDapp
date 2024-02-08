@@ -199,7 +199,7 @@ components:
   layout_properties: {slot: default, grid_position: 'YEEYDT,IIBZSM'}
   components:
   - type: ColumnPanel
-    properties: {}
+    properties: {spacing_above: large}
     name: content_panel
     layout_properties: {grid_position: 'JOIARF,AQSLCT'}
   - type: ColumnPanel

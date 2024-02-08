@@ -45,26 +45,30 @@ class mint_party(mint_partyTemplate):
     self.label_eth_balance.text = "{:,.8f}".format(self.data['ETH Balance']/(10**18))
     self.label_party_balance.text = "{:,.8f}".format(self.data['PARTY Reserved']/(10**18))
     self.label_party_minted.text = "{:,.8f}".format(self.data['PARTY Balance']/(10**18))
-    self.label_days_left.text = "{} {} left to reserve {:,} PARTY per {} {} deposited into the Liquidity Fund.".format(
+    self.label_days_left.text = "{} {} left to reserve {:,} PARTY per {:,} {} deposited into the Liquidity Fund.".format(
         self.data['Days Remaining'], 
         "Days" if self.data['Days Remaining'] >1 else "Day",
         self.target_units,
         self.data['Mint Rate'],  
         get_open_form().current_network
       )
+    self.label_4.text = "You will be able to mint your reserved PARTY after the Launch Phase ends in {} {}.".format(self.data['Days Remaining'],"Days" if self.data['Days Remaining'] >1 else "Day" )
     
-    if self.data['Days Remaining']<0:
+    if True:#self.data['Days Remaining']<0:
       self.button_mint.visible=False
       self.custom_1.text_box_1.enabled=False
       self.custom_1.visible=False
       self.label_days_left.text = "Launch Phase is Complete"
-      self.is_ready =True#self.party_contract_read.IS_TIME_TO_MINT()
+      self.is_ready =False#self.party_contract_read.IS_TIME_TO_MINT()
       if self.is_ready:
-        
-        self.label_4.text = "Reserved PARTY can now be minted."
+        self.label_1.text = "Mint PARTY"
+        self.label_4.visible = False
+        self.label_days_left.text = "Launch Phase is complete, your reserved PARTY can now be minted."
         self.button_go_to_mint.visible = True
       else:
-        self.label_4.text = "Liquidity Pools are being deployed, you may claim your PARTY shortly."
+        self.label_1.text = "Launch Phase is Ending"
+        self.label_4.visible = False
+        self.label_days_left.text = "Liquidity Pools are being deployed, you may mint your PARTY shortly."
       
 
   def button_mint_click(self, **event_args):

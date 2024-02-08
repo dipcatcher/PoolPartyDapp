@@ -33,14 +33,6 @@ components:
         icon: ''}
       name: label_2
       layout_properties: {grid_position: 'FXIWRQ,FPAQUL'}
-    - type: Button
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: create new referral link, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
-      name: link_new
-      layout_properties: {grid_position: 'KZFSLW,IJKAKH'}
-      event_bindings: {click: link_new_click}
     - type: ColumnPanel
       properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
         wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -96,6 +88,10 @@ components:
             italic: false, background: '#1DA1F2', bold: false, underline: false, icon: 'fa:twitter'}
           name: button_1
           layout_properties: {grid_position: 'IISYFB,CJUFQM'}
+        - name: label_rewards
+          properties: {}
+          type: Label
+          layout_properties: {grid_position: 'SEYVQB,XOZQDF'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: yellow,
       visible: true, text: 'To protect your privacy when referring, please create
@@ -105,6 +101,14 @@ components:
       italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_4
     layout_properties: {grid_position: 'POGRPV,USWAQQ'}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: create new referral link, font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: link_new
+    layout_properties: {grid_position: 'EPFUVP,KFQQXE'}
+    event_bindings: {click: link_new_click}
   - type: Spacer
     properties: {visible: true, spacing_above: small, spacing_below: small, height: '24',
       tooltip: ''}
@@ -121,19 +125,13 @@ components:
       grid_position: BNQWXA,XCCAYF
   - type: Label
     properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'The PARTY minting referral programmed is designed to grow
-        the PARTY airdrop by giving people an opportunity to earn PARTY and incentivizing
-        the top performers.
-
-
-        1% of the total initial PARTY supply is allocated for a referral program.
-        Referrers get 1 referral point per PARTY minted through their referral link.
-        Once the minting phase is over, the referrers will be ranked by referral points.
-        Then the referral points are scaled based on the order of the ranking.', font_size: null,
+      visible: true, text: "The PARTY minting referral programmed is designed to grow\
+        \ the Pool Party Liquidity Fund by giving people an opportunity to earn PARTY\
+        \ by promoting Pool Party. \n\nWhen someone uses a referral code to mint,\
+        \ the person minting gets a 2% minting bonus and the person who referred them\
+        \ earns PARTY equal to the amount of the bonus received.\n", font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: label_2_copy
-    layout_properties:
-      col_widths: {}
-      grid_position: ZTYAWQ,TJEWBS
+    layout_properties: {grid_position: 'FNSSLC,HQGCWM'}
 is_package: true
