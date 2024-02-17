@@ -17,7 +17,7 @@ class airdrop(airdropTemplate):
     if get_open_form().metamask.address is None:
       self.label_status.text = "Connect to metamask to see airdrop eligibility."
       return False
-    self.airdrop_record = app_tables.user_record.get(address=q.full_text_match(get_open_form().metamask.address))
+    self.airdrop_record = app_tables.pool_party_merkle.get(address=q.full_text_match(get_open_form().metamask.address))
     self.is_eligible = self.airdrop_record is not None
     self.did_claim = self.party_contract.HAS_REDEEMED_INITIAL_SUPPLY_POINTS(get_open_form().metamask.address)
     abbr_add="{}...{}".format(get_open_form().metamask.address[0:4], get_open_form().metamask.address[-4:])
@@ -26,7 +26,7 @@ class airdrop(airdropTemplate):
       if self.did_claim:
           self.label_status.text = "{} has already claimed.".format(abbr_add)
       else:
-          self.label_status.text = "You are eligible to claim {}".format(self.airdrop_record['merkle_points'])
+          self.label_status.text = "You are eligible to claim {:,.4f} PARTY".format(self.airdrop_record['party_mintable']/(10**18))
           self.button_1.visible=True
     else:
       self.label_status.text = "{} is not eligible for the airdrop.".format(abbr_add)
