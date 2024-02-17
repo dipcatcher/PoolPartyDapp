@@ -14,19 +14,17 @@ try:
 except:
   is_ethereum=False
 #pages
-from ..mint_party import mint_party
+
 from ..stake_party import stake_party
 from ..airdrop import airdrop
 from ..nft_claim import nft_claim
 from ..create_stake_pool import create_stake_pool
 from ..ticker_auctions import ticker_auctions
-from ..referral_program import referral_program
 from ..pool_list import pool_list
 from ..party_rewards import party_rewards
 from ..pool_page import pool_page
-from ..burn_team import burn_team
+
 from ..user_wallet import user_wallet
-from ..liquidity_fund import liquidity_fund
 from anvil.js.window import ethers
 
 pulsechain_url = "http://127.0.0.1:8545"#"https://rpc.v4.testnet.pulsechain.com"
@@ -38,8 +36,7 @@ class _home(_homeTemplate):
     self.init_components(**properties)
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
-    self.referral = None
-    self.referral_check()
+    
 
   def activate_default_providers(self):
     self.default_network = "PLS"
@@ -49,14 +46,7 @@ class _home(_homeTemplate):
     self.providers['ETH'] = ethers.providers.JsonRpcProvider(urls["ETH"])
     self.providers["PLS"]= ethers.providers.JsonRpcProvider(urls["PLS"])
     self.contract_data = ch.contract_data()
-  def referral_check(self):
-    url_hash = get_url_hash()
-    if url_hash not in [None]:
-      if 'ref' in url_hash:
-        self.referral = anvil.server.call_s('ref_log', url_hash['ref'])
-        anvil.js.window.history.replaceState("", "Pool Party", anvil.server.get_app_origin())
-    if self.referral is None:
-      self.referral = anvil.server.call_s('get_referrer')
+  
   def events_catalog(self, event_name, from_block = 0, to_block = "latest"):
     party_contract_read = self.get_contract_read("PARTY")
     party_abi = contract_data = self.contract_data["PARTY"]['abi']
@@ -123,9 +113,8 @@ class _home(_homeTemplate):
       alert("The '{}' feature will be available when testnet Stage 2 begins.".format(event_args['sender'].text))
       return False
     self.latest = event_args['sender']
-    if event_args['sender']==self.link_mint:
-      self.page = mint_party()
-    elif event_args['sender'] == self.link_stake:
+    
+    if event_args['sender'] == self.link_stake:
       self.page = stake_party()
     elif event_args['sender'] == self.link_mint_nft:
       self.page = nft_claim()
@@ -135,8 +124,7 @@ class _home(_homeTemplate):
       self.page = airdrop()
     elif event_args['sender'] == self.link_create_stake_pool:
       self.page = create_stake_pool()
-    elif event_args['sender']==self.link_referral:
-      self.page = referral_program()
+
     elif event_args['sender']==self.button_pools:
       
       self.content_panel.add_component(Label(align="center",text="Loading Pools...", icon="https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif", role='headline'))
@@ -148,12 +136,10 @@ class _home(_homeTemplate):
       self.content_panel.clear()
     elif event_args['sender']==self.link_party_rewards_manage:
       self.page = party_rewards()
-    elif event_args['sender']==self.link_burn_team:
-      self.page = burn_team()
+    
     elif event_args['sender']==self.link_wallet:
       self.page = user_wallet()
-    elif event_args['sender']==self.link_liquidity_fund:
-      self.page = liquidity_fund()
+    
   
     
     if len(self.pool_panel.get_components())>0:
@@ -173,7 +159,7 @@ class _home(_homeTemplate):
 
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
-    self.menu_click(sender=self.link_mint)
+    self.menu_click(sender=self.link_claim)
     
 
 

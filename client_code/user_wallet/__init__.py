@@ -13,7 +13,7 @@ class user_wallet(user_walletTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.party_contract_read = get_open_form().get_contract_read("PARTY")
-    self.party_contract_write = get_open_form().get_contract_write("PARTY")
+    #self.party_contract_write = get_open_form().get_contract_write("PARTY")
     self.nft_contract_read = get_open_form().get_contract_read('NAME_NFT')
     self.current_day  = int(self.party_contract_read.day().toString())
     self.address = get_open_form().metamask.address
@@ -24,7 +24,6 @@ class user_wallet(user_walletTemplate):
       self.data['Liquid Balance'] = 0
       self.data['Staked Balance'] = 0
       self.data['Nametag NFTs'] = []
-      self.data['Referral Mints'] = 0
       self.data['Future Yield'] = 0
     else:
       self.data['Liquid Balance'] = int(self.party_contract_read.balanceOf(self.address).toString())
@@ -32,16 +31,14 @@ class user_wallet(user_walletTemplate):
       self.data['Staked Balance'] = s
       self.data['Future Yield'] = y
       self.data['Nametag NFTs'] = self.get_nfts_by_owner(self.address)
-      self.data['Referral Mints'] = self.get_referral_mints(self.address)
+      
     liquid_party_text = "{:,.4f}".format(self.data['Liquid Balance']/(10**18))
     staked_party_text = "{:,.4f}".format(self.data['Staked Balance']/(10**18))
     future_party = "{:,.4f} PARTY".format(self.data['Future Yield']/(10**18))
-    referral_points ="{:,.4f}".format(self.data['Referral Mints']/(10**18))
     label_map = {"Liquid PARTY": liquid_party_text}
     label_map['Staked PARTY'] = staked_party_text
     label_map['Future PARTY Yield']= future_party
-    label_map['Referral Points'] = referral_points
-    label_map['Airdrop Points']=0
+    
     for k,v in label_map.items():
       
       vd = value_display(value=v, title=k)
@@ -147,22 +144,7 @@ class user_wallet(user_walletTemplate):
         amount_staked += int(l[1].toString())
         projected_yield +=int(l[3].toString())
     return amount_staked, projected_yield, self.all_stakes
-  def get_referral_mints(self, address):
-    result = 0
-    # Create a filter to get logs for the mintWithReferral event where the referrer is the given address
-    event_filter = self.party_contract_read.filters.ScheduleMintWithReferral(None, address)  # Replace with the actual event name and indexed parameters if different
-
-    # Query the event logs from the contract
-    logs = self.party_contract_read.queryFilter(event_filter)
-    
-
-    # Loop through the logs and sum the minted amounts
-    for log in logs:
-        # Extract the minted amount from the log's arguments. Replace 'amount' with the actual variable name from the event
-        minted_amount = int(log.args[3].toString())  # Replace 'amount' with the actual field name
-        result += minted_amount
-
-    return result
+  
   def get_nfts_by_owner(self, address):
     contract = get_open_form().get_contract_read("NAME_NFT")
     balance = int(contract.balanceOf(address).toString())
