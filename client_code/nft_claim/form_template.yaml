@@ -20,7 +20,7 @@ components:
     components:
     - type: Label
       properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Mint Ticker NFTs, font_size: null, font: '', spacing_above: small,
+        visible: true, text: Mint Nametags, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_1_copy
@@ -33,7 +33,7 @@ components:
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: Below are your ticker names that you claimed during the Ticker Name Claim. You can now mint them as NFTs to utilize for your pools or to list on NFT marketplaces.,
+          visible: true, text: Below are your ticker names that you claimed during the Nametag Claim. You can now mint them as NFTs to utilize for your pools or to list on NFT marketplaces.,
           font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
           italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_content
@@ -66,7 +66,7 @@ components:
         components:
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: My Ticker Names, font_size: null, font: '', spacing_above: small,
+            visible: true, text: My Nametags, font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: true, underline: false, icon: ''}
           name: label_2

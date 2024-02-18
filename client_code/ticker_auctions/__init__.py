@@ -24,11 +24,11 @@ class ticker_auctions(ticker_auctionsTemplate):
       if c.islower():
         has_lowercase = True
     if has_lowercase:
-      self.label_error.text = "Ticker names must only have capital letters or numbers."
+      self.label_error.text = "Nametags must only have capital letters or numbers."
       self.label_error.visible= True
       self.text_box_search.role = 'input-error'
     else:
-      self.label_error.text = "Ticker names must only have capital letters or numbers."
+      self.label_error.text = "Nametags must only have capital letters or numbers."
       self.label_error.visible= False
       self.text_box_search.role = ''
 

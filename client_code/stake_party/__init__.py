@@ -15,7 +15,7 @@ class stake_party(stake_partyTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.selection = []
-    self.deployment_date = datetime.datetime(2023, 7,6)
+    self.deployment_date = datetime.datetime(2024, 2,19)
     
     for p in app_tables.table_1.get(name='yield_tree_proofs')['data']:
       y = p['yield_scalar']/(10**8)

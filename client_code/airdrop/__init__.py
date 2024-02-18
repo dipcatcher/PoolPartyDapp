@@ -6,6 +6,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.js
 import json
+confetti_module = anvil.js.import_from('https://cdn.skypack.dev/canvas-confetti')
+confetti = confetti_module.default
 
 class airdrop(airdropTemplate):
   def __init__(self, **properties):
@@ -38,12 +40,13 @@ class airdrop(airdropTemplate):
     event_args['sender'].enabled=False
     self.party_contract_write = get_open_form().get_contract_write("PARTY")
     try:
-      proof=json.loads(self.airdrop_record['merkle_proof'])
-      a = anvil.js.await_promise(self.party_contract_write.redeemInitialSupplyPoints(proof, self.airdrop_record['merkle_points']))
+      #proof=json.loads(self.airdrop_record['merkle_proof'])
+      a = anvil.js.await_promise(self.party_contract_write.redeemInitialSupplyPoints(self.airdrop_record['merkle_proof'], self.airdrop_record['party_mintable']))
       a.wait()
+      confetti()
       self.label_status.text = "Airdrop Claim Success!"
     except Exception as e:
-      
+     
       try:
         alert(e.original_error.reason)
       except:

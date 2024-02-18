@@ -160,7 +160,16 @@ class _home(_homeTemplate):
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
     self.menu_click(sender=self.link_claim)
-    
+  def check_merkle(self):
+    data =app_tables.pool_party_merkle.search()#app_tables.party_merkle_host.get(name="Supply Merkle")['proofs']
+    self.contract_read = self.get_contract_read("PARTY")
+    total = 0
+    for r in data:
+      verify= self.contract_read.verifyInitialSupplyPoints(r['merkle_proof'], r['address'], r['party_mintable'])
+      if verify==False:
+        print(r)
+      total+=int(r['party_mintable'])
+    print(total/(10**18))
 
 
   def metamask_connect(self, **event_args):

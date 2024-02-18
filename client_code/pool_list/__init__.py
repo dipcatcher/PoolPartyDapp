@@ -71,9 +71,7 @@ class pool_list(pool_listTemplate):
     data['stake end day']=int(self.read_contract.STAKE_END_DAY().toString())
     data['stake is active']=self.read_contract.STAKE_IS_ACTIVE()
     data['stake length']=int(self.read_contract.STAKE_LENGTH().toString())
-    data['global timelocked token days per period'] = [int(self.read_contract.globalTimelockedTokenDaysPerPeriod(n).toString()) for n in range(data['current period']+1)]
-    data['global time locked tokens per period']= [int(self.read_contract.globalTimelockedTokensPerPeriod(n).toString()) for n in range(data['current period']+1)]
-    data['penalty pool per period'] = [int(self.read_contract.penaltyPoolPerPeriod(n).toString()) for n in range(data['current period']+3)]
-    data['is staking period']=self.read_contract.isStakingPeriod()
+    
+
     data['days until stake end'] = data['stake end day']- data['current hex day']
     return data

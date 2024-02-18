@@ -10,10 +10,10 @@ def contract_data():
   contract_data['NAME_NFT'] = {}
   contract_data['POOL_DEPLOYER'] = {}
   contract_data['REWARD_DISTRIBUTION'] = {}
-  contract_data['PARTY']['address']="0x4ea0Be853219be8C9cE27200Bdeee36881612FF2"
-  contract_data['REWARD_DISTRIBUTION']['address']="0xDFF7e7aa7B8746287a73fE7d9B245A73d14331F3"
-  contract_data['NAME_NFT']['address']="0x313AD7f118f0d07DF6ad7CE378731EB8654A2cb2"
-  contract_data['POOL_DEPLOYER']['address']="0x46d4674578a2daBbD0CEAB0500c6c7867999db34"
+  contract_data['PARTY']['address']="0xfB12F7170FF298CDed84C793dAb9aBBEcc01E798"
+  contract_data['REWARD_DISTRIBUTION']['address']="0x862D348383AE8DbcEd4BF2E703815E97D0909FEb"
+  contract_data['NAME_NFT']['address']="0x9D12547511744edb2153887Bde154c464568DbA2"
+  contract_data['POOL_DEPLOYER']['address']="0xc1EeD9232A0A44c2463ACB83698c162966FBc78d"
   contract_data['HEX']={}
   contract_data['HEX']['address']="0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39"
   contract_data['PERPETUAL_POOL']={}

@@ -94,6 +94,7 @@ class party_rewards(party_rewardsTemplate):
         Notification("snapshot recorded").show()
         
       except Exception as e:
+        raise e
         try:
           alert(e.original_error.reason)
         except:
