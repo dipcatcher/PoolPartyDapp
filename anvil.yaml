@@ -19,7 +19,7 @@ name: Clone of Pool Party Testnet
 runtime_options:
   version: 2
   client_version: '3'
-  server_version: python2-full
+  server_version: python3-full
   server_spec: null
   server_spec_disabled: {requirements: PIL, base: python310-standard}
 metadata: {title: Pool Party Testnet, logo_img: 'asset:link image.jpeg', description: Pool Party Testnet}

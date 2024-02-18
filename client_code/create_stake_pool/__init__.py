@@ -14,6 +14,7 @@ class create_stake_pool(create_stake_poolTemplate):
     self.address = get_open_form().metamask.address
     self.zero_address = "0x0000000000000000000000000000000000000000"
     self.organizer_address =self.zero_address
+    self.uploaded_image=None
     self.organizer_fee = 0
     if self.address is not None:
       self.user_ticker = self.get_nfts_by_owner(self.address)
@@ -83,6 +84,9 @@ class create_stake_pool(create_stake_poolTemplate):
     """This method is called when the button is clicked"""
     event_args['sender'].enabled=False
     if self.validate():
+      if self.uploaded_image is None:
+        self.uploaded_image=app_tables.ticker_nfts.get(name=self.input['ticker'])['image']
+        self.image_logo.source=self.uploaded_image
       name_nft_read = get_open_form().get_contract_read("NAME_NFT")
       ticker_id = int(name_nft_read.NAME_ID(self.input['ticker']).toString())
       write_contract= get_open_form().get_contract_write("POOL_DEPLOYER")
@@ -117,8 +121,11 @@ class create_stake_pool(create_stake_poolTemplate):
           return False
       address = read_contract.POOL_RECORD(self.input['ticker'])
       
+      
       anvil.server.call('new_pool', address, self.input['ticker'], self.uploaded_image)
       get_open_form().menu_click(sender = get_open_form().button_pools, goto = self.input['ticker'])
+    else:
+      self.button_deploy.enabled=True
       
       
   def text_box_name_change(self, **event_args):
@@ -170,6 +177,10 @@ class create_stake_pool(create_stake_poolTemplate):
       self.organizer_address = self.zero_address
       self.input['organizer_address']=self.zero_address
       self.input['organizer_fee'] = 0
+
+  def text_area_description_change(self, **event_args):
+    """This method is called when the text in this text area is edited"""
+    pass
         
 
     

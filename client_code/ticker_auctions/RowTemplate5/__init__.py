@@ -114,7 +114,8 @@ class RowTemplate5(RowTemplate5Template):
       name_id = self.name_nft_contract.NAME_ID(self.item['ticker']).toNumber()
       try:
         anvil.server.call('generate_image',self.item['ticker'], name_id )
-      except:
+      except Exception as e:
+        raise e
         Notification("NFT image failed to save, no worries it will be regenerated.").show()
       self.recollect_auction_data()
       self.refresh_auction_data()

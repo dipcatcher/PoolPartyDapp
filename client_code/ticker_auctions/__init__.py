@@ -70,6 +70,7 @@ class ticker_auctions(ticker_auctionsTemplate):
     auction_start_events = anvil.js.await_promise(get_open_form().get_contract_read("PARTY").queryFilter('AuctionStarted'))
     all_tickers = [ase['args'][0] for ase in auction_start_events]
     all_auctions = []
+    active_auctions = []
     for ticker in all_tickers:
       auction_data = self.party_contract_read.TICKER_AUCTION_DATABASE(ticker)
       '''uint256 lastBidTimestamp;
@@ -88,8 +89,16 @@ class ticker_auctions(ticker_auctionsTemplate):
       auction["bidAmount"]=int(auction_data[4].toString())
       auction["auctionStarted"]=auction_data[5]
       auction["auctionEnded"]=auction_data[6]
+      if not auction['auctionEnded']:
+        active_auctions.append(auction)
       all_auctions.append(auction)
-    self.repeating_panel_1.items = all_auctions
+    self.all_auctions = all_auctions
+    self.active_auctions = active_auctions
+    self.select_group()
+  def select_group(self):
+    b = self.check_box_1.checked
+    data= self.all_auctions if b else self.active_auctions
+    self.repeating_panel_1.items = data
   def button_available_click(self, **event_args):
     """This method is called when the button is clicked"""
     
@@ -138,6 +147,10 @@ class ticker_auctions(ticker_auctionsTemplate):
   def text_box_bid_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     self.input = self.text_box_bid.input
+
+  def check_box_1_change(self, **event_args):
+    """This method is called when this checkbox is checked or unchecked"""
+    self.select_group()
 
   
     
