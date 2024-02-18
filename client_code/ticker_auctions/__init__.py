@@ -99,12 +99,15 @@ class ticker_auctions(ticker_auctionsTemplate):
       is_available = self.nameclaim_contract.NAME_OWNERS(self.text_box_search.text) =="0x0000000000000000000000000000000000000000"
       is_valid = self.nameclaim_contract._checkName(self.text_box_search.text)
       valid_bid = True
-      bid_amount = self.input
+      print(self.input)
+      bid_amount = int(self.input*10**18)
+      print(bid_amount)
       if app_tables.ticker_nfts.get(name=self.text_box_search.text) is None:
         pass
         #anvil.server.call('generate_image',self.text_box_search.text )
       if all([is_available, is_valid, valid_bid]):
         try:
+          
           a = anvil.js.await_promise(get_open_form().get_contract_write("PARTY").startAuction(self.text_box_search.text, bid_amount))
           self.button_available.text = 'Starting Auction'
           self.button_available.icon = ''
@@ -135,6 +138,8 @@ class ticker_auctions(ticker_auctionsTemplate):
   def text_box_bid_change(self, **event_args):
     """This method is called when the text in this text box is edited"""
     self.input = self.text_box_bid.input
+
+  
     
 
   

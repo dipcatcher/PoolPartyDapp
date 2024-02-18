@@ -25,7 +25,7 @@ class max_text_box(max_text_boxTemplate):
       self.input = self.text_box_1.text
      
       if self.label_1.text in ["PARTY", "ETH", "PLS"]:
-        t = '{:.18f}'.format(self.input)
+        t = str(self.input)
         self.raw_value = int(ethers.utils.parseEther(t).toString())
       else:
         t = '{:.8f}'.format(self.input)

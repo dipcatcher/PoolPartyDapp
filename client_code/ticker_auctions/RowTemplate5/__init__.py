@@ -16,8 +16,7 @@ def timestampDifference(unix_timestamp_now, unix_timestamp_end):
 
     # Calculate the time difference
     time_difference = end_time - start_time
-    print(time_difference)
-    print(time_difference.seconds)
+    
     # Extract hours, minutes, and seconds from the time difference
     days = time_difference.days
     hours = (days * 24) + (time_difference.seconds // 3600)
@@ -62,8 +61,7 @@ class RowTemplate5(RowTemplate5Template):
   def refresh_time_remaining(self):
     currentBlock = get_open_form().providers[get_open_form().current_network].getBlockNumber()
     blockTimestamp = get_open_form().providers[get_open_form().current_network].getBlock(currentBlock).timestamp
-    print(blockTimestamp)
-    print(self.item['auctionEndTimestamp'])
+    
     if blockTimestamp>self.item['auctionEndTimestamp']:
       self.label_time_remaining.text = "Auction Done"
       self.timer_1.interval = 0
@@ -92,9 +90,14 @@ class RowTemplate5(RowTemplate5Template):
       if self.panel_bid.visible:
         self.recollect_auction_data()
         self.refresh_auction_data()
-        self.raw_min_bid = int(self.item['bidAmount']*1.05)
-        self.minimum_bid = float(self.raw_min_bid / (10**18))
-        self.link_minimum_bid.text = "{:,.10f} PARTY".format(self.minimum_bid)
+        self.text_box_bid.label_1.text="PARTY"
+        increment = int(self.item['bidAmount']/20) +1
+        self.raw_min_bid = increment+self.item['bidAmount']+(10**18)
+        print(self.raw_min_bid)
+        #self.minimum_bid = float(self.raw_min_bid / (10**18))
+        self.minimum_bid = ethers.utils.formatUnits(self.raw_min_bid+(10**18))
+        print(self.minimum_bid)
+        self.link_minimum_bid.text = "{} PARTY".format(self.minimum_bid)
         self.label_timestamp.text = self.item['auctionEndTimestamp']
     elif event_args['sender'].text =='finalize':
       event_args['sender'].enabled = False
@@ -128,7 +131,7 @@ class RowTemplate5(RowTemplate5Template):
 
   def text_box_bid_change(self, **event_args):
     self.input = self.text_box_bid.input
-    
+    print((self.text_box_bid.raw_value,self.raw_min_bid))
     if self.text_box_bid.raw_value<self.raw_min_bid:
       event_args['sender'].role = 'input-error'
     else:
@@ -158,8 +161,8 @@ class RowTemplate5(RowTemplate5Template):
 
   def link_minimum_bid_click(self, **event_args):
     """This method is called when the link is clicked"""
-    
-    self.text_box_bid.text_box_1.text = "{:,.10f}".format(self.minimum_bid)
+   
+    self.text_box_bid.text_box_1.text = self.minimum_bid
     self.text_box_bid.text_box_1_change(sender=self.text_box_bid.text_box_1)
     self.text_box_bid_change(sender=self.text_box_bid)
 
