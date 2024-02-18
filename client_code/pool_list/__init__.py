@@ -13,6 +13,7 @@ class pool_list(pool_listTemplate):
     self.current_hex_day = int(self.hex_contract_read.currentDay().toString())
     self.contract = get_open_form().get_contract_read("POOL_DEPLOYER")
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
+    
     '''event PoolDeployment(string ticker, uint256 initial_mint_duration, 
                         uint256 stake_duration, 
                         uint256 reload_duration,
@@ -21,6 +22,7 @@ class pool_list(pool_listTemplate):
     self.all_active_pools = []
     self.all_staked_pools = []
     for e in pool_deploy_events: 
+      print(pool_deploy_events)
       pool_data = {}
       pool_data['ticker'] = e['args'][0]
       print(e['args'][0])
