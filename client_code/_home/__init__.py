@@ -23,7 +23,7 @@ from ..ticker_auctions import ticker_auctions
 from ..pool_list import pool_list
 from ..party_rewards import party_rewards
 from ..pool_page import pool_page
-
+from ..buy_party import buy_party
 from ..user_wallet import user_wallet
 from anvil.js.window import ethers
 
@@ -202,9 +202,6 @@ class _home(_homeTemplate):
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    
-
-
     if ethereum is not None:
       ethereum.request(
         dict(method='wallet_addEthereumChain',
@@ -223,6 +220,11 @@ class _home(_homeTemplate):
       ))
     else:
       print('MetaMask is not installed. Please install it and try again.')
+
+  def button_buy_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+    alert(buy_party(), buttons=[])
 
 
   

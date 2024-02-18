@@ -19,7 +19,7 @@ class pool_page(pool_pageTemplate):
     self.item = properties['pool_data']
     #self.list_page = properties['list_page']
     self.read_contract = get_open_form().get_perpetual_pool_contract_read(self.item['pool_address'])
-    
+    self.first = True
     self.hex_contract_read = get_open_form().get_contract_read("HEX")
     self.user_data = {}
     self.refresh()
@@ -48,10 +48,37 @@ class pool_page(pool_pageTemplate):
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
-    self.flow_panel_data.add_component(value_display(value ="{:,.1f}".format(self.item['liquid supply']/(10**8)), title = "Liquid {}".format(self.item['ticker'])))
-    self.flow_panel_data.add_component(value_display(value = "{:,.1f}".format(self.item['hdrn balance']/(10**9)), title = "HDRN in DH Reward Bucket"))
-    
-    self.flow_panel_data.add_component(value_display(value = "{:,.1f}".format(self.item['current stake principal']/(10**8)), title = "Stake Principal HEX"))
+    if self.first:
+      self.vd_liquid = value_display(value ="{:,.1f}".format(self.item['liquid supply']/(10**8)), title = "Supply {}".format(self.item['ticker']))
+      self.vd_hdrn=value_display(value = "{:,.1f}".format(self.item['hdrn balance']/(10**9)), title = "HDRN in Contract")
+      self.vd_com = value_display(value = "{:,.1f}".format(self.item['com balance']/(10**18)), title = "COM in Contract")
+      self.vd_hex = value_display(value = "{:,.1f}".format(self.item['hex balance']/(10**8)), title = "HEX in Contract")
+      self.flow_panel_data.add_component(self.vd_liquid)
+      self.flow_panel_data.add_component(self.vd_hex)
+      self.flow_panel_data.add_component(self.vd_com)
+      
+      self.flow_panel_data.add_component(self.vd_hdrn)
+      self.first=False
+    else:
+      value ="{:,.1f}".format(self.item['liquid supply']/(10**8))
+      title = "Supply {}".format(self.item['ticker'])
+      self.vd_liquid.label_value.text = value
+      self.vd_liquid.label_title.text = title
+      value = "{:,.1f}".format(self.item['com balance']/(10**18))
+      title = "COM in Contract"
+      self.vd_com.label_value.text = value
+      self.vd_com.label_title.text = title
+      value = "{:,.1f}".format(self.item['hdrn balance']/(10**9))
+      title = "HDRN in Contract"
+      self.vd_hdrn.label_value.text = value
+      self.vd_hdrn.label_title.text = title
+      value = "{:,.1f}".format(self.item['current stake principal']/(10**8))
+      title = "Stake Principal HEX"
+      self.vd_hex.label_value.text = value
+      self.vd_hex.label_title.text = title
+      
+      
+      
     
    
     #self.list_page.refresh()
@@ -62,10 +89,8 @@ class pool_page(pool_pageTemplate):
     
     for k,v in self.user_data.items():
       self.item[k]=v
-    if get_open_form().metamask.address is not None:
-      self.card_user.visible=True
+    
       
-      self.flow_panel_user.add_component(value_display(value ="{:,.1f}".format(self.item['pool token balance']/(10**8)), title = "Liquid {} Balance".format(self.item['ticker'])))
       
     #self.label_description.text = self.item['description']
   def get_user_data(self):
@@ -112,9 +137,6 @@ class pool_page(pool_pageTemplate):
     elif event_args['sender']==self.button_redeem:
       self.redeem_page = redeem_pool(pool_data = self.item, page=self)
       self.display = self.redeem_page
-    elif event_args['sender']==self.button_diamond_hand:
-      self.dh_page = diamond_hand(pool_data = self.item, page=self)
-      self.display = self.dh_page
     elif event_args['sender']==self.button_manage_pool:
       self.manage_page = manage_pool(pool_data = self.item, page=self)
       self.display =self.manage_page
@@ -129,6 +151,9 @@ class pool_page(pool_pageTemplate):
 
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
-    self.image_logo.source = app_tables.pool_data.get(ticker=self.item['ticker'])['logo']
+    try:
+      self.image_logo.source = app_tables.pool_data.get(ticker=self.item['ticker'])['logo']
+    except:
+      pass
 
 

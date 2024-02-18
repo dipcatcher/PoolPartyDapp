@@ -77,6 +77,7 @@ class mint_pool(mint_poolTemplate):
       self.column_panel_3.visible=False
       self.custom_1_text_change()
     except Exception as e:
+      raise e
       try:
         alert(e.original_error.reason)
       except:

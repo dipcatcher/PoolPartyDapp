@@ -9,6 +9,11 @@ components:
   name: column_panel_2
   layout_properties: {slot: left-nav}
   components:
+  - name: button_buy
+    properties: {text: BUY PARTY, role: filled}
+    type: Button
+    layout_properties: {grid_position: 'JOXHBF,DJSDLE'}
+    event_bindings: {click: button_buy_click}
   - type: Label
     properties: {role: underline, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: PARTY, font_size: null, font: '', spacing_above: small,

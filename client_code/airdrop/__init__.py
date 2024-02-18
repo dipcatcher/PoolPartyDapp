@@ -52,6 +52,37 @@ class airdrop(airdropTemplate):
       except:
         alert(e.original_error.message)
       event_args['sender'].enabled=True
+
+  def link_add_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    if event_args['sender'].icon == 'fa:check':
+      pass
+    else:
+      try:
+        tokenSymbol = 'PARTY'
+        tokenDecimals = 18
+        tokenImage = anvil.server.get_app_origin()+'/_/theme/party%20small.svg'
+        print(tokenImage)
+
+        from anvil.js.window import ethereum
+        a = ethereum.request({
+        'method': 'wallet_watchAsset',
+        'params': {
+          'type': 'ERC20', 
+          'options': {
+            'address': get_open_form().contract_data['PARTY']['address'], 
+            'symbol': tokenSymbol, 
+            'decimals': tokenDecimals, 
+            'image': tokenImage, 
+          },
+        },
+      })
+        anvil.js.await_promise(a)
+        
+        event_args['sender'].icon = 'fa:check'
+        event_args['sender'].text='PARTY Token Added'
+      except Exception as e:
+        print(e)
       
 
     

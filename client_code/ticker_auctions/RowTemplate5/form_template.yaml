@@ -11,7 +11,7 @@ components:
   layout_properties: {column: VYYQPJ}
   name: label_time_remaining
 - type: ColumnPanel
-  properties: {role: stylecard, tooltip: '', border: '', foreground: '', visible: false,
+  properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: false,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: ''}
   layout_properties: {column: null}

@@ -16,6 +16,7 @@ def contract_data():
   contract_data['POOL_DEPLOYER']['address']="0xbFD3c8A956AFB7a9754C951D03C9aDdA7EC5d638"
   contract_data['HEX']={}
   contract_data['HEX']['address']="0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39"
+  contract_data['COM']={'address':"0x5A9780Bfe63f3ec57f01b087cD65BD656C9034A8"}
   contract_data['PERPETUAL_POOL']={}
   contract_data['HDRN']={'address':"0x3819f64f282bf135d62168C1e513280dAF905e06"}
   contract_data['TEAM']={'address':"0xB7c9E99Da8A857cE576A830A9c19312114d9dE02"}

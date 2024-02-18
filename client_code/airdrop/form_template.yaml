@@ -11,7 +11,7 @@ components:
   layout_properties: {grid_position: 'DGJCOF,ZNISTB'}
   components:
   - type: ColumnPanel
-    properties: {role: card, col_widths: '{}'}
+    properties: {role: main-card, col_widths: '{}'}
     name: card_1
     layout_properties: {grid_position: 'ELNZXW,QUDSXQ'}
     components:
@@ -27,11 +27,16 @@ components:
       name: label_status
       layout_properties: {grid_position: 'ZADQVJ,PRQJTB'}
     - type: Button
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: false, text: claim airdrop, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: ''}
       name: button_1
       layout_properties: {grid_position: 'XIOSHM,JSORUY'}
       event_bindings: {click: button_1_click}
+    - name: link_add
+      properties: {text: Add PARTY To Wallet, icon: '', align: center, visible: true}
+      type: Link
+      layout_properties: {grid_position: 'MCDPUE,ADGQPM'}
+      event_bindings: {click: link_add_click}
 is_package: true

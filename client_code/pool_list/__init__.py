@@ -59,6 +59,8 @@ class pool_list(pool_listTemplate):
     data['liquid supply']=int(self.read_contract.totalSupply().toString())
     
     data['hdrn balance'] = int(get_open_form().get_contract_read("HDRN").balanceOf(pool_address).toString())
+    data['com balance'] = int(get_open_form().get_contract_read("COM").balanceOf(pool_address).toString())
+    data['hex balance'] = int(get_open_form().get_contract_read("HEX").balanceOf(pool_address).toString())
     data['current hex day']=int(self.read_contract.getHexDay().toString())
     data['current period']=int(self.read_contract.CURRENT_PERIOD().toString())
     data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
