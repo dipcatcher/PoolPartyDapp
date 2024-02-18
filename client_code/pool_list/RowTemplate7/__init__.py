@@ -16,7 +16,8 @@ class RowTemplate7(RowTemplate7Template):
     
     self.label_length.text = "{} days".format(self.item['stake_duration'])
     self.label_organizer_fee.text = "{}%".format(self.item['organizer_share']/100)
-    self.label_ticker.text = self.item['ticker']
+    print(dir(self.item['ticker']))
+    self.label_ticker.text = self.item['ticker'].toString()
     self.label_pooled_hex.text = "{:,.2f}".format(int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())/(10**8))
     try:
       self.image_1.source = app_tables.pool_data.get(ticker=self.item['ticker'])['logo']

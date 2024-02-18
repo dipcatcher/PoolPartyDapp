@@ -23,6 +23,7 @@ class pool_list(pool_listTemplate):
     for e in pool_deploy_events: 
       pool_data = {}
       pool_data['ticker'] = e['args'][0]
+      print(e['args'][0])
       pool_data['initial_mint_duration']= int(e['args'][1].toString())
       pool_data['stake_duration']= int(e['args'][2].toString())
       pool_data['reload_duration']= int(e['args'][3].toString())
