@@ -54,9 +54,7 @@ class pool_list(pool_listTemplate):
     self.read_contract = get_open_form().get_perpetual_pool_contract_read(pool_address)
     data['name']=self.read_contract.name()
     data['liquid supply']=int(self.read_contract.totalSupply().toString())
-    data['timelocked supply'] = int(self.read_contract.timelockedSupply().toString())
-    data['penalty pool supply']=int(self.read_contract.penaltyPoolSupply().toString())
-    data['complete total supply'] = int(self.read_contract.completeTotalSupply().toString())
+    
     data['hdrn balance'] = int(get_open_form().get_contract_read("HDRN").balanceOf(pool_address).toString())
     data['current hex day']=int(self.read_contract.getHexDay().toString())
     data['current period']=int(self.read_contract.CURRENT_PERIOD().toString())

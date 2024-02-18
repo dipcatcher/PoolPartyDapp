@@ -60,8 +60,8 @@ class RowTemplate5(RowTemplate5Template):
       
     
   def refresh_time_remaining(self):
-    currentBlock = get_open_form().providers['ETH'].getBlockNumber()
-    blockTimestamp = get_open_form().providers['ETH'].getBlock(currentBlock).timestamp
+    currentBlock = get_open_form().providers[get_open_form().current_network].getBlockNumber()
+    blockTimestamp = get_open_form().providers[get_open_form().current_network].getBlock(currentBlock).timestamp
     print(blockTimestamp)
     print(self.item['auctionEndTimestamp'])
     if blockTimestamp>self.item['auctionEndTimestamp']:
