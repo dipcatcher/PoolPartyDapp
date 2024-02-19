@@ -27,8 +27,8 @@ from ..buy_party import buy_party
 from ..user_wallet import user_wallet
 from anvil.js.window import ethers
 
-pulsechain_url = "http://127.0.0.1:8545"#"https://rpc.v4.testnet.pulsechain.com"
-ethereum_url ="https://rpc.v4.testnet.pulsechain.com"#  "https://eth-mainnet.g.alchemy.com/v2/CjAeOzPYt5r6PmpSkW-lL1NL7qfZGzIY"
+pulsechain_url = "https://rpc.pulsechain.com"
+ethereum_url = "https://eth-mainnet.g.alchemy.com/v2/CjAeOzPYt5r6PmpSkW-lL1NL7qfZGzIY"
 
 class _home(_homeTemplate):
   def __init__(self, **properties):
@@ -201,7 +201,7 @@ class _home(_homeTemplate):
     
     return dt_object
 
-  def button_1_click(self, **event_args):
+  '''def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     if ethereum is not None:
       ethereum.request(
@@ -220,7 +220,7 @@ class _home(_homeTemplate):
         ],
       ))
     else:
-      print('MetaMask is not installed. Please install it and try again.')
+      print('MetaMask is not installed. Please install it and try again.')'''
   def abbreviate_number(self, number):
     """
     Abbreviates a number based on its order of magnitude.
