@@ -34,6 +34,7 @@ class _home(_homeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
     self.connected_chain=None
@@ -99,7 +100,7 @@ class _home(_homeTemplate):
       b = anvil.js.await_promise(a)
       
     except Exception as e:
-      raise e
+      
       alert("Connect to the network you want in your wallet and refresh the page.")
     self.metamask.update_signer()
     self.metamask_connect()
@@ -109,10 +110,7 @@ class _home(_homeTemplate):
 
   def menu_click(self, **event_args):
     self.content_panel.clear()
-    not_yet =[]# [self.link_create_stake_pool,  self.button_pools]
-    if event_args['sender'] in not_yet:
-      alert("The '{}' feature will be available when testnet Stage 2 begins.".format(event_args['sender'].text))
-      return False
+    
     self.latest = event_args['sender']
     
     if event_args['sender'] == self.link_stake:
@@ -161,26 +159,19 @@ class _home(_homeTemplate):
   def form_show(self, **event_args):
     """This method is called when the HTML panel is shown on the screen"""
     self.menu_click(sender=self.link_claim)
-  def check_merkle(self):
-    data =app_tables.pool_party_merkle.search()#app_tables.party_merkle_host.get(name="Supply Merkle")['proofs']
-    self.contract_read = self.get_contract_read("PARTY")
-    total = 0
-    for r in data:
-      verify= self.contract_read.verifyInitialSupplyPoints(r['merkle_proof'], r['address'], r['party_mintable'])
-      if verify==False:
-        print(r)
-      total+=int(r['party_mintable'])
-    print(total/(10**18))
+  
 
 
   def metamask_connect(self, **event_args):
     self.connected_chain = self.metamask.provider.getNetwork()['chainId']
     print(self.connected_chain)
+    
     self.button_switch.visible = True
     if self.connected_chain==1:
       self.button_switch.text = "ETH" 
     elif self.connected_chain in [369]:
       self.button_switch.text = "PLS"
+    self.current_network = self.button_switch.text
     self.menu_click(sender=self.latest, is_btn=True)
     if len(self.pool_panel.get_components())>0:
       print("OK")
