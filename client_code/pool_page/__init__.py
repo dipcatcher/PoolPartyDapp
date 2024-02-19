@@ -49,7 +49,7 @@ class pool_page(pool_pageTemplate):
     self.label_symbol.text = self.item['ticker']
     self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'])['description']
     self.label_address.text = "{}".format(self.item['pool_address'])
-    self.label_organizer.text = "Organizer: ".format(self.item['organizer_address'])
+    self.label_organizer.text = "Organizer: {}".format(self.item['organizer_address'])
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
     if self.first:
       self.vd_liquid = value_display(value ="{:,.1f}".format(self.item['liquid supply']/(10**8)), title = "Supply {}".format(self.item['ticker']))
