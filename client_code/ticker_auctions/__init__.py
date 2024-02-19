@@ -111,9 +111,6 @@ class ticker_auctions(ticker_auctionsTemplate):
       print(self.input)
       bid_amount = int(self.input*10**18)
       print(bid_amount)
-      if app_tables.ticker_nfts.get(name=self.text_box_search.text) is None:
-        pass
-        #anvil.server.call('generate_image',self.text_box_search.text )
       if all([is_available, is_valid, valid_bid]):
         try:
           
