@@ -33,8 +33,80 @@ native_deps: {head_html: '<style>
 
     <script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>'}
 db_schema:
-  contract:
+  table_4:
+    title: Table 4
     client: none
+    server: full
+    columns: []
+  media:
+    title: media
+    client: search
+    server: full
+    columns:
+    - name: media
+      admin_ui: {width: 200}
+      type: media
+    - name: Column1
+      admin_ui: {width: 200}
+      type: number
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+  table_1:
+    title: Table 1
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: data
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: value
+      admin_ui: {width: 200}
+      type: number
+    - name: Column3
+      admin_ui: {width: 200}
+      type: string
+    - name: text
+      admin_ui: {width: 200}
+      type: string
+  party_merkle_host:
+    title: party_merkle_host
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: file
+      admin_ui: {width: 200}
+      type: media
+    - name: proofs
+      admin_ui: {width: 373}
+      type: simpleObject
+    - name: root
+      admin_ui: {width: 200}
+      type: string
+    - name: proofs_string
+      admin_ui: {width: 200}
+      type: string
+    - name: tree
+      admin_ui: {width: 200}
+      type: simpleObject
+  table_10:
+    title: Table 10
+    client: none
+    server: full
+    columns: []
+  table_5:
+    title: Table 5
+    client: none
+    server: full
+    columns: []
+  contract:
+    client: search
     server: full
     columns:
     - name: address
@@ -43,12 +115,205 @@ db_schema:
     - name: abi
       admin_ui: {order: 1, width: 200}
       type: simpleObject
+    - name: name
+      admin_ui: {width: 200}
+      type: string
     title: contract
+  user_record:
+    title: user_record
+    client: search
+    server: search
+    columns:
+    - name: team_staked_p1
+      admin_ui: {}
+      type: number
+    - name: address
+      admin_ui: {width: 200}
+      type: string
+    - name: lucky_staked_total
+      admin_ui: {}
+      type: number
+    - name: maxi_liquid
+      admin_ui: {width: 200}
+      type: number
+    - name: lucky_staked_p1
+      admin_ui: {}
+      type: number
+    - name: poly_liquid
+      admin_ui: {width: 200}
+      type: number
+    - name: trio_liquid
+      admin_ui: {}
+      type: number
+    - name: water_liquid
+      admin_ui: {width: 200}
+      type: number
+    - name: deci_staked_p2
+      admin_ui: {}
+      type: number
+    - name: lucky_staked
+      admin_ui: {}
+      type: number
+    - name: trio_staked
+      admin_ui: {}
+      type: number
+    - name: team_staked_total
+      admin_ui: {}
+      type: number
+    - name: base_liquid
+      admin_ui: {width: 200}
+      type: number
+    - name: bridge_relays
+      admin_ui: {}
+      type: number
+    - name: base_staked_p2
+      admin_ui: {}
+      type: number
+    - name: lucky_staked_p2
+      admin_ui: {}
+      type: number
+    - name: base_staked
+      admin_ui: {width: 200}
+      type: number
+    - name: trio_staked_p1
+      admin_ui: {}
+      type: number
+    - name: dca_liquid
+      admin_ui: {}
+      type: number
+    - name: base_staked_p1
+      admin_ui: {}
+      type: number
+    - name: team_staked_p2
+      admin_ui: {}
+      type: number
+    - name: lucky_liquid
+      admin_ui: {}
+      type: number
+    - name: trio_staked_p2
+      admin_ui: {}
+      type: number
+    - name: team_liquid
+      admin_ui: {}
+      type: number
+    - name: points
+      admin_ui: {}
+      type: number
+    - name: deci_staked_total
+      admin_ui: {}
+      type: number
+    - name: points_breakdown
+      admin_ui: {}
+      type: simpleObject
+    - name: deci_staked_p1
+      admin_ui: {}
+      type: number
+    - name: dca_member
+      admin_ui: {}
+      type: number
+    - name: trio_staked_total
+      admin_ui: {}
+      type: number
+    - name: team_staked
+      admin_ui: {}
+      type: number
+    - name: deci_liquid
+      admin_ui: {}
+      type: number
+    - name: deci_staked
+      admin_ui: {}
+      type: number
+    - name: bridge_liquid
+      admin_ui: {}
+      type: number
+    - name: merkle_points
+      admin_ui: {width: 200}
+      type: number
+    - name: merkle_proof
+      admin_ui: {width: 200}
+      type: simpleObject
+  ticker_nfts:
+    title: ticker_nfts
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200}
+      type: string
+    - name: image
+      admin_ui: {width: 200}
+      type: media
+    - name: owner
+      admin_ui: {width: 200}
+      type: string
+    - name: nft_id
+      admin_ui: {width: 200}
+      type: number
+    - name: path
+      admin_ui: {width: 200}
+      type: string
+    - name: chain
+      admin_ui: {width: 200}
+      type: string
+  party_supply_merkle:
+    title: party_supply_merkle
+    client: search
+    server: search
+    columns:
+    - name: address
+      admin_ui: {width: 200}
+      type: string
+    - name: proof
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: amount
+      admin_ui: {width: 200}
+      type: string
+    - name: root
+      admin_ui: {width: 200}
+      type: string
+  pool_party_merkle:
+    title: pool_party_merkle
+    client: search
+    server: search
+    columns:
+    - name: address
+      admin_ui: {width: 200}
+      type: string
+    - name: party_mintable
+      admin_ui: {width: 322}
+      type: number
+    - name: merkle_proof
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: merkle_root
+      admin_ui: {width: 200}
+      type: string
   table_2:
     client: none
     server: full
     columns: []
     title: Table 2
+  pool_data:
+    title: pool_data
+    client: full
+    server: full
+    columns:
+    - name: address
+      admin_ui: {width: 200}
+      type: string
+    - name: ticker
+      admin_ui: {width: 200}
+      type: string
+    - name: logo
+      admin_ui: {width: 200}
+      type: media
+    - name: description
+      admin_ui: {width: 200}
+      type: string
+    - name: chain
+      admin_ui: {width: 200}
+      type: string
 secrets:
   moralis:
     value: {? '' : /iQTQWUK0H3/QsR06f0B3d5rDvXNGBgTLhzZ/F7hn8JoYdw8b5sjnzDMHQXAjZkJtuM43V0SWmqeJwBeAwqweL6tIsl6BhdRyNAN7HBpPlWSZtKAx7/bjkVHoOLe2l6ATOuqFTlnjiJc4ghv4i38JlZbfBNc3RrqpgKNO1nq0JD03Wtf7jdfecEOS7f0ZcDfZVDJYlAAtTKqW6WTwqF8t9emT/Gvu03TxiKMUmd1yAuhsQ+Ou9FiGfSSy3/zPRwAGnoRs46Chknl+HlvTwgQOCI3D1OkBRQ8Z+emq8FYva2XJqqyvBF/Y61FT+FvzPQ9ZVOT1YYOi97kFBW8ZWZ1I6pHJwP9abQ5afmIlFYhIXUQqqDccPkKf6sJ7hOmNlBViO+AnXc+WfFespCr4qBV8DK+l/2LCAiTQ8m9TktPfRHYE2ELLIoOlnOwrjFYn0U7LUce/eq6VotrEb6Mec48ylbHyvwnvFvYu97B2HxOWW3OgbS1geqb98ClwXQLicAgBTnEHCqbzeMeqcvz26rVxJktX0uVywIqrK3iQ1jCLMSeJYI=}
