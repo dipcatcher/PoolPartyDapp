@@ -3,7 +3,7 @@ dependencies:
 - app_id: CY6SHX5TPGTSZ6UY
   version: {dev: false}
 - dep_id: dep_gaeopub3ujbru
-  version: {dev: true}
+  version: {dev: false}
   resolution_hints: {app_id: M5VAKGC7ZJP4L7CY, name: Pool Party image generator, package_name: Pool_Party_image_generator}
 services:
 - source: /runtime/services/tables.yml
