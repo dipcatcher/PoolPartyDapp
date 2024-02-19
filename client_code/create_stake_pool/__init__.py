@@ -124,6 +124,11 @@ class create_stake_pool(create_stake_poolTemplate):
                                                                                       "{} via Maximus Pool Party".format(self.input['name']), int(self.input['organizer_fee']*100), self.input['organizer_address']))
         a.wait()
         self.label_info.text = None
+        address = read_contract.POOL_RECORD(self.input['ticker'])
+      
+        chain =get_open_form().current_network
+        anvil.server.call('new_pool', chain, address, self.input['ticker'], self.text_area_description.text, self.uploaded_image)
+        get_open_form().menu_click(sender = get_open_form().button_pools, goto = self.input['ticker'])
         Notification("Pool Deployed Succesfully").show()
       except Exception as e:
           try:
@@ -134,11 +139,7 @@ class create_stake_pool(create_stake_poolTemplate):
           self.label_info.text = None
           self.label_info.icon=''
           return False
-      address = read_contract.POOL_RECORD(self.input['ticker'])
       
-      
-      anvil.server.call('new_pool', address, self.input['ticker'], self.text_area_description.text, self.uploaded_image)
-      get_open_form().menu_click(sender = get_open_form().button_pools, goto = self.input['ticker'])
     else:
       self.button_deploy.enabled=True
       

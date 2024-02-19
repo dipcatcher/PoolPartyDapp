@@ -47,7 +47,7 @@ class pool_page(pool_pageTemplate):
   def refresh(self):
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
-    self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'])['description']
+    self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['description']
     self.label_address.text = "{}".format(self.item['pool_address'])
     self.label_organizer.text = "Organizer: {}".format(self.item['organizer_address'])
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
@@ -155,7 +155,7 @@ class pool_page(pool_pageTemplate):
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
     try:
-      self.image_logo.source = app_tables.pool_data.get(ticker=self.item['ticker'])['logo']
+      self.image_logo.source = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['logo']
     except:
       pass
 

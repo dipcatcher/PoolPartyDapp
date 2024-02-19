@@ -19,6 +19,6 @@ def reset():
   anvil.server.cookies.local.clear()
 
 @anvil.server.callable
-def new_pool(address, ticker, description, logo=None):
+def new_pool(chain, address, ticker, description, logo=None):
   app_tables.pool_data.add_row(address=address, ticker=ticker, logo=logo, description=description)
 
