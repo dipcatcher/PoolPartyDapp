@@ -121,7 +121,7 @@ class create_stake_pool(create_stake_poolTemplate):
           self.label_info.icon=''
           return False
         a = anvil.js.await_promise(write_contract.deployPool(self.input['ticker'], self.input['initial_mint_length'], self.input['stake_length'], self.input['ongoing_mint_length'],
-                                                                                      "{} via Maximus Pool Party".format(self.input['name']), self.input['organizer_fee']*100, self.input['organizer_address']))
+                                                                                      "{} via Maximus Pool Party".format(self.input['name']), int(self.input['organizer_fee']*100), self.input['organizer_address']))
         a.wait()
         self.label_info.text = None
         Notification("Pool Deployed Succesfully").show()
@@ -164,11 +164,14 @@ class create_stake_pool(create_stake_poolTemplate):
       if not requirements[0]:
         requirements.append(int(event_args['sender'].text)>5555)
     elif group =='organizer_fee':
-      requirements=[(event_args['sender'].text or 0) >99]
+      requirements=[(event_args['sender'].text or 0) >99, (event_args['sender'].text or 0) >0 and (event_args['sender'].text or 0) <0.01]
     
-    
-    self.input[group]=int(event_args['sender'].text or 0)
-    event_args['sender'].text=self.input[group]
+    if group == 'organizer_fee':
+      self.input[group]=event_args['sender'].text or 0
+      print(int(self.input['organizer_fee']*100))
+    else:
+      self.input[group]=int(event_args['sender'].text or 0)
+      event_args['sender'].text=self.input[group]
     event_args['sender'].role = 'input-error' if any(requirements) else ''
 
   def text_box_organizer_address_change(self, **event_args):
