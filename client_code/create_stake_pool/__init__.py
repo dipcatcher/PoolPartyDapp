@@ -126,7 +126,7 @@ class create_stake_pool(create_stake_poolTemplate):
         self.label_info.text = None
         address = read_contract.POOL_RECORD(self.input['ticker'])
       
-        chain =get_open_form().get_current_network()
+        chain =get_open_form().current_network
         anvil.server.call('new_pool', chain, address, self.input['ticker'], self.text_area_description.text, self.uploaded_image)
         get_open_form().menu_click(sender = get_open_form().button_pools, goto = self.input['ticker'])
         Notification("Pool Deployed Succesfully").show()
