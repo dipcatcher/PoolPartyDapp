@@ -49,17 +49,17 @@ class user_wallet(user_walletTemplate):
       self.flow_panel_1.add_component(vd)
     
     
-    
+    chain=get_open_form().current_network
     if self.data['Nametag NFTs'] == []:
       self.card_1.visible = False
     else:
       for nft in self.data['Nametag NFTs']:
         nft_id = int(self.nft_contract_read.NAME_ID(nft).toString())
         print(nft_id)
-
-        row = app_tables.ticker_nfts.get(nft_id=nft_id)
+        
+        row = app_tables.ticker_nfts.get(nft_id=nft_id, chain=chain)
         if row is None:
-          anvil.server.call('generate_image', nft, nft_id)
+          anvil.server.call('generate_image', nft, nft_id, chain)
         
         
         #url = "https://testpoolpartynft.anvil.app/_/api/image/{}".format(nft_id)

@@ -113,7 +113,7 @@ class RowTemplate5(RowTemplate5Template):
       self.name_nft_contract = get_open_form().get_contract_read("NAME_NFT")
       name_id = self.name_nft_contract.NAME_ID(self.item['ticker']).toNumber()
       try:
-        anvil.server.call('generate_image',self.item['ticker'], name_id )
+        anvil.server.call('generate_image',self.item['ticker'], name_id, get_open_form().current_network )
       except Exception as e:
         raise e
         Notification("NFT image failed to save, no worries it will be regenerated.").show()
@@ -179,20 +179,7 @@ class RowTemplate5(RowTemplate5Template):
     """This method is called when the button is clicked"""
     alert(self.item['auctionEndTimestamp'])
 
-  def form_show(self, **event_args):
-    """This method is called when the data row panel is shown on the screen"""
-
-  def panel_bid_show(self, **event_args):
-    """This method is called when the column panel is shown on the screen"""
-    '''row = app_tables.ticker_nfts.get(name=self.item['ticker'])
-    if row is None:
-      anvil.server.call('generate_image', self.item['ticker'])
-      row = app_tables.ticker_nfts.get(name=self.item['ticker'])'''
-    
-
-
-    
-
+  
 
 
 
