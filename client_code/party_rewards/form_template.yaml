@@ -140,16 +140,13 @@ components:
       background: '', bold: false, underline: false}
     name: text_box_1
     layout_properties: {grid_position: 'PKZSVH,UQNKUQ'}
-  - type: Button
-    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: process, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: button_process
-    layout_properties: {grid_position: 'LTLUPZ,QMTRFG'}
+  - name: button_process
+    properties: {text: process, role: filled}
+    type: Button
+    layout_properties: {grid_position: 'BKEXJG,SRIOTP'}
     event_bindings: {click: button_process_click}
 - type: ColumnPanel
-  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: false,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: ''}
   name: card_1

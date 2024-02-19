@@ -51,7 +51,7 @@ components:
   components:
   - type: Label
     properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Purchasable Pools, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Currently Staked Pools, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_1_copy

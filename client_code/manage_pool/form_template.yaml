@@ -27,28 +27,33 @@ components:
     layout_properties: {grid_position: 'PYKBQE,IFFFMM'}
     event_bindings: {click: button_mint_hdrn_click}
   - type: Label
-    properties: {}
+    properties: {align: center}
     name: label_hdrn_mint_data
     layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: start stake, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
-  name: button_start_stake
-  layout_properties: {grid_position: 'HOBSWJ,ELFEDW'}
-  event_bindings: {click: button_start_stake_click}
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: 'end stake
+- name: column_panel_1_copy
+  properties: {role: referral-code-contain, tooltip: '', border: '', foreground: '',
+    visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'LNSCSN,CAKHCJ'}
+  components:
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: start stake, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: button_start_stake
+    layout_properties: {grid_position: 'CQBHBN,GRKVSY'}
+    event_bindings: {click: button_start_stake_click}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: 'end stake
 
-      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
-  name: button_end_stake
-  layout_properties:
-    col_widths: {}
-    grid_position: BQJFFO,YQMEUG
-  event_bindings: {click: button_end_stake_click}
+        ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: button_end_stake
+    layout_properties: {grid_position: 'WDZJCP,VBENHB'}
+    event_bindings: {click: button_end_stake_click}
 - type: Button
   properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
     foreground: '', visible: false, text: contribute to end stake gas pool, font_size: null,

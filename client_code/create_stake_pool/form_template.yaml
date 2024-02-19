@@ -251,4 +251,8 @@ components:
       name: button_deploy
       layout_properties: {grid_position: 'HCOGSJ,FYQAYV'}
       event_bindings: {click: button_deploy_click}
+    - name: label_info
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'BPKNTG,BMRUZZ'}
 is_package: true

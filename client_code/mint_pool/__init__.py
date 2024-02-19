@@ -26,8 +26,10 @@ class mint_pool(mint_poolTemplate):
     self.page.refresh()
     self.item = self.page.item
   def refresh(self):
+    
     self.label_pool_token_balance_display.text = "{} Balance".format(self.item['ticker'])
     self.label_mint_token.text = "Mint {}".format(self.item['ticker'])
+    self.button_mint.text = "Mint {}".format(self.item['ticker'])
     days_remaining = self.item['initial_mint_duration']-(self.item['current hex day'] - self.item['reload phase start'])
     self.mint_rate_formatted = (10**8)/self.item['redemption rate']
     self.label_days_left.text = "{} days remaining to mint {} {} per HEX contributed.".format(days_remaining, self.mint_rate_formatted, self.item['ticker'])

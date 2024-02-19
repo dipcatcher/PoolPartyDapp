@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.js
 import anvil.http
+from anvil.js.window import ethers
 class party_rewards(party_rewardsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -28,42 +29,16 @@ class party_rewards(party_rewardsTemplate):
     #self.get_assets_list()
     self.data = self.get_data()
     pending_reward_list = []
-    for asset in self.get_assets_list()['result']:
+    '''for asset in self.get_assets_list()['result']:
       d = {}
       for k, v in asset.items():
         d[k] = v
       
       pending_reward_list.append(d)
-    self.repeating_panel_1.items = pending_reward_list
+    self.repeating_panel_1.items = pending_reward_list'''
     #for k,v in self.data.items():
       #self.add_component(Label(text="{}, {}".format(k,v)))
-  def get_assets_list(self):
-    #api_url = "https://scan.v4.testnet.pulsechain.com/api?module=account&action=tokenlist&address={}".format(self.party_address)
-    #r = anvil.http.request(api_url, json=True)
-    #alert(r)
-    sample = {
-  "message": "OK",
-  "result": [
-    {
-      "balance": "1354992345234523452345235",
-      "contractAddress": "0x0000000000000000000000000000000000000000",
-      "decimals": "18",
-      "name": "Example Token",
-      "symbol": "ET",
-      "type": "ERC-20"
-    },
-    {
-      "balance": "12345234523452345",
-      "contractAddress": "0x0000000000000000000000000000000000000001",
-      "decimals": "18",
-      "name": "Example ERC-721 Token",
-      "symbol": "ET7",
-      "type": "ERC-721"
-    }
-  ],
-  "status": "1"
-}
-    return sample
+  
   def get_data(self):
     data = {}
     address = get_open_form().metamask.address
@@ -108,6 +83,229 @@ class party_rewards(party_rewardsTemplate):
 
   def button_process_click(self, **event_args):
     """This method is called when the button is clicked"""
+    balance = int(ethers.Contract(self.text_box_1.text,'''[
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "name",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_spender",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "totalSupply",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_from",
+                "type": "address"
+            },
+            {
+                "name": "_to",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "transferFrom",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "decimals",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_owner",
+                "type": "address"
+            }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+            {
+                "name": "balance",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "symbol",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_to",
+                "type": "address"
+            },
+            {
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "transfer",
+        "outputs": [
+            {
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "name": "_owner",
+                "type": "address"
+            },
+            {
+                "name": "_spender",
+                "type": "address"
+            }
+        ],
+        "name": "allowance",
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "fallback"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "name": "spender",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256"
+            }
+        ],
+        "name": "Approval",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "name": "value",
+                "type": "uint256"
+            }
+        ],
+        "name": "Transfer",
+        "type": "event"
+    }
+]''' ,get_open_form().providers[get_open_form().current_network]).balanceOf(get_open_form().contract_data['PARTY']['address']).toString())
+    alert(balance)
     try:
       self.party = get_open_form().get_contract_write("PARTY")
       

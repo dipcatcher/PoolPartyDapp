@@ -8,4 +8,12 @@ components:
   name: button_claim
   layout_properties: {column: LNBVEJ}
   event_bindings: {click: button_claim_click}
+- name: label_supply
+  properties: {}
+  type: Label
+  layout_properties: {column: IREXIL}
+- name: label_balance
+  properties: {}
+  type: Label
+  layout_properties: {column: NFLHYA}
 is_package: true

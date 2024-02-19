@@ -220,7 +220,25 @@ class _home(_homeTemplate):
       ))
     else:
       print('MetaMask is not installed. Please install it and try again.')
-
+  def abbreviate_number(self, number):
+    """
+    Abbreviates a number based on its order of magnitude.
+    - K for thousands
+    - M for millions
+    - B for billions
+    - T for trillions
+    Returns a string with the abbreviated number.
+    """
+    if number < 1000:
+        return str(number)
+    elif number < 1_000_000:  # Thousands
+        return f"{number / 1_000:.3f}K"
+    elif number < 1_000_000_000:  # Millions
+        return f"{number / 1_000_000:.3f}M"
+    elif number < 1_000_000_000_000:  # Billions
+        return f"{number / 1_000_000_000:.3f}B"
+    else:  # Trillions
+        return f"{number / 1_000_000_000_000:.3f}T"
   def button_buy_click(self, **event_args):
     """This method is called when the button is clicked"""
     

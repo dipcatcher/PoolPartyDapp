@@ -47,6 +47,7 @@ class pool_page(pool_pageTemplate):
   def refresh(self):
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
+    self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'])['description']
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
     if self.first:
       self.vd_liquid = value_display(value ="{:,.1f}".format(self.item['liquid supply']/(10**8)), title = "Supply {}".format(self.item['ticker']))

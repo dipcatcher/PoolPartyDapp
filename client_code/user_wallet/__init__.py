@@ -89,7 +89,7 @@ class user_wallet(user_walletTemplate):
       _['Snapshot Period'] = p
       _['Supply']=int(self.party_contract_read.totalSupplyAt(p).toString())
       if self.address is not None:
-        _['Balance'] = int(self.party_contract_read.balanceOfAt(self.address, p))
+        _['Balance'] = int(self.party_contract_read.balanceOfAt(self.address, p).toString())
         _['Earnings Details'] = []
       else:
         _['Balance']=0
@@ -111,7 +111,7 @@ class user_wallet(user_walletTemplate):
           _['Earnings Details'].append(earning_detail)
         
         
-      data=[record].append(_)
+      data['record'].append(_)
       
       
       

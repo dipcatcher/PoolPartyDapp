@@ -12,7 +12,7 @@ class create_stake_pool(create_stake_poolTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.address = get_open_form().metamask.address
-    self.zero_address = "0x0000000000000000000000000000000000000000"
+    self.zero_address = get_open_form().contract_data['PARTY']['address']
     self.organizer_address =self.zero_address
     self.uploaded_image=None
     self.organizer_fee = 0
@@ -54,7 +54,7 @@ class create_stake_pool(create_stake_poolTemplate):
     return tickers
   def link_get_ticker_click(self, **event_args):
     """This method is called when the link is clicked"""
-    get_open_form().menu_click(sender=get_open_form().link_ticker_auction)
+    get_open_form().menu_click(sender=get_open_form().link_ticker_auctions)
   def validate(self):
     strings = [self.text_area_description, self.text_box_name]
     incomplete = []
@@ -95,22 +95,29 @@ class create_stake_pool(create_stake_poolTemplate):
       deployer_address = get_open_form().contract_data['POOL_DEPLOYER']['address']
       is_approved = name_nft_read.getApproved(ticker_id) == deployer_address
       if not is_approved:
+        self.label_info.text = "Approving Stake Pool Deployer to transfer your NFT to the Stake Pool Contract. This NFT will stay in the {} Stake Pool Contract forever, allowing users to easily verify the authenticity of the stake pool.".format(self.input['ticker'])
+        self.label_info.icon='fa:info'
         try:
           approval = anvil.js.await_promise(get_open_form().get_contract_write("NAME_NFT").approve(deployer_address, ticker_id))
           approval.wait()
+          self.label_info.text = None
         except Exception as e:
           try:
             alert(e.original_error.reason)
           except:
             alert(e.original_error.message)
           event_args['sender'].enabled=True
+          self.label_info.text= None
+          self.label_info.icon=''
           return False
          
       try:
+        self.label_info.text = "Deploying Stake."
+        self.label_info.icon='fa:info'
         a = anvil.js.await_promise(write_contract.deployPool(self.input['ticker'], self.input['initial_mint_length'], self.input['stake_length'], self.input['ongoing_mint_length'],
                                                                                       self.input['name'], self.input['organizer_fee']*100, self.input['organizer_address']))
         a.wait()
-        
+        self.label_info.text = None
         Notification("Pool Deployed Succesfully").show()
       except Exception as e:
           try:
@@ -118,6 +125,8 @@ class create_stake_pool(create_stake_poolTemplate):
           except:
             alert(e.original_error.message)
           event_args['sender'].enabled=True
+          self.label_info.text = None
+          self.label_info.icon=''
           return False
       address = read_contract.POOL_RECORD(self.input['ticker'])
       
