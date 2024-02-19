@@ -37,7 +37,7 @@ class user_wallet(user_walletTemplate):
     future_party = "{:,.4f} PARTY".format(self.data['Future Yield']/(10**18))
     label_map = {"Liquid PARTY": liquid_party_text}
     label_map['Staked PARTY'] = staked_party_text
-    label_map['Future PARTY Yield']= future_party
+    #label_map['Future PARTY Yield']= future_party
     
     for k,v in label_map.items():
       

@@ -17,7 +17,7 @@ class RowTemplate10(RowTemplate10Template):
   def button_claim_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.rd_contract_write=get_open_form().get_contract_write("REWARD_DISTRIBUTION")
-    self.rd_contract_write.
+    
     try:
       event_args['sender'].enabled=False
       event_args['sender'].text = "claiming..."

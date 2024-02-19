@@ -10,10 +10,10 @@ def contract_data():
   contract_data['NAME_NFT'] = {}
   contract_data['POOL_DEPLOYER'] = {}
   contract_data['REWARD_DISTRIBUTION'] = {}
-  contract_data['PARTY']['address']="0xde79380FBd39e08150adAA5C6c9dE3146f53029e"
-  contract_data['REWARD_DISTRIBUTION']['address']="0xc8795BF3346dF727Dab7523F106EF45545739391"
-  contract_data['NAME_NFT']['address']="0xD201be2ccca96Bfb0B6DE5893894D4Bbce73c403"
-  contract_data['POOL_DEPLOYER']['address']="0xbFD3c8A956AFB7a9754C951D03C9aDdA7EC5d638"
+  contract_data['PARTY']['address']="0x04d7478fDF318C3C22cECE62Da9D78ff94807D77"
+  contract_data['REWARD_DISTRIBUTION']['address']="0x88D747caa7Ef7048712B0a5bf6482ca25d067789"
+  contract_data['NAME_NFT']['address']="0xD4fF1C216cA5D4C420e59f5C2F1BA3F982e3f1e5"
+  contract_data['POOL_DEPLOYER']['address']="0xd9abC93F81394Bd161a1b24B03518e0a570bDEAd"
   contract_data['HEX']={}
   contract_data['HEX']['address']="0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39"
   contract_data['COM']={'address':"0x5A9780Bfe63f3ec57f01b087cD65BD656C9034A8"}

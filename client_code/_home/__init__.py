@@ -36,6 +36,7 @@ class _home(_homeTemplate):
     self.init_components(**properties)
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
+    self.connected_chain=None
     
 
   def activate_default_providers(self):
@@ -178,7 +179,7 @@ class _home(_homeTemplate):
     self.button_switch.visible = True
     if self.connected_chain==1:
       self.button_switch.text = "ETH" 
-    elif self.connected_chain in [369, 943, 31337]:
+    elif self.connected_chain in [369]:
       self.button_switch.text = "PLS"
     self.menu_click(sender=self.latest, is_btn=True)
     if len(self.pool_panel.get_components())>0:
