@@ -13,7 +13,7 @@ class airdrop(airdropTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
- 
+    self.refresh()
   def refresh(self):
     self.party_contract = get_open_form().get_contract_read("PARTY")
     if get_open_form().metamask.address is None:
@@ -32,8 +32,7 @@ class airdrop(airdropTemplate):
           self.button_1.visible=True
     else:
       self.label_status.text = "{} is not eligible for the airdrop.".format(abbr_add)
-  def form_show(self, **event_args):
-    self.refresh()
+  
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
