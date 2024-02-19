@@ -67,6 +67,7 @@ class ticker_auctions(ticker_auctionsTemplate):
     if get_open_form().metamask.address is not None:
       self.party_contract = get_open_form().get_contract_write("PARTY")
       self.nameclaim_contract = get_open_form().get_contract_write("NAMECLAIM")
+    self.label_2.text = "Start Auction - Minimum Bid {:,} PARTY".format(int(int(get_open_form().get_contract_read("PARTY").MINIMUM_STARTING_BID().toString())/(10**18)))
     auction_start_events = anvil.js.await_promise(get_open_form().get_contract_read("PARTY").queryFilter('AuctionStarted'))
     all_tickers = [ase['args'][0] for ase in auction_start_events]
     all_auctions = []
