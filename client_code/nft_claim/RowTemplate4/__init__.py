@@ -35,6 +35,8 @@ class RowTemplate4(RowTemplate4Template):
       try:
         a = anvil.js.await_promise(self.write_contract.mintFromNameclaim(self.item['Name']))
         a.wait()
+        nft_id = int(get_open_form().get_contract_read("NAME_NFT").NAME_ID(self.item['Name']).toString())
+        anvil.server.call('generate_image', self.item['Name'], nft_id)
         get_open_form().menu_click(sender=get_open_form().latest)
       except Exception as e:
         try:

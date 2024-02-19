@@ -65,13 +65,13 @@ class _home(_homeTemplate):
     
     return processed_logs
   def get_contract_read(self, ticker):
-    chain = "PLS"
+    chain = self.current_network
     contract_data = self.contract_data[ticker]
     return ethers.Contract(contract_data['address'], contract_data['abi'], self.providers[chain])
   def get_perpetual_pool_contract_write(self, address):
     return ethers.Contract(address, ch.contract_data()['PERPETUAL_POOL']['abi'],self.metamask.signer)
   def get_perpetual_pool_contract_read(self, address):
-    chain = "PLS"
+    chain = self.current_network
     return ethers.Contract(address, ch.contract_data()['PERPETUAL_POOL']['abi'],self.providers[chain])
       
   def get_contract_write(self, ticker):
@@ -85,7 +85,7 @@ class _home(_homeTemplate):
     elif self.connected_chain in [369, 31337]:
       self.current_network = "PLS"
       
-    '''c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
+    c = confirm("You are currently connected to {}.".format(self.current_network),title="Choose Network",buttons=[("Ethereum", True), ("Pulsechain", False)])
     if c:
       chain_id = "0x1"
     else:
@@ -99,7 +99,7 @@ class _home(_homeTemplate):
       
     except Exception as e:
       raise e
-      alert("Connect to the network you want in your wallet and refresh the page.")'''
+      alert("Connect to the network you want in your wallet and refresh the page.")
     self.metamask.update_signer()
     self.metamask_connect()
     self.menu_click(sender=self.latest)    
