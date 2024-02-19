@@ -17,17 +17,25 @@ components:
   layout_properties: {grid_position: 'SUSUPJ,IQFFEJ'}
   components:
   - type: Image
-    properties: {height: 114}
+    properties: {height: 114, display_mode: fill_width}
     name: image_logo
     layout_properties: {grid_position: 'MKOAAW,HSDKWO'}
+  - type: Label
+    properties: {bold: true, role: title}
+    name: label_symbol
+    layout_properties: {grid_position: 'MKOAAW,CPDHNW WBFIWN,HCOZTJ'}
   - type: Label
     properties: {}
     name: label_name
     layout_properties: {grid_position: 'MKOAAW,CPDHNW CUSXBK,LNKHSY'}
-  - type: Label
+  - name: label_address
     properties: {}
-    name: label_symbol
-    layout_properties: {grid_position: 'MKOAAW,CPDHNW FTWWHZ,CZAWCD'}
+    type: Label
+    layout_properties: {grid_position: 'MKOAAW,CPDHNW CURFMY,GRADIN'}
+  - name: label_organizer
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'MKOAAW,CPDHNW JUHSXP,DQOEKD'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,

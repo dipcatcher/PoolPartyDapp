@@ -24,7 +24,7 @@ class pool_page(pool_pageTemplate):
     self.user_data = {}
     self.refresh()
     if self.item['stake is active']:
-      self.menu_click(sender=self.button_diamond_hand)
+      self.menu_click(sender=self.button_manage_pool)
     else:
       self.menu_click(sender=self.button_mint)
     #self.get_events()
@@ -48,12 +48,14 @@ class pool_page(pool_pageTemplate):
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
     self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'])['description']
+    self.label_address.text = "{}".format(self.item['pool_address'])
+    self.label_organizer.text = "Organizer: ".format(self.item['organizer_address'])
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
     if self.first:
       self.vd_liquid = value_display(value ="{:,.1f}".format(self.item['liquid supply']/(10**8)), title = "Supply {}".format(self.item['ticker']))
       self.vd_hdrn=value_display(value = "{:,.1f}".format(self.item['hdrn balance']/(10**9)), title = "HDRN in Contract")
       self.vd_com = value_display(value = "{:,.1f}".format(self.item['com balance']/(10**18)), title = "COM in Contract")
-      self.vd_hex = value_display(value = "{:,.1f}".format(self.item['hex balance']/(10**8)), title = "HEX in Contract")
+      self.vd_hex = value_display(value = "{:,.1f}".format((self.item['hex balance'] + self.item['current stake principal'])/(10**8)), title = "HEX in Contract")
       self.flow_panel_data.add_component(self.vd_liquid)
       self.flow_panel_data.add_component(self.vd_hex)
       self.flow_panel_data.add_component(self.vd_com)

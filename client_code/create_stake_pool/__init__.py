@@ -95,7 +95,7 @@ class create_stake_pool(create_stake_poolTemplate):
       deployer_address = get_open_form().contract_data['POOL_DEPLOYER']['address']
       is_approved = name_nft_read.getApproved(ticker_id) == deployer_address
       if not is_approved:
-        self.label_info.text = "Approving Stake Pool Deployer to transfer your NFT to the Stake Pool Contract. This NFT will stay in the {} Stake Pool Contract forever, allowing users to easily verify the authenticity of the stake pool.".format(self.input['ticker'])
+        self.label_info.text = "Transaction 1 of 2: Approving Stake Pool Deployer to transfer your NFT to the Stake Pool Contract. This NFT will stay in the {} Stake Pool Contract forever, allowing users to easily verify the authenticity of the stake pool.".format(self.input['ticker'])
         self.label_info.icon='fa:info'
         try:
           approval = anvil.js.await_promise(get_open_form().get_contract_write("NAME_NFT").approve(deployer_address, ticker_id))
@@ -112,8 +112,14 @@ class create_stake_pool(create_stake_poolTemplate):
           return False
          
       try:
-        self.label_info.text = "Deploying Stake."
+        self.label_info.text = "Transaction 2 of 2: Deploying Stake."
         self.label_info.icon='fa:info'
+        c=confirm(self.input)
+        if not c:
+          event_args['sender'].enabled=True
+          self.label_info.text = None
+          self.label_info.icon=''
+          return False
         a = anvil.js.await_promise(write_contract.deployPool(self.input['ticker'], self.input['initial_mint_length'], self.input['stake_length'], self.input['ongoing_mint_length'],
                                                                                       self.input['name'], self.input['organizer_fee']*100, self.input['organizer_address']))
         a.wait()
@@ -131,7 +137,7 @@ class create_stake_pool(create_stake_poolTemplate):
       address = read_contract.POOL_RECORD(self.input['ticker'])
       
       
-      anvil.server.call('new_pool', address, self.input['ticker'], self.uploaded_image)
+      anvil.server.call('new_pool', address, self.input['ticker'], self.text_area_description.text, self.uploaded_image)
       get_open_form().menu_click(sender = get_open_form().button_pools, goto = self.input['ticker'])
     else:
       self.button_deploy.enabled=True

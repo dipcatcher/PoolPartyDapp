@@ -12,7 +12,8 @@ class manage_pool(manage_poolTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.item = properties['pool_data']
-    self.contract_write = get_open_form().get_perpetual_pool_contract_write(self.item['pool_address'])
+    if get_open_form().metamask.address is not None:
+      self.contract_write = get_open_form().get_perpetual_pool_contract_write(self.item['pool_address'])
     self.contract_read = get_open_form().get_perpetual_pool_contract_read(self.item['pool_address'])
     self.hex_contract_read = get_open_form().get_contract_read("HEX")
     self.hdrn_contract_read = get_open_form().get_contract_read("HDRN")

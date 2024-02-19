@@ -18,7 +18,8 @@ class RowTemplate7(RowTemplate7Template):
     self.label_organizer_fee.text = "{}%".format(self.item['organizer_share']/100)
     print(dir(self.item['ticker']))
     self.label_ticker.text = self.item['ticker']
-    self.label_pooled_hex.text = "{:,.2f}".format(int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())/(10**8))
+    
+    self.label_pooled_hex.text = "{:,.2f}".format((int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())+ self.item['current stake principal'])/(10**8))
     try:
       self.image_1.source = app_tables.pool_data.get(ticker=self.item['ticker'])['logo']
     except:

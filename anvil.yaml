@@ -22,7 +22,7 @@ runtime_options:
   server_version: python3-full
   server_spec: null
   server_spec_disabled: {requirements: PIL, base: python310-standard}
-metadata: {title: Pool Party Testnet, logo_img: 'asset:link image.jpeg', description: Pool Party Testnet}
+metadata: {title: Pool Party Testnet, logo_img: 'asset:link image 2.png', description: Pool Party Testnet}
 startup_form: null
 native_deps: {head_html: '<style>
 
