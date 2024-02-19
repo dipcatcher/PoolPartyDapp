@@ -15,14 +15,14 @@ services:
 startup: {type: form, module: _home}
 package_name: Pool_Party
 allow_embedding: false
-name: Clone of Pool Party Testnet
+name: Maximus Pool Party
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
   server_spec: null
   server_spec_disabled: {requirements: PIL, base: python310-standard}
-metadata: {title: Pool Party Testnet, logo_img: 'asset:link image 2.png', description: Pool Party Testnet}
+metadata: {title: Maximus Pool Party, logo_img: 'asset:link image 2.png', description: Earn rewards and stake hex together!}
 startup_form: null
 native_deps: {head_html: '<style>
 
