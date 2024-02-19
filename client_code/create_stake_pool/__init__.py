@@ -121,7 +121,7 @@ class create_stake_pool(create_stake_poolTemplate):
           self.label_info.icon=''
           return False
         a = anvil.js.await_promise(write_contract.deployPool(self.input['ticker'], self.input['initial_mint_length'], self.input['stake_length'], self.input['ongoing_mint_length'],
-                                                                                      self.input['name'], self.input['organizer_fee']*100, self.input['organizer_address']))
+                                                                                      "{} via Maximus Pool Party".format(self.input['name']), self.input['organizer_fee']*100, self.input['organizer_address']))
         a.wait()
         self.label_info.text = None
         Notification("Pool Deployed Succesfully").show()
