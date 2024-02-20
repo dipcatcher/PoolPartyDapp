@@ -43,8 +43,15 @@ class pool_page(pool_pageTemplate):
     for log in logs:
       print(log)
     
-    # Any code you write here will run before the form opens.
+  
+
+    
+    return data
   def refresh(self):
+    
+    d = self.get_pool_data()
+    for k,v in d.items():
+      self.item[k]=v
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
     self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['description']
@@ -127,8 +134,11 @@ class pool_page(pool_pageTemplate):
     data['stake end day']=int(self.read_contract.STAKE_END_DAY().toString())
     data['stake is active']=self.read_contract.STAKE_IS_ACTIVE()
     data['stake length']=int(self.read_contract.STAKE_LENGTH().toString())
-    
+    pool_address = self.item['pool_address']
     data['days until stake end'] = data['stake end day']- data['current hex day']
+    data['hdrn balance'] = int(get_open_form().get_contract_read("HDRN").balanceOf(pool_address).toString())
+    data['com balance'] = int(get_open_form().get_contract_read("COM").balanceOf(pool_address).toString())
+    data['hex balance'] = int(get_open_form().get_contract_read("HEX").balanceOf(pool_address).toString())
     
     return data
   def menu_click(self, **event_args):

@@ -13,16 +13,22 @@ class RowTemplate7(RowTemplate7Template):
     
     
   def refresh_display(self):
-    
-    self.label_length.text = "{} days".format(self.item['stake_duration'])
-    self.label_organizer_fee.text = "{}%".format(self.item['organizer_share']/100)
-    self.label_ticker.text = self.item['ticker']
-    
-    self.label_pooled_hex.text = "{:,.2f}".format((int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())+ self.item['current stake principal'])/(10**8))
-    try:
-      self.image_1.source = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['logo']
-    except:
-      pass
+    with anvil.server.no_loading_indicator:
+      self.label_length.text = "{} days".format(self.item['stake_duration'])
+      self.label_organizer_fee.text = "{}%".format(self.item['organizer_share']/100)
+      self.label_ticker.text = self.item['ticker']
+      
+      self.label_pooled_hex.text = "{:,.2f}".format((int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())+ self.item['current stake principal'])/(10**8))
+      try:
+        image = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['logo']
+        self.image_1.source = image
+      except:
+        try:
+          image = app_tables.ticker_nfts.get(chain=get_open_form().current_network, name=self.item['ticker'])['image']
+          
+          self.image_1.source = image
+        except:
+          pass
   def link_join_click(self, **event_args):
     self.pool_page = pool_page(pool_data = self.item, list_page = self)
     get_open_form().pool_panel.clear()
