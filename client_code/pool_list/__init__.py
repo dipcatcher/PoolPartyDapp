@@ -15,6 +15,8 @@ class pool_list(pool_listTemplate):
     self.contract = get_open_form().get_contract_read("POOL_DEPLOYER")
     t0 = time.time()
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
+    t1=time.time()
+    print(t1-t0)
     print(pool_deploy_events)
     '''event PoolDeployment(string ticker, uint256 initial_mint_duration, 
                         uint256 stake_duration, 
@@ -45,6 +47,7 @@ class pool_list(pool_listTemplate):
         ticker = properties['goto']
         if ticker ==pool_data['ticker']:
           target_pool_data = pool_data
+    t2=time.time()
     if "goto" in properties:
   
       self.clear()
@@ -52,6 +55,10 @@ class pool_list(pool_listTemplate):
     else:
       self.repeating_panel_1.items=self.all_active_pools
       self.repeating_panel_is_staked.items = self.all_staked_pools
+    t3=time.time()
+    print(t2-t1)
+    print(t3-t2)
+    
     # Any code you write here will run before the form opens.
   def get_pool_data(self, pool_address):
     data = {}

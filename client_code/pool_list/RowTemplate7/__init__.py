@@ -16,7 +16,6 @@ class RowTemplate7(RowTemplate7Template):
     
     self.label_length.text = "{} days".format(self.item['stake_duration'])
     self.label_organizer_fee.text = "{}%".format(self.item['organizer_share']/100)
-    print(dir(self.item['ticker']))
     self.label_ticker.text = self.item['ticker']
     
     self.label_pooled_hex.text = "{:,.2f}".format((int(get_open_form().get_contract_read("HEX").balanceOf(self.item['pool_address']).toString())+ self.item['current stake principal'])/(10**8))
