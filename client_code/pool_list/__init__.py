@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..pool_page import pool_page
+import time
 class pool_list(pool_listTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -12,8 +13,9 @@ class pool_list(pool_listTemplate):
     self.hex_contract_read = get_open_form().get_contract_read("HEX")
     self.current_hex_day = int(self.hex_contract_read.currentDay().toString())
     self.contract = get_open_form().get_contract_read("POOL_DEPLOYER")
+    t0 = time.time()
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
-    
+    print(pool_deploy_events)
     '''event PoolDeployment(string ticker, uint256 initial_mint_duration, 
                         uint256 stake_duration, 
                         uint256 reload_duration,
@@ -22,10 +24,9 @@ class pool_list(pool_listTemplate):
     self.all_active_pools = []
     self.all_staked_pools = []
     for e in pool_deploy_events: 
-      print(pool_deploy_events)
+      
       pool_data = {}
       pool_data['ticker'] = e['args'][0]
-      print(e['args'][0])
       pool_data['initial_mint_duration']= int(e['args'][1].toString())
       pool_data['stake_duration']= int(e['args'][2].toString())
       pool_data['reload_duration']= int(e['args'][3].toString())

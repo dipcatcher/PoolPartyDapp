@@ -20,5 +20,5 @@ def reset():
 
 @anvil.server.callable
 def new_pool(chain, address, ticker, description, logo=None):
-  app_tables.pool_data.add_row(address=address, ticker=ticker, logo=logo, description=description)
+  app_tables.pool_data.add_row(address=address, ticker=ticker, logo=logo, description=description, chain=chain)
 
