@@ -17,7 +17,7 @@ class pool_list(pool_listTemplate):
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
     t1=time.time()
     print(t1-t0)
-    print(pool_deploy_events)
+  
     '''event PoolDeployment(string ticker, uint256 initial_mint_duration, 
                         uint256 stake_duration, 
                         uint256 reload_duration,
@@ -26,7 +26,7 @@ class pool_list(pool_listTemplate):
     self.all_active_pools = []
     self.all_staked_pools = []
     for e in pool_deploy_events: 
-      
+      _=time.time()
       pool_data = {}
       pool_data['ticker'] = e['args'][0]
       pool_data['initial_mint_duration']= int(e['args'][1].toString())
@@ -47,6 +47,8 @@ class pool_list(pool_listTemplate):
         ticker = properties['goto']
         if ticker ==pool_data['ticker']:
           target_pool_data = pool_data
+      __=time.time()
+      print(__-_)
     t2=time.time()
     if "goto" in properties:
   
@@ -63,26 +65,31 @@ class pool_list(pool_listTemplate):
   def get_pool_data(self, pool_address):
     data = {}
     self.read_contract = get_open_form().get_perpetual_pool_contract_read(pool_address)
+    
+    
+    '''
     data['name']=self.read_contract.name()
     data['liquid supply']=int(self.read_contract.totalSupply().toString())
-    
     data['hdrn balance'] = int(get_open_form().get_contract_read("HDRN").balanceOf(pool_address).toString())
     data['com balance'] = int(get_open_form().get_contract_read("COM").balanceOf(pool_address).toString())
     data['hex balance'] = int(get_open_form().get_contract_read("HEX").balanceOf(pool_address).toString())
     data['current hex day']=int(self.read_contract.getHexDay().toString())
     data['current period']=int(self.read_contract.CURRENT_PERIOD().toString())
-    data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
+    
     data['reload phase duration']=int(self.read_contract.RELOAD_PHASE_DURATION().toString())
     data['redemption rate']=int(self.read_contract.HEX_REDEMPTION_RATE().toString())
     data['reload phase start']=int(self.read_contract.RELOAD_PHASE_START().toString())
-    data['reload phase end']=int(self.read_contract.RELOAD_PHASE_END().toString())
-    data['stake start day']=int(self.read_contract.STAKE_START_DAY().toString())
     
-    data['can join now'] = self.current_hex_day<=data['reload phase end']
+    data['stake start day']=int(self.read_contract.STAKE_START_DAY().toString())
     data['stake end day']=int(self.read_contract.STAKE_END_DAY().toString())
     data['stake is active']=self.read_contract.STAKE_IS_ACTIVE()
     data['stake length']=int(self.read_contract.STAKE_LENGTH().toString())
+    data['days until stake end'] = data['stake end day']- data['current hex day']'''
+    data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
+    data['reload phase end']=int(self.read_contract.RELOAD_PHASE_END().toString())
+    data['can join now'] = self.current_hex_day<=data['reload phase end']
+    
     
 
-    data['days until stake end'] = data['stake end day']- data['current hex day']
+    
     return data
