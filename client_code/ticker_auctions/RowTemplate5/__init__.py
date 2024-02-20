@@ -99,6 +99,7 @@ class RowTemplate5(RowTemplate5Template):
         print(self.minimum_bid)
         self.link_minimum_bid.text = "{} PARTY".format(self.minimum_bid)
         self.label_timestamp.text = self.item['auctionEndTimestamp']
+        self.label_2.text = self.item['controller']
     elif event_args['sender'].text =='finalize':
       event_args['sender'].enabled = False
       self.write_contract = get_open_form().get_contract_write("PARTY")
