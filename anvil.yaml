@@ -296,7 +296,7 @@ db_schema:
     title: Table 2
   pool_data:
     title: pool_data
-    client: full
+    client: search
     server: full
     columns:
     - name: address
