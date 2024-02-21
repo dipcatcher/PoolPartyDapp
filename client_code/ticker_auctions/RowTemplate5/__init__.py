@@ -132,7 +132,10 @@ class RowTemplate5(RowTemplate5Template):
       name_id = self.name_nft_contract.NAME_ID(self.item['ticker']).toNumber()
       owner = self.name_nft_contract.ownerOf(name_id)
       text = f"Owner: {owner}\nNFT ID: {name_id}\nPARTY Burnt: {int(self.item['bidAmount']/(10**18)):,}"
-      alert(text, title='Auction Details')
+      cp = ColumnPanel()
+      cp.add_component(Label(text=text))
+      cp.add_component(Image(source=app_tables.ticker_nfts.get(chain=get_open_form().current_network, name=self.item['ticker'])['image']))
+      alert(cp, title='Auction Details')
       
 
   def text_box_bid_change(self, **event_args):
