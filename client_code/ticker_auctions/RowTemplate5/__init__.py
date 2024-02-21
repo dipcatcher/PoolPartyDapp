@@ -133,6 +133,7 @@ class RowTemplate5(RowTemplate5Template):
       owner = self.name_nft_contract.ownerOf(name_id)
       text = f"Owner: {owner}\nNFT ID: {name_id}\nPARTY Burnt: {int(self.item['bidAmount']/(10**18)):,}"
       cp = ColumnPanel()
+      
       cp.add_component(Label(text=text))
       cp.add_component(Image(source=app_tables.ticker_nfts.get(chain=get_open_form().current_network, name=self.item['ticker'])['image']))
       alert(cp, title='Auction Details')
