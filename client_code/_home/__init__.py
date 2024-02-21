@@ -162,7 +162,7 @@ class _home(_homeTemplate):
   
 
 
-  def metamask_connect(self, **event_args):
+  def metamask_old_connect(self, **event_args):
     self.connected_chain = self.metamask.provider.getNetwork()['chainId']
     print(self.connected_chain)
     
@@ -235,6 +235,22 @@ class _home(_homeTemplate):
     """This method is called when the button is clicked"""
     
     alert(buy_party(), buttons=[])
+
+  def metamask_connect(self, **event_args):
+    self.connected_chain = self.metamask.chainId
+    print(self.connected_chain)
+    
+    self.button_switch.visible = False
+    if self.connected_chain==1:
+      self.button_switch.text = "ETH" 
+    elif self.connected_chain in [369]:
+      self.button_switch.text = "PLS"
+    self.current_network = self.button_switch.text
+    self.menu_click(sender=self.latest, is_btn=True)
+    if len(self.pool_panel.get_components())>0:
+      print("OK")
+      self.pool_panel.get_components()[0].refresh()
+      self.pool_panel.get_components()[0].display.refresh()
 
 
   
