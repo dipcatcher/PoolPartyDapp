@@ -60,7 +60,11 @@ class RowTemplate5(RowTemplate5Template):
     
   def refresh_time_remaining(self):
     currentBlock = get_open_form().providers[get_open_form().current_network].getBlockNumber()
-    blockTimestamp = get_open_form().providers[get_open_form().current_network].getBlock(currentBlock).timestamp
+    try:
+      blockTimestamp = get_open_form().providers[get_open_form().current_network].getBlock(currentBlock).timestamp
+    except:
+      return False
+    
     
     if blockTimestamp>self.item['auctionEndTimestamp']:
       self.label_time_remaining.text = "Auction Done"
