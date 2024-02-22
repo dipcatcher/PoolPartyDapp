@@ -34,10 +34,16 @@ class _home(_homeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
+    self.metamask.button_1.background="#00EAFF"
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")
     self.connected_chain=None
+    self.adp_run = False
+    try:
+      self.launched_session_connected
+    except:
+      pass
+    
     
 
   def activate_default_providers(self):
@@ -48,6 +54,7 @@ class _home(_homeTemplate):
     self.providers['ETH'] = ethers.providers.JsonRpcProvider(urls["ETH"])
     self.providers["PLS"]= ethers.providers.JsonRpcProvider(urls["PLS"])
     self.contract_data = ch.contract_data()
+    self.adp_run=True
   
   def events_catalog(self, event_name, from_block = 0, to_block = "latest"):
     party_contract_read = self.get_contract_read("PARTY")
@@ -246,11 +253,20 @@ class _home(_homeTemplate):
     elif self.connected_chain in [369]:
       self.button_switch.text = "PLS"
     self.current_network = self.button_switch.text
-    self.menu_click(sender=self.latest, is_btn=True)
-    if len(self.pool_panel.get_components())>0:
-      print("OK")
-      self.pool_panel.get_components()[0].refresh()
-      self.pool_panel.get_components()[0].display.refresh()
+    try:
+      b = self.adp_run
+      do_menu_click = True
+      self.launched_session_connected= False
+    except:
+      do_menu_click=False
+      self.launched_session_connected=True
+    if do_menu_click:
+      self.menu_click(sender=self.latest, is_btn=True)
+      if len(self.pool_panel.get_components())>0:
+        print("OK")
+        self.pool_panel.get_components()[0].refresh()
+        self.pool_panel.get_components()[0].display.refresh()
+    
 
 
   

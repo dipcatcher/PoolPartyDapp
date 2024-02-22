@@ -150,9 +150,11 @@ components:
   layout_properties: {slot: float, grid_position: 'RWLOOW,TFOVYH'}
   components:
   - name: metamask
-    properties: {}
+    properties: {project_id: 03f4fc86117e7b57a2db790fd98541a4, name: Maximus Pool Party,
+      icon: 'https://app.hexpool.party/_/theme/party%20small.svg', description: Trustless HEX stake pooling and more.}
     type: form:dep_o7u9cxbd2zihg:WalletConnect
     event_bindings: {connect: metamask_connect}
+    layout_properties: {}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: false, text: PLS, font_size: null, font: '', spacing_above: small,

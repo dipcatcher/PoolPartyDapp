@@ -105,6 +105,8 @@ class stake_party(stake_partyTemplate):
         alert(e.original_error.reason)
       except:
         alert(e.original_error.message)
+      event_args['sender'].text = existing_text
+      event_args['sender'].enabled = True
 
   def custom_1_text_change(self, **event_args):
     """This method is called when the text box changes"""
