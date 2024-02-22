@@ -36,8 +36,12 @@ class pool_list(pool_listTemplate):
       pool_data['organizer_share']= int(e['args'][5].toString())
       pool_data['organizer_address']= e['args'][6]
       pool_data['pool_address']= e['args'][7]
+      __ = time.time()
       for k,v in self.get_pool_data(pool_data['pool_address']).items():
         pool_data[k] = v
+      ___=time.time()
+      print("event",__-_)
+      print("query",___-__)
       if not pool_data["can join now"]:
         self.all_staked_pools.append(pool_data)
       else:
@@ -47,8 +51,9 @@ class pool_list(pool_listTemplate):
         ticker = properties['goto']
         if ticker ==pool_data['ticker']:
           target_pool_data = pool_data
-      __=time.time()
-      print(__-_)
+     
+      print("event",__-_)
+      print("query",___-__)
     t2=time.time()
     if "goto" in properties:
   
