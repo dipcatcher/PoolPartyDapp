@@ -34,6 +34,7 @@ class _home(_homeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    
     self.metamask.button_1.background="#00EAFF"
     self.activate_default_providers()
     self.nameclaim_contract = self.get_contract_read("NAMECLAIM")

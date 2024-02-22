@@ -13,6 +13,7 @@ class pool_list(pool_listTemplate):
     self.hex_contract_read = get_open_form().get_contract_read("HEX")
     self.current_hex_day = int(self.hex_contract_read.currentDay().toString())
     self.contract = get_open_form().get_contract_read("POOL_DEPLOYER")
+    self.pools = app_tables.indexed_data.get(name="pool_list")['data']
     t0 = time.time()
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
     t1=time.time()
@@ -37,7 +38,7 @@ class pool_list(pool_listTemplate):
       pool_data['organizer_address']= e['args'][6]
       pool_data['pool_address']= e['args'][7]
       __ = time.time()
-      for k,v in self.get_pool_data(pool_data['pool_address']).items():
+      for k,v in self.get_pool_data(pool_data['pool_address'], pool_data['ticker']).items():
         pool_data[k] = v
       ___=time.time()
       print("event",__-_)
@@ -67,9 +68,9 @@ class pool_list(pool_listTemplate):
     print(t3-t2)
     
     # Any code you write here will run before the form opens.
-  def get_pool_data(self, pool_address):
+  def get_pool_data(self, pool_address, ticker):
     data = {}
-    self.read_contract = get_open_form().get_perpetual_pool_contract_read(pool_address)
+   
     
     
     '''
@@ -90,9 +91,18 @@ class pool_list(pool_listTemplate):
     data['stake is active']=self.read_contract.STAKE_IS_ACTIVE()
     data['stake length']=int(self.read_contract.STAKE_LENGTH().toString())
     data['days until stake end'] = data['stake end day']- data['current hex day']'''
-    data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
-    data['reload phase end']=int(self.read_contract.RELOAD_PHASE_END().toString())
-    data['can join now'] = self.current_hex_day<=data['reload phase end']
+    try:
+      #p = app_tables.pool_data.get(chain = get_open_form().current_network, address=pool_address)
+      p = self.pools[get_open_form().current_network][ticker]
+      data['current stake principal']=p['CURRENT_STAKE_PRINCIPAL']
+      data['reload phase end']=p['RELOAD_PHASE_END']
+      data['can join now'] = self.current_hex_day<=data['reload phase end']
+    except Exception as e:
+      print(e)
+      self.read_contract = get_open_form().get_perpetual_pool_contract_read(pool_address)
+      data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
+      data['reload phase end']=int(self.read_contract.RELOAD_PHASE_END().toString())
+      data['can join now'] = self.current_hex_day<=data['reload phase end']
     
     
 
