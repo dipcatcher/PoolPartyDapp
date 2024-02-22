@@ -17,6 +17,8 @@ class pool_page(pool_pageTemplate):
     self.redeem_page = None
     self.dh_page = None
     self.item = properties['pool_data']
+    print(self.item)
+    self.pool_row =  app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)
     #self.list_page = properties['list_page']
     self.read_contract = get_open_form().get_perpetual_pool_contract_read(self.item['pool_address'])
     self.first = True
@@ -49,12 +51,10 @@ class pool_page(pool_pageTemplate):
     return data
   def refresh(self):
     
-    d = self.get_pool_data()
-    for k,v in d.items():
-      self.item[k]=v
+    
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']
-    self.label_description.text = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['description']
+    self.label_description.text =self.pool_row['description']
     self.label_address.text = "{}".format(self.item['pool_address'])
     self.label_organizer.text = "Organizer: {}".format(self.item['organizer_address'])
     data_display_values = ['liquid supply',"timelocked supply", "penalty pool supply","complete total supply", "current stake principal" ]
@@ -118,29 +118,7 @@ class pool_page(pool_pageTemplate):
       
      
     return data
-  def get_pool_data(self):
-    data = {}
-    data['name']=self.read_contract.name()
-    data['liquid supply']=int(self.read_contract.totalSupply().toString())
-   
-    data['current hex day']=int(self.read_contract.getHexDay().toString())
-    data['current period']=int(self.read_contract.CURRENT_PERIOD().toString())
-    data['current stake principal']=int(self.read_contract.CURRENT_STAKE_PRINCIPAL().toString())
-    data['reload phase duration']=int(self.read_contract.RELOAD_PHASE_DURATION().toString())
-    data['redemption rate']=int(self.read_contract.HEX_REDEMPTION_RATE().toString())
-    data['reload phase start']=int(self.read_contract.RELOAD_PHASE_START().toString())
-    data['reload phase end']=int(self.read_contract.RELOAD_PHASE_END().toString())
-    data['stake start day']=int(self.read_contract.STAKE_START_DAY().toString())
-    data['stake end day']=int(self.read_contract.STAKE_END_DAY().toString())
-    data['stake is active']=self.read_contract.STAKE_IS_ACTIVE()
-    data['stake length']=int(self.read_contract.STAKE_LENGTH().toString())
-    pool_address = self.item['pool_address']
-    data['days until stake end'] = data['stake end day']- data['current hex day']
-    data['hdrn balance'] = int(get_open_form().get_contract_read("HDRN").balanceOf(pool_address).toString())
-    data['com balance'] = int(get_open_form().get_contract_read("COM").balanceOf(pool_address).toString())
-    data['hex balance'] = int(get_open_form().get_contract_read("HEX").balanceOf(pool_address).toString())
-    
-    return data
+  
   def menu_click(self, **event_args):
     """This method is called when the button is clicked"""
     
@@ -165,7 +143,7 @@ class pool_page(pool_pageTemplate):
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
     try:
-      self.image_logo.source = app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)['logo']
+      self.image_logo.source = self.pool_row['logo']
     except:
       pass
 
