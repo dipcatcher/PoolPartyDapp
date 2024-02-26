@@ -50,7 +50,7 @@ class pool_page(pool_pageTemplate):
     
     return data
   def refresh(self):
-    
+    print(self.item)
     
     self.label_name.text = self.item['name']
     self.label_symbol.text = self.item['ticker']

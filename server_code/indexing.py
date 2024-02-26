@@ -30,6 +30,7 @@ def check_pool(chain, address):
   w3=getw3(chain)
   contract = w3.eth.contract(address=address, abi=abi)
   hex_contract = w3.eth.contract(address=h['address'], abi=h['abi'])
+  
   data = {"RELOAD_PHASE_START":contract.functions.RELOAD_PHASE_START().call(),
           "RELOAD_PHASE_END":contract.functions.RELOAD_PHASE_END().call(),
           "STAKE_START_DAY":contract.functions.STAKE_START_DAY().call(),
@@ -76,8 +77,10 @@ def check_pools():
     
     data = check_pool( pool['chain'], pool['address'])
     indexed_data[pool['chain']][pool['ticker']] =data
+    anvil.server.task_state = "{} of {} collected...".format(n, l)
     n+=1
   app_tables.indexed_data.get(name='pool_list').update(data=indexed_data)
+  return app_tables.indexed_data.get(name="pool_list")
     
   
 @anvil.server.callable

@@ -97,6 +97,12 @@ class pool_list(pool_listTemplate):
       data['current stake principal']=p['CURRENT_STAKE_PRINCIPAL']
       data['reload phase end']=p['RELOAD_PHASE_END']
       data['can join now'] = self.current_hex_day<=data['reload phase end']
+      data['stake is active']=p['STAKE_IS_ACTIVE']
+      data['reload phase start']=p['RELOAD_PHASE_START']
+      print(data)
+      print(p)
+      for k,v in p.items():
+        data[k]=v
     except Exception as e:
       print(e)
       self.read_contract = get_open_form().get_perpetual_pool_contract_read(pool_address)
@@ -108,3 +114,14 @@ class pool_list(pool_listTemplate):
 
     
     return data
+
+  def button_refresh_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    event_args['sender'].text = "Collecting Data..."
+    event_args['sender'].enabled=False
+    task = anvil.server.call('run_check_pools')
+    while task.is_running():
+      time.sleep(1)
+      event_args['sender'].text = task.get_state()
+    get_open_form().menu_click(sender=get_open_form().latest)
+    

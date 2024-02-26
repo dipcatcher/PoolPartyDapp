@@ -20,6 +20,7 @@ components:
     properties: {text: refresh, icon: 'fa:refresh'}
     type: Button
     layout_properties: {grid_position: 'FVYAAL,PWNIRC'}
+    event_bindings: {click: button_refresh_click}
   - type: DataGrid
     properties:
       role: null
