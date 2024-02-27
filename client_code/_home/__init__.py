@@ -40,6 +40,8 @@ class _home(_homeTemplate):
       if 'chain' in hash.keys():
         self.default_network = hash['chain']
         print(self.default_network)
+        self.metamask.refreshModal(default_chain = self.default_network)
+        
     except Exception as e:
       print(e)
     
