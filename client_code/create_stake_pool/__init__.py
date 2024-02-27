@@ -202,6 +202,11 @@ class create_stake_pool(create_stake_poolTemplate):
   def text_area_description_change(self, **event_args):
     """This method is called when the text in this text area is edited"""
     pass
+
+  def link_why_nametag_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    text = "The Nametag NFTs are used to ensure each stake pool launched through Pool Party has a unique ticker name. To start a pool you must acquire a Nametag of the ticker name you plan on launching a pool with. When you create the stake pool, the Nametag is permanently affixed to the stake pool contract."
+    alert(text, title="What are Nametag NFTs?")
         
 
     
