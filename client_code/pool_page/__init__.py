@@ -137,8 +137,9 @@ class pool_page(pool_pageTemplate):
     self.column_panel_actions.add_component(self.display)
 
   def link_all_pools_click(self, **event_args):
-    get_open_form().content_panel.visible=True
     get_open_form().pool_panel.clear()
+    get_open_form().content_panel.visible=True
+    
 
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
