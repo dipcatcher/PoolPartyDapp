@@ -34,6 +34,14 @@ class _home(_homeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.default_network = "PLS"
+    hash = get_url_hash()
+    try:
+      if 'chain' in hash.keys():
+        self.default_network = hash['chain']
+        print(self.default_network)
+    except Exception as e:
+      print(e)
     
     self.metamask.button_1.background="#00EAFF"
     self.activate_default_providers()
@@ -44,7 +52,7 @@ class _home(_homeTemplate):
       self.launched_session_connected
     except:
       pass
-    self.default_network = "PLS"
+    
     
     
 
