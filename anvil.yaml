@@ -13,7 +13,7 @@ dependencies:
   version: {dev: false}
   resolution_hints: {app_id: M5VAKGC7ZJP4L7CY, name: Pool Party image generator, package_name: Pool_Party_image_generator}
 - dep_id: dep_o7u9cxbd2zihg
-  version: {dev: true}
+  version: {dev: false}
   resolution_hints: {app_id: 4TWMMIN6FHFQ5474, name: WalletConnectComponent, package_name: MetaMask_Button}
 services:
 - source: /runtime/services/tables.yml
