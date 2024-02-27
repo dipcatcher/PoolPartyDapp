@@ -10,10 +10,13 @@ class pool_list(pool_listTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.props = properties
     self.hex_contract_read = get_open_form().get_contract_read("HEX")
     self.current_hex_day = int(self.hex_contract_read.currentDay().toString())
     self.contract = get_open_form().get_contract_read("POOL_DEPLOYER")
     self.pools = app_tables.indexed_data.get(name="pool_list")['data']
+    self.refresh_display()
+  def refresh_display(self):
     t0 = time.time()
     pool_deploy_events = anvil.js.await_promise(self.contract.queryFilter('PoolDeployment'))
     t1=time.time()
@@ -48,15 +51,15 @@ class pool_list(pool_listTemplate):
       else:
         self.all_active_pools.append(pool_data)
       
-      if "goto" in properties:
-        ticker = properties['goto']
+      if "goto" in self.props:
+        ticker = self.props['goto']
         if ticker ==pool_data['ticker']:
           target_pool_data = pool_data
      
       print("event",__-_)
       print("query",___-__)
     t2=time.time()
-    if "goto" in properties:
+    if "goto" in self.props:
   
       self.clear()
       self.add_component(pool_page(pool_data =target_pool_data ))
@@ -99,6 +102,7 @@ class pool_list(pool_listTemplate):
       data['can join now'] = self.current_hex_day<=data['reload phase end']
       data['stake is active']=p['STAKE_IS_ACTIVE']
       data['reload phase start']=p['RELOAD_PHASE_START']
+      
       print(data)
       print(p)
       for k,v in p.items():
@@ -120,8 +124,11 @@ class pool_list(pool_listTemplate):
     event_args['sender'].text = "Collecting Data..."
     event_args['sender'].enabled=False
     task = anvil.server.call('run_check_pools')
-    while task.is_running():
+    while task.get_state() != "DONE":
       time.sleep(1)
       event_args['sender'].text = task.get_state()
-    get_open_form().menu_click(sender=get_open_form().latest)
+     
+    self.pools = app_tables.indexed_data.get(name="pool_list")['data']
+    self.refresh_display()
+    #get_open_form().menu_click(sender=get_open_form().latest)
     

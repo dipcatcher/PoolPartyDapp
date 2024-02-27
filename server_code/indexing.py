@@ -69,18 +69,21 @@ def check_pool(chain, address):
 
 @anvil.server.background_task
 def check_pools():
+  
   pools = app_tables.pool_data.search()
   indexed_data = {"PLS": {}, "ETH":{}}
   l = len(pools)
   n=1
+  anvil.server.task_state = "{} of {} collected...".format(n, l)
   for pool in pools:
     
     data = check_pool( pool['chain'], pool['address'])
     indexed_data[pool['chain']][pool['ticker']] =data
     anvil.server.task_state = "{} of {} collected...".format(n, l)
     n+=1
+  print('done')
   app_tables.indexed_data.get(name='pool_list').update(data=indexed_data)
-  return app_tables.indexed_data.get(name="pool_list")
+  anvil.server.task_state = "DONE"
     
   
 @anvil.server.callable

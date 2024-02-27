@@ -2,9 +2,9 @@ correct_dependency_ids: {CY6SHX5TPGTSZ6UY: CY6SHX5TPGTSZ6UY}
 scheduled_tasks:
 - task_name: check_pools
   time_spec:
-    n: 12
-    every: hour
-    at: {minute: 0}
+    n: 6
+    every: minute
+    at: {}
   job_id: QRYIQXQA
 dependencies:
 - app_id: CY6SHX5TPGTSZ6UY

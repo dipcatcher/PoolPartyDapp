@@ -44,11 +44,12 @@ class _home(_homeTemplate):
       self.launched_session_connected
     except:
       pass
+    self.default_network = "PLS"
     
     
 
   def activate_default_providers(self):
-    self.default_network = "PLS"
+    
     self.current_network=self.default_network
     urls = {"PLS":pulsechain_url, "ETH":ethereum_url}
     self.providers = {}
@@ -126,7 +127,9 @@ class _home(_homeTemplate):
     elif event_args['sender'] == self.link_mint_nft:
       self.page = nft_claim()
     elif event_args['sender'] == self.link_ticker_auctions:
+      self.content_panel.add_component(Label(align="center",text="Loading Auctions...", icon="https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif", role='headline'))
       self.page = ticker_auctions()
+      self.content_panel.clear()
     elif event_args['sender'] == self.link_claim:
       self.page = airdrop()
     elif event_args['sender'] == self.link_create_stake_pool:
@@ -145,7 +148,9 @@ class _home(_homeTemplate):
       self.page = party_rewards()
     
     elif event_args['sender']==self.link_wallet:
+      self.content_panel.add_component(Label(align="center",text="Loading Wallet...", icon="https://media.giphy.com/media/fphXG8dDcRHVavls9o/giphy.gif", role='headline'))
       self.page = user_wallet()
+      self.content_panel.clear()
     
   
     

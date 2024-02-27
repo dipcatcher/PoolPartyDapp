@@ -18,7 +18,7 @@ components:
     layout_properties: {grid_position: 'DWXGGR,RFMOUK'}
   - type: ColumnPanel
     properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZGTAKA":15,"PCTDRX":45}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: ''}
     name: card_1
     layout_properties: {grid_position: 'YWZBJU,VPASYL'}
@@ -74,20 +74,11 @@ components:
       event_bindings: {change: text_box_name_change}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Ticker, font_size: null, font: '', spacing_above: small,
+        visible: true, text: Ticker (Nametag NFT), font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_3
-      layout_properties: {grid_position: 'CCCDKW,ZGTAKA'}
-    - type: Link
-      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Get a Ticker, font_size: null, wrap_on: mobile, font: '',
-        col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
-        spacing_below: none, italic: false, background: '', bold: false, underline: false,
-        icon: ''}
-      name: link_get_ticker
-      layout_properties: {grid_position: 'CCCDKW,PCTDRX'}
-      event_bindings: {click: link_get_ticker_click}
+      layout_properties: {grid_position: 'JYBCFF,DTBDSP'}
     - type: DropDown
       properties:
         role: null
@@ -111,6 +102,26 @@ components:
       name: drop_down_tickers
       layout_properties: {grid_position: 'BNZNFG,IYHGYH'}
       event_bindings: {change: drop_down_tickers_change}
+    - name: rich_text_2
+      properties: {content: ' {a}       {b}', role: mid-width}
+      type: RichText
+      layout_properties: {grid_position: 'BNZNFG,TCNXPQ'}
+      components:
+      - type: Link
+        properties: {role: mid-width, url: '', align: left, tooltip: '', border: '',
+          foreground: '', visible: true, text: Get Nametag NFT, font_size: null, wrap_on: mobile,
+          font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+          spacing_below: none, italic: false, background: '', bold: false, underline: false,
+          icon: ''}
+        name: link_get_ticker
+        layout_properties: {slot: a}
+        event_bindings: {click: link_get_ticker_click}
+      - name: link_why_nametag
+        properties: {icon: 'fa:question-circle', align: left, background: '', foreground: '#fbff00',
+          role: mid-width, text: '  ', icon_align: right_edge}
+        type: Link
+        layout_properties: {slot: b}
+        event_bindings: {click: link_why_nametag_click}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Description, font_size: null, font: '', spacing_above: small,
@@ -189,7 +200,7 @@ components:
       event_bindings: {change: number_entry_change}
     - type: CheckBox
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: '', allow_indeterminate: false, visible: true, text: Organizer Fee,
+        foreground: '', allow_indeterminate: false, visible: true, text: Organizer Reward,
         font_size: null, font: '', spacing_above: small, spacing_below: small, italic: false,
         background: '', bold: false, checked: false, underline: false}
       name: check_box_organizer
@@ -238,9 +249,9 @@ components:
           layout_properties: {slot: v}
         - type: Label
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'Organizer Fee   ', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: none, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
+            visible: true, text: 'Organizer Reward   ', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: none, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
           name: label_6
           layout_properties: {grid_position: 'YWVMND,DRGJJZ', slot: C}
     - type: Button

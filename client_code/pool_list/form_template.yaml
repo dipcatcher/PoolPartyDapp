@@ -29,7 +29,7 @@ components:
       - {id: OENAYH, title: Ticker, data_key: column_2, $$hashKey: 'object:101121'}
       - {id: LDHHSQ, title: Length, data_key: column_3, $$hashKey: 'object:101122'}
       - {id: UZHXTA, title: Pooled HEX, data_key: column_4, $$hashKey: 'object:101494'}
-      - {id: XHLPBH, title: Organizer Fee, data_key: column_5, $$hashKey: 'object:101496'}
+      - {id: XHLPBH, title: Organizer Reward, data_key: column_5, $$hashKey: 'object:101496'}
       - {id: IQMTTG, title: '', data_key: column_6, $$hashKey: 'object:138456'}
       auto_header: true
       tooltip: ''
