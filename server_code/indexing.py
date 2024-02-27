@@ -58,6 +58,8 @@ def check_pool(chain, address):
   data['current stake principal']=contract.functions.CURRENT_STAKE_PRINCIPAL().call()
   data['redemption rate']=contract.functions.HEX_REDEMPTION_RATE().call()
   data['days until stake end'] = data['STAKE_END_DAY']- data['current hex day']
+  data['stake end day']=data['STAKE_END_DAY']
+  data['stake start day']=data['STAKE_START_DAY']
   pool.update(**data)
   re = data
   re['chain']=chain
