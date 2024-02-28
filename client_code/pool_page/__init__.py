@@ -9,6 +9,7 @@ from ..redeem_pool import redeem_pool
 from ..diamond_hand import diamond_hand
 from ..manage_pool import manage_pool
 from ..value_display import value_display
+import anvil.js
 class pool_page(pool_pageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -19,6 +20,14 @@ class pool_page(pool_pageTemplate):
     self.item = properties['pool_data']
     print(self.item)
     self.pool_row =  app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)
+    if self.pool_row is None:
+      
+      anvil.server.call('new_pool', get_open_form().current_network, self.item['pool_address'], self.item['ticker'], "")
+      task = anvil.server.call('run_check_pools')
+      alert("Reloading pool data. This may take a minute for pool data to appear so wait a moment and refresh the page.")
+      
+      self.pool_row =  app_tables.pool_data.get(ticker=self.item['ticker'], chain=get_open_form().current_network)
+      return False
     #self.list_page = properties['list_page']
     self.read_contract = get_open_form().get_perpetual_pool_contract_read(self.item['pool_address'])
     self.first = True
