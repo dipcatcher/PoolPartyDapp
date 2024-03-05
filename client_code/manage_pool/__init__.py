@@ -48,6 +48,7 @@ class manage_pool(manage_poolTemplate):
         require(block.timestamp>BONUS_PROCESSING_DEADLINE, "Must wait until deadline.");"""
     d = bpd > 0
     e = self.contract_read.BONUSES_READY()==False
+    print(e)
     chain = get_open_form().current_network
     block = anvil.js.await_promise(get_open_form().providers[chain].getBlock("latest"))
     timestamp = block['timestamp']
@@ -56,7 +57,7 @@ class manage_pool(manage_poolTemplate):
     
     
     self.button_complete_end.enabled = True
-    self.button_end_stake.enabled = self.contract_write.BONUSES_READY()
+    #self.button_end_stake.enabled = self.contract_write.BONUSES_READY()
     
   def get_latest_hdrn_mint(self):
     filter =self.hdrn_contract_read.filters.Transfer(ethers.constants.AddressZero, self.item['pool_address'])
