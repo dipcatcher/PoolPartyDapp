@@ -12,7 +12,7 @@ class manage_pool(manage_poolTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.item = properties['pool_data']
-    self.refresh
+    self.refresh()
   def refresh(self):
     if get_open_form().metamask.address is not None:
       self.contract_write = get_open_form().get_perpetual_pool_contract_write(self.item['pool_address'])
@@ -49,10 +49,15 @@ class manage_pool(manage_poolTemplate):
     d = bpd > 0
     e = self.contract_read.BONUSES_READY()==False
     chain = get_open_form().current_network
-    f = block = anvil.js.await_promise(self.providers[chain].getBlock("latest"))
-    
+    block = anvil.js.await_promise(get_open_form().providers[chain].getBlock("latest"))
     timestamp = block['timestamp']
+    f = timestamp >bpd
+    self.label_bpd.text = "Timestamp End Sequence Ready: {}\nCurrent Timestamp: {}".format(bpd, timestamp)
+    
+    
     self.button_complete_end.enabled = all([d,e,f])
+    self.button_end_stake.enabled = self.contract_write.BONUSES_READY()
+    
   def get_latest_hdrn_mint(self):
     filter =self.hdrn_contract_read.filters.Transfer(ethers.constants.AddressZero, self.item['pool_address'])
     events = self.hdrn_contract_read.queryFilter(filter, 0, 'latest')
@@ -83,6 +88,7 @@ class manage_pool(manage_poolTemplate):
     a= anvil.js.await_promise(self.contract_write.stakeHEX())
     a.wait()
     Notification("Stake Started").show()
+    self.refresh()
 
   def button_end_stake_click(self, **event_args):
     stake_index = TextBox(text=self.stakeIndex)
@@ -95,6 +101,7 @@ class manage_pool(manage_poolTemplate):
       a = anvil.js.await_promise(self.contract_write.endStakeHEX(stake_index.text, stake_id.text))
       a.wait()
       Notification("Stake Ended").show()
+      self.refresh()
 
   def button_contribute_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -111,6 +118,7 @@ class manage_pool(manage_poolTemplate):
         a = anvil.js.await_promise(self.contract_write.initiateBonusSequence())
         a.wait()
         Notification("Bonus sequence started").show()
+        self.refresh()
       except Exception as e:
         alert(e)
   def button_complete_end_click(self, **event_args):
@@ -124,8 +132,38 @@ class manage_pool(manage_poolTemplate):
         a = anvil.js.await_promise(self.contract_write.completeBonusSequence())
         a.wait()
         Notification("Bonus Sequence Ended").show()
+        self.refresh()
       except Exception as e:
         alert(e)
+
+  def button_com_start_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    try:
+        a = anvil.js.await_promise(self.contract_write.mintStartBonusCom(self.stakeIndex, self.stakeId))
+        a.wait()
+        Notification("Minted COM").show()
+        self.refresh()
+    except Exception as e:
+      alert(e)
+
+  def button_com_end_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    try:
+        a = anvil.js.await_promise(self.contract_write.mintEndBonusCom(self.stakeIndex, self.stakeId))
+        a.wait()
+        Notification("Minted COM").show()
+        self.refresh()
+    except Exception as e:
+      alert(e)
+
+  def button_claim_bonus_click(self, **event_args):
+    try:
+        a = anvil.js.await_promise(self.contract_write.claimBonus())
+        a.wait()
+        Notification("Bonus Sequence Ended").show()
+        self.refresh()
+    except Exception as e:
+      alert(e)
 
 
   
