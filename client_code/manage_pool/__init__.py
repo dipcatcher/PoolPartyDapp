@@ -80,6 +80,33 @@ class manage_pool(manage_poolTemplate):
     """This method is called when the button is clicked"""
     pass
 
+  def button_start_end_click(self, **event_args):
+    stake_index = Label(text="This will start a 6 hour period to mint the final day of hedron and mint COM if available before ending the stake.")
+    
+    c = ColumnPanel()
+    c.add_component(stake_index)
+    _ = alert(c)
+    if True:
+      try:
+        a = anvil.js.await_promise(self.contract_write.initiateBonusSequence())
+        a.wait()
+        Notification("Bonus sequence started").show()
+      except Exception as e:
+        alert(e)
+  def button_complete_end_click(self, **event_args):
+    stake_index = Label(text="This will record a snapshot of balances for COM and HDRN distribution and make the stake able to end. If stake is small and short, HDRN and COM may be infeasible to claim. Run End Stake next.")
+    
+    c = ColumnPanel()
+    c.add_component(stake_index)
+    _ = alert(c)
+    if True:
+      try:
+        a = anvil.js.await_promise(self.contract_write.completeBonusSequence())
+        a.wait()
+        Notification("Bonus Sequence Ended").show()
+      except Exception as e:
+        alert(e)
+
 
   
 
