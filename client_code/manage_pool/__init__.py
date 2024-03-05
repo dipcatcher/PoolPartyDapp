@@ -12,6 +12,8 @@ class manage_pool(manage_poolTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.item = properties['pool_data']
+    self.refresh
+  def refresh(self):
     if get_open_form().metamask.address is not None:
       self.contract_write = get_open_form().get_perpetual_pool_contract_write(self.item['pool_address'])
     self.contract_read = get_open_form().get_perpetual_pool_contract_read(self.item['pool_address'])
@@ -33,6 +35,24 @@ class manage_pool(manage_poolTemplate):
       self.stakeId = stake_data['stakeId']
       self.stakeIndex = stake_data['stakeIndex']
       stakes.append(stake_data)
+    """require(BONUS_PROCESSING_DEADLINE==0, "Can only inititate once per cycle.");
+        require(hex_token.currentDay()>STAKE_END_DAY, "Stake is not complete yet.");
+        require(STAKE_IS_ACTIVE==true, "Stake must be active.");"""
+    bpd = int(self.contract_read.BONUS_PROCESSING_DEADLINE().toString())
+    a = bpd==0
+    b = self.item['current hex day']>self.item['stake end day']
+    c = self.item['stake is active']
+    self.button_start_end.enabled = all([a,b,c])
+    """require(BONUSES_READY==false, "Function already ran.");
+        require(BONUS_PROCESSING_DEADLINE>0, "Must run startBonusSequence first.");
+        require(block.timestamp>BONUS_PROCESSING_DEADLINE, "Must wait until deadline.");"""
+    d = bpd > 0
+    e = self.contract_read.BONUSES_READY()==False
+    chain = get_open_form().current_network
+    f = block = anvil.js.await_promise(self.providers[chain].getBlock("latest"))
+    
+    timestamp = block['timestamp']
+    self.button_complete_end.enabled = all([d,e,f])
   def get_latest_hdrn_mint(self):
     filter =self.hdrn_contract_read.filters.Transfer(ethers.constants.AddressZero, self.item['pool_address'])
     events = self.hdrn_contract_read.queryFilter(filter, 0, 'latest')
