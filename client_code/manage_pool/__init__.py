@@ -55,7 +55,7 @@ class manage_pool(manage_poolTemplate):
     self.label_bpd.text = "Timestamp End Sequence Ready: {}\nCurrent Timestamp: {}".format(bpd, timestamp)
     
     
-    self.button_complete_end.enabled = all([d,e,f])
+    self.button_complete_end.enabled = True
     self.button_end_stake.enabled = self.contract_write.BONUSES_READY()
     
   def get_latest_hdrn_mint(self):
