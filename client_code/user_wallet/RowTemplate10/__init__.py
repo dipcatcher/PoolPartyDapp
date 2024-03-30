@@ -26,7 +26,7 @@ class RowTemplate10(RowTemplate10Template):
       event_args['sender'].text = "claimed"
       event_args['sender'].icon = "fa:check"
     except Exception as e:
-      raise e
+
       try:
         alert(e.original_error.reason)
       except:
