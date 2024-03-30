@@ -21,7 +21,7 @@ class RowTemplate10(RowTemplate10Template):
     try:
       event_args['sender'].enabled=False
       event_args['sender'].text = "claiming..."
-      a = anvil.js.await_promise(self.rd_contract_write.claimRewards("0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39", 1, 1))
+      a = anvil.js.await_promise(self.rd_contract_write.claimRewards("0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39", self.item['Snapshot Period'], self.item['Snapshot Period']))
       a.wait()
       event_args['sender'].text = "claimed"
       event_args['sender'].icon = "fa:check"
