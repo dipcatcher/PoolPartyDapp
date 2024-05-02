@@ -135,9 +135,9 @@ components:
       grid_position: BQICHH,NQXOCA
   - type: TextBox
     properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Contract Address,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+      border: '', enabled: true, foreground: '', visible: true, text: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
+      font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false}
     name: text_box_1
     layout_properties: {grid_position: 'PKZSVH,UQNKUQ'}
   - name: button_process

@@ -82,6 +82,7 @@ class user_wallet(user_walletTemplate):
     data['total supply at']=[]
     data['record'] = []
     
+    
     for p in range(data['current snapshot id']):
       _ = {}
       
