@@ -1,9 +1,7 @@
 is_package: true
 container:
   type: DataRowPanel
-  properties: {role: underline, align: left, tooltip: '', border: '', foreground: '',
-    auto_display_data: true, visible: true, font_size: null, font: '', spacing_above: none,
-    spacing_below: none, italic: false, background: '', bold: false, underline: false}
+  properties: {role: underline, align: left, tooltip: '', border: '', foreground: '', auto_display_data: true, visible: true, font_size: null, font: '', spacing_above: none, spacing_below: none, italic: false, background: '', bold: false, underline: false}
   event_bindings: {show: form_show}
 components:
 - type: Label
@@ -19,50 +17,50 @@ components:
   layout_properties: {column: QLHIAE}
   name: label_current_bid
 - type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: bid, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: bid, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   layout_properties: {column: XOJZQF}
   event_bindings: {click: button_1_click}
   name: button_1
 - type: ColumnPanel
-  properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: false,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   layout_properties: {}
   event_bindings: {show: panel_bid_show}
   name: panel_bid
   components:
   - type: GridPanel
-    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-      border: '', visible: true, role: null, tooltip: ''}
+    properties: {spacing_above: small, spacing_below: small, background: '', foreground: '', border: '', visible: true, role: null, tooltip: ''}
     layout_properties: {grid_position: 'DHDIQI,FYDXQW', full_width_row: true}
     name: grid_panel_1
     components:
     - type: RichText
-      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-        foreground: '', visible: true, font_size: null, content: '{a} {b}
-
+      properties:
+        role: null
+        align: left
+        tooltip: ''
+        enable_slots: true
+        border: ''
+        foreground: ''
+        visible: true
+        font_size: null
+        content: |-
+          {a} {b}
           Top Bidder: {g}
-
-          Minimum Bid:  {d}', font: '', spacing_above: small, spacing_below: small,
-        data: null, background: '', format: markdown}
+          Minimum Bid:  {d}
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        data: null
+        background: ''
+        format: markdown
       layout_properties: {row: PMBRRL, width_xs: 4, col_xs: 0}
       name: rich_text_2
       components:
       - type: Label
-        properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: Nametag NFT Auctions, font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+        properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Nametag NFT Auctions, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
         layout_properties: {grid_position: 'QZCCAD,DDGLSB', slot: a}
         name: label_1
       - type: Button
-        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-          foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: 'fa:refresh'}
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:refresh'}
         layout_properties: {grid_position: 'QZCCAD,VRYLZB', slot: b}
         event_bindings: {click: button_refresh_click}
         name: button_refresh
@@ -72,25 +70,17 @@ components:
         event_bindings: {click: link_minimum_bid_click}
         name: link_minimum_bid
       - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: false, text: '', font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
         layout_properties: {}
         name: label_timestamp
       - type: form:max_text_box
         properties: {}
-        layout_properties: {grid_position: 'NFNQVY,ZEMQKD', width_xs: 4, width: 85.5,
-          col_xs: 0, row: JDBTGJ}
+        layout_properties: {grid_position: 'NFNQVY,ZEMQKD', width_xs: 4, width: 85.5, col_xs: 0, row: JDBTGJ}
         event_bindings: {text_change: text_box_bid_change}
         name: text_box_bid
       - type: Button
-        properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-          foreground: '', visible: true, text: submit bid, font_size: null, font: '',
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        layout_properties: {grid_position: 'NFNQVY,QOERKG', width_xs: 3, col_xs: 4,
-          row: JDBTGJ}
+        properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: submit bid, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+        layout_properties: {grid_position: 'NFNQVY,QOERKG', width_xs: 3, col_xs: 4, row: JDBTGJ}
         event_bindings: {click: button_submit_bid_click}
         name: button_submit_bid
       - name: label_2

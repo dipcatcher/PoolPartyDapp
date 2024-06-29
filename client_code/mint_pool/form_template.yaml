@@ -3,46 +3,33 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {role: content-contain, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: content-contain, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: column_panel_2
   layout_properties: {grid_position: 'FWLJGM,BRIUBA'}
   components:
   - type: ColumnPanel
-    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: ''}
+    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
     name: card_1
     layout_properties:
       col_widths: {}
       grid_position: TKQJLW,JVFYFG
     components:
     - type: RichText
-      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-        foreground: '', visible: true, font_size: null, content: '{a}', font: '',
-        spacing_above: none, spacing_below: none, data: null, background: '', format: plain_text}
+      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '', foreground: '', visible: true, font_size: null, content: '{a}', font: '', spacing_above: none, spacing_below: none, data: null, background: '', format: plain_text}
       name: rich_text_1
       layout_properties: {grid_position: 'PWJIQD,JAGIIC'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: Mint Pool Token, font_size: 24, font: '', spacing_above: small,
-          icon_align: left, spacing_below: none, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: white, visible: true, text: Mint Pool Token, font_size: 24, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
         name: label_mint_token
-        layout_properties: {grid_position: 'JTQIBI,MLFYBB', row: FQZQUZ, width_xs: 5,
-          col_xs: 0, slot: a}
+        layout_properties: {grid_position: 'JTQIBI,MLFYBB', row: FQZQUZ, width_xs: 5, col_xs: 0, slot: a}
     - type: ColumnPanel
       properties: {col_widths: '{}'}
       name: column_panel_1
       layout_properties: {grid_position: 'UEVUII,TERPMX'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: '', font_size: null, font: '', spacing_above: none,
-          icon_align: left, spacing_below: medium, italic: false, background: '',
-          bold: false, underline: false, icon: ''}
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: white, visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: medium, italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_days_left
         layout_properties: {grid_position: 'VTRBFB,YEONGP'}
       - type: form:max_text_box
@@ -51,88 +38,56 @@ components:
         layout_properties: {grid_position: 'LKMHYW,YWEEWS'}
         event_bindings: {text_change: custom_1_text_change}
     - type: GridPanel
-      properties: {spacing_above: medium, spacing_below: small, background: '', foreground: '',
-        border: '', visible: true, role: null, tooltip: ''}
+      properties: {spacing_above: medium, spacing_below: small, background: '', foreground: '', border: '', visible: true, role: null, tooltip: ''}
       name: grid_panel_1
       layout_properties: {grid_position: 'SHLDMS,CXCAYL'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: HEX Balance, font_size: null, font: '', spacing_above: none,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: HEX Balance, font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_2
         layout_properties: {row: WSREZW, width_xs: 5, col_xs: 0, width: 169.156}
       - type: Label
-        properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
-          visible: true, text: '0', font_size: null, font: '', spacing_above: none,
-          icon_align: right, spacing_below: small, italic: false, background: '',
-          bold: false, underline: false, icon: ''}
+        properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: '0', font_size: null, font: '', spacing_above: none, icon_align: right, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_hex_balance
         layout_properties: {row: WSREZW, width_xs: 6, col_xs: 6, width: 179}
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: Pool Token Balance, font_size: null, font: '', spacing_above: small,
-          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Pool Token Balance, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_pool_token_balance_display
-        layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5,
-          col_xs: 0, width: 169.156}
+        layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5, col_xs: 0, width: 169.156}
       - type: Label
-        properties: {role: body, align: right, tooltip: '', border: '', foreground: '',
-          visible: true, text: '0', font_size: null, font: '', spacing_above: small,
-          icon_align: right, spacing_below: none, italic: false, background: '', bold: false,
-          underline: false, icon: ''}
+        properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: '0', font_size: null, font: '', spacing_above: small, icon_align: right, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
         name: label_token_balance
         layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
     - type: ColumnPanel
-      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
-        spacing_below: small, background: ''}
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '', spacing_below: small, background: ''}
       name: column_panel_3
       layout_properties: {grid_position: 'CPOIWZ,XJLXPO'}
       components:
       - type: ColumnPanel
-        properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
-          wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-          spacing_below: small, background: ''}
+        properties: {role: card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
         name: column_panel_2_copy
         layout_properties:
           col_widths: {}
           grid_position: HLYULL,UYOCJR
         components:
         - type: Label
-          properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'First, {} needs your permission to interact with
-              {} of your HEX.', font_size: 16, font: '', spacing_above: small, icon_align: left,
-            spacing_below: small, italic: false, background: '', bold: true, underline: false,
-            icon: ''}
+          properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: 'First, {} needs your permission to interact with {} of your HEX.', font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
           name: label_1
           layout_properties: {grid_position: 'GYMSVO,QNLITX'}
         - type: Link
-          properties: {role: null, url: '', align: center, tooltip: '', border: '',
-            foreground: '#8B95CA', visible: true, text: 'Why do I have to do this?',
-            font_size: 16, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
-            icon_align: left, col_widths: '', spacing_below: small, italic: false,
-            background: '', bold: false, underline: false, icon: ''}
+          properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '#8B95CA', visible: true, text: 'Why do I have to do this?', font_size: 16, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
           name: link_3
           layout_properties: {grid_position: 'LCCSSP,UMDTIL'}
           event_bindings: {click: link_3_click}
         - type: Button
-          properties: {role: null, align: full, tooltip: '', border: '', enabled: true,
-            foreground: white, visible: true, text: 'APPROVE {} HEX', font_size: 16,
-            font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '#246BFD', bold: true, underline: false, icon: ''}
+          properties: {role: null, align: full, tooltip: '', border: '', enabled: true, foreground: white, visible: true, text: 'APPROVE {} HEX', font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#246BFD', bold: true, underline: false, icon: ''}
           name: button_2
           layout_properties:
             col_widths: {}
             grid_position: ZXGIGG,FWQMTB
           event_bindings: {click: button_2_copy_click}
     - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-        foreground: '', visible: true, text: Mint, font_size: null, font: '', spacing_above: medium,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Mint, font_size: null, font: '', spacing_above: medium, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       name: button_mint
       layout_properties: {grid_position: 'YEXHWD,AORLUJ'}
       event_bindings: {click: button_mint_click}

@@ -8,105 +8,68 @@ components:
   layout_properties: {grid_position: 'ESDZPG,NBPSWY'}
   components:
   - type: Label
-    properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-      visible: false, text: PARTY Holder Rewards, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: headline, align: left, tooltip: '', border: '', foreground: '', visible: false, text: PARTY Holder Rewards, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_1
     layout_properties: {grid_position: 'SFERCW,SXTOZE'}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: false,
-    text: Liquid PARTY holders can claim their share of any ERC20 tokens that are sent to the Pool Party contract. Known sources are from the HEX Stake Pooling platform. PARTY holders should come up with ideas for protocols that increase PARTY holder earnings.,
-    font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: false, text: Liquid PARTY holders can claim their share of any ERC20 tokens that are sent to the Pool Party contract. Known sources are from the HEX Stake Pooling platform. PARTY holders should come up with ideas for protocols that increase PARTY holder earnings., font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_2
   layout_properties: {grid_position: 'HHHWMW,AZJAHJ'}
 - type: ColumnPanel
-  properties: {role: card, tooltip: '', border: '', foreground: '', visible: false,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: card_2_copy
   layout_properties:
     col_widths: {}
     grid_position: DZRMMN,MCHVNO
   components:
   - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Claim Rewards, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Claim Rewards, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_5_copy_3
     layout_properties:
       col_widths: {}
       grid_position: NULCOR,FUHWFU
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Enter the token contract address and snapshot period to check for claimable rewards.,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Enter the token contract address and snapshot period to check for claimable rewards., font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_4_copy_3
     layout_properties:
       col_widths: {}
       grid_position: BQICHH,NQXOCA
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Contract Address,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Contract Address, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: text_box_claim_contract
     layout_properties: {grid_position: 'PKZSVH,UQNKUQ'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Snapshot Period,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Snapshot Period, border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: text_box_period
     layout_properties: {grid_position: 'IJFFAK,RWESSI'}
   - type: Button
-    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: claim, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: claim, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: button_claim
     layout_properties: {grid_position: 'LTLUPZ,QMTRFG'}
     event_bindings: {click: button_claim_click}
 - type: Label
-  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-    visible: true, text: Rewards System Management, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Rewards System Management, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_3
   layout_properties: {grid_position: 'QNJLVJ,YDGJWR'}
 - type: ColumnPanel
-  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: column_panel_2
   layout_properties: {grid_position: 'ABWODZ,MJVZLN'}
   components:
   - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Record Snapshot, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Record Snapshot, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_5_copy
     layout_properties:
       col_widths: {}
       grid_position: OFEOWM,CCLGRZ
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Every two weeks a global balance and supply snapshot may be recorded. Anyone who holds a balance during a snapshot can claim their share of rewards that arrived in the time since the last snapshot.,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Every two weeks a global balance and supply snapshot may be recorded. Anyone who holds a balance during a snapshot can claim their share of rewards that arrived in the time since the last snapshot., font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_4_copy
     layout_properties:
       col_widths: {}
       grid_position: AJCZLI,HTWPXT
   - type: Button
-    properties: {role: outlined, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: Record Snapshot, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
+    properties: {role: outlined, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Record Snapshot, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: button_record_snapshot
     layout_properties: {grid_position: 'MKAWQK,EAAZNJ'}
     event_bindings: {click: record_snapshot}
@@ -116,28 +79,19 @@ components:
   layout_properties: {grid_position: 'FEEJDG,FXIMSW'}
   components:
   - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Process Asset, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Process Asset, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_5_copy_2
     layout_properties:
       col_widths: {}
       grid_position: NULCOR,FUHWFU
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Any ERC20 token that arrives in the contract can be included in the rewards distribution by running the Process Asset function. This transfers the token to the Rewards Distribution Contract and updates the token rewards record. This will be claimable amongst addresses with a liquid PARTY balance as of the next snapshot.,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Any ERC20 token that arrives in the contract can be included in the rewards distribution by running the Process Asset function. This transfers the token to the Rewards Distribution Contract and updates the token rewards record. This will be claimable amongst addresses with a liquid PARTY balance as of the next snapshot., font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_4_copy_2
     layout_properties:
       col_widths: {}
       grid_position: BQICHH,NQXOCA
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Contract Address,
-      border: '', enabled: true, foreground: '', visible: true, text: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
-      font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Contract Address, border: '', enabled: true, foreground: '', visible: true, text: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
     name: text_box_1
     layout_properties: {grid_position: 'PKZSVH,UQNKUQ'}
   - name: button_process
@@ -146,24 +100,16 @@ components:
     layout_properties: {grid_position: 'BKEXJG,SRIOTP'}
     event_bindings: {click: button_process_click}
 - type: ColumnPanel
-  properties: {role: card, tooltip: '', border: '', foreground: '', visible: false,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: ''}
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
   name: card_1
   layout_properties: {grid_position: 'BQJSBZ,FXFETD'}
   components:
   - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Pending Rewards, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
+    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Pending Rewards, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_5
     layout_properties: {grid_position: 'AXVYKE,LEBTUV'}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Any ERC20 token that arrives in the contract can be included in the rewards distribution by running the Process Asset function. This transfers the token to the Rewards Distribution Contract and updates the token rewards record. This will be claimable amongst addresses with a balance as of the next snapshot,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Any ERC20 token that arrives in the contract can be included in the rewards distribution by running the Process Asset function. This transfers the token to the Rewards Distribution Contract and updates the token rewards record. This will be claimable amongst addresses with a balance as of the next snapshot, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
     name: label_4
     layout_properties: {grid_position: 'RFXVLL,CGCPDI'}
   - type: DataGrid

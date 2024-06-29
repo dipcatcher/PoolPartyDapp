@@ -1,10 +1,7 @@
 container: {type: DataRowPanel}
 components:
 - type: Button
-  properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: process, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+  properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: process, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: button_process
   layout_properties: {column: FEERMW}
   event_bindings: {click: button_process_click}

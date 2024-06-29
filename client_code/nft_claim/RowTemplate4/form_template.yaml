@@ -1,16 +1,11 @@
 container: {type: DataRowPanel}
 components:
 - type: Label
-  properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: label_1
   layout_properties: {column: TGPXWA}
 - type: Button
-  properties: {role: link-b, align: center, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: '   Mint NFT   ', font_size: 10, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#246BFD',
-    bold: false, underline: false, icon: ''}
+  properties: {role: link-b, align: center, tooltip: '', border: '', enabled: true, foreground: white, visible: true, text: '   Mint NFT   ', font_size: 10, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#246BFD', bold: false, underline: false, icon: ''}
   name: button_claim
   layout_properties: {grid_position: 'RFOTIZ,DNYYFA', column: RINAOC}
   event_bindings: {click: button_claim_click}
