@@ -27,8 +27,13 @@ class redeem_pool(redeem_poolTemplate):
     self.label_pool_token_balance_display.text = "{} Balance".format(self.item['ticker'])
     self.label_mint_token.text = "Redeem {}".format(self.item['ticker'])
     self.button_mint.text = "Redeem {}".format(self.item['ticker'])
-    days_remaining = self.item['initial_mint_duration']-(self.item['current hex day'] - self.item['reload phase start'])
+    if self.item['current period']==0:
+      dur = self.item['initial_mint_duration']
+    else:
+      dur = self.item['reload_duration']
+    days_remaining = dur-(self.item['current hex day'] - self.item['reload phase start'])
     self.mint_rate_formatted = self.item['redemption rate']/(10**8)
+    
     self.label_days_left.text = "{} days remaining to redeem {} HEX per {} burnt.".format(days_remaining, self.mint_rate_formatted, self.item['ticker'])
     if days_remaining<0:
       self.button_mint.enabled=False

@@ -3,24 +3,24 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {role: content-contain, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
+  properties: {role: content-contain, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
   name: column_panel_2
   layout_properties: {grid_position: 'FWLJGM,BRIUBA'}
   components:
   - type: ColumnPanel
-    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
+    properties: {role: main-card, col_widths: '{}', spacing_above: small, background: '', wrap_on: never, col_spacing: small, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
     name: card_1
     layout_properties:
       col_widths: {}
       grid_position: TKQJLW,JVFYFG
     components:
     - type: RichText
-      properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '', foreground: '', visible: true, font_size: null, content: '{a}', font: '', spacing_above: none, spacing_below: none, data: null, background: '', format: plain_text}
+      properties: {role: null, format: plain_text, align: left, spacing_above: none, content: '{a}', background: '', font: '', foreground: '', spacing_below: none, visible: true, border: '', enable_slots: true, font_size: null, tooltip: '', data: null}
       name: rich_text_1
       layout_properties: {grid_position: 'PWJIQD,JAGIIC'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: white, visible: true, text: Redeem Pool Token, font_size: 24, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
+        properties: {role: body, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: none, visible: true, border: '', italic: false, font_size: 24, tooltip: '', text: Redeem Pool Token}
         name: label_mint_token
         layout_properties: {grid_position: 'JTQIBI,MLFYBB', row: FQZQUZ, width_xs: 5, col_xs: 0, slot: a}
     - type: ColumnPanel
@@ -29,7 +29,7 @@ components:
       layout_properties: {grid_position: 'UEVUII,TERPMX'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: white, visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: medium, italic: false, background: '', bold: false, underline: false, icon: ''}
+        properties: {role: body, bold: false, align: left, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: medium, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
         name: label_days_left
         layout_properties: {grid_position: 'VTRBFB,YEONGP'}
       - type: form:max_text_box
@@ -43,23 +43,23 @@ components:
       layout_properties: {grid_position: 'SHLDMS,CXCAYL'}
       components:
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: HEX Balance, font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+        properties: {role: body, bold: false, align: left, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: HEX Balance}
         name: label_2
         layout_properties: {row: WSREZW, width_xs: 5, col_xs: 0, width: 169.156}
       - type: Label
-        properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: '0', font_size: null, font: '', spacing_above: none, icon_align: right, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+        properties: {role: body, bold: false, align: right, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: right, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: '0'}
         name: label_hex_balance
         layout_properties: {row: WSREZW, width_xs: 6, col_xs: 6, width: 179}
       - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Pool Token Balance, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
+        properties: {role: body, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Pool Token Balance}
         name: label_pool_token_balance_display
         layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5, col_xs: 0, width: 169.156}
       - type: Label
-        properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: '0', font_size: null, font: '', spacing_above: small, icon_align: right, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
+        properties: {role: body, bold: false, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: right, foreground: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: '0'}
         name: label_token_balance
         layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
     - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Redeem, font_size: null, font: '', spacing_above: medium, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+      properties: {role: filled, bold: false, align: center, spacing_above: medium, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Redeem}
       name: button_mint
       layout_properties: {grid_position: 'YEXHWD,AORLUJ'}
       event_bindings: {click: button_mint_click}
