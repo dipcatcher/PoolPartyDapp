@@ -1,119 +1,119 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: ColumnPanel
-  properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-  name: column_panel_2
+- components:
+  - components:
+    - layout_properties: {grid_position: 'HRSZWM,POVKMB'}
+      name: label_1
+      properties: {align: left, background: '', bold: true, border: '', font: '', font_size: 24, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: small, text: Stake Party, tooltip: '', underline: false, visible: true}
+      type: Label
+    - components:
+      - layout_properties: {grid_position: 'VTRBFB,YEONGP'}
+        name: label_days_left
+        properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '#8E8E93', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: small, text: 'Stake PARTY to earn more PARTY. Staked PARTY is burnt and reminted, plus yield, when the stake ends. ', tooltip: '', underline: false, visible: true}
+        type: Label
+      - components:
+        - layout_properties: {col_xs: 0, row: WSREZW, width: 144.156, width_xs: 5}
+          name: label_2
+          properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: small, text: Liquid Balance, tooltip: '', underline: false, visible: true}
+          type: Label
+        - layout_properties: {col_xs: 6, row: WSREZW, width: 179, width_xs: 6}
+          name: label_party_balance
+          properties: {align: right, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: right, italic: false, role: body, spacing_above: small, spacing_below: small, text: 0 PARTY, tooltip: '', underline: false, visible: true}
+          type: Label
+        - layout_properties: {col_xs: 0, grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width: 144.156, width_xs: 5}
+          name: label_3
+          properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: none, text: Staked Balance, tooltip: '', underline: false, visible: true}
+          type: Label
+        - layout_properties: {col_xs: 6, row: TJTIDE, width: 179, width_xs: 6}
+          name: label_staked_party_balance
+          properties: {align: right, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: right, italic: false, role: body, spacing_above: small, spacing_below: none, text: 0 PARTY, tooltip: '', underline: false, visible: true}
+          type: Label
+        layout_properties: {grid_position: 'KMOCOF,KTTOED'}
+        name: grid_panel_1
+        properties: {background: '', border: '', foreground: '', role: null, spacing_above: medium, spacing_below: medium, tooltip: '', visible: true}
+        type: GridPanel
+      - event_bindings: {text_change: custom_1_text_change}
+        layout_properties: {grid_position: 'LKMHYW,WVIELF'}
+        name: custom_1
+        properties: {}
+        type: form:max_text_box
+      layout_properties: {grid_position: 'UEVUII,TERPMX'}
+      name: column_panel_1
+      properties: {col_widths: '{}'}
+      type: ColumnPanel
+    - event_bindings: {change: drop_down_days_change}
+      layout_properties: {grid_position: 'VTBAKD,ILGOHD'}
+      name: drop_down_days
+      properties:
+        align: full
+        background: ''
+        bold: false
+        border: ''
+        enabled: true
+        font: ''
+        font_size: null
+        foreground: ''
+        include_placeholder: true
+        italic: false
+        items: []
+        placeholder: Select Days and Yield
+        role: null
+        spacing_above: small
+        spacing_below: small
+        tooltip: ''
+        underline: false
+        visible: true
+      type: DropDown
+    - event_bindings: {click: button_stake_click}
+      layout_properties: {grid_position: 'YEXHWD,AORLUJ'}
+      name: button_stake
+      properties: {align: center, background: '', bold: false, border: '', enabled: false, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled, spacing_above: medium, spacing_below: small, text: Stake, tooltip: '', underline: false, visible: true}
+      type: Button
+    - layout_properties: {grid_position: 'QBMELC,AQUKBY'}
+      name: label_yield
+      properties: {}
+      type: Label
+    layout_properties: {grid_position: 'WDULFK,AHCWOW'}
+    name: card_1
+    properties: {background: '', border: '', col_spacing: small, col_widths: '{}', foreground: '', role: main-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: never}
+    type: ColumnPanel
   layout_properties:
     col_widths: {}
     grid_position: EIKILS,YYPVXO
-  components:
-  - type: ColumnPanel
-    properties: {role: main-card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: never, col_spacing: small, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_1
-    layout_properties: {grid_position: 'WDULFK,AHCWOW'}
-    components:
-    - type: Label
-      properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Stake Party, font_size: 24, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
-      name: label_1
-      layout_properties: {grid_position: 'HRSZWM,POVKMB'}
-    - type: ColumnPanel
-      properties: {col_widths: '{}'}
-      name: column_panel_1
-      layout_properties: {grid_position: 'UEVUII,TERPMX'}
-      components:
-      - type: Label
-        properties: {role: body, align: left, tooltip: '', border: '', foreground: '#8E8E93', visible: true, text: 'Stake PARTY to earn more PARTY. Staked PARTY is burnt and reminted, plus yield, when the stake ends. ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-        name: label_days_left
-        layout_properties: {grid_position: 'VTRBFB,YEONGP'}
-      - type: GridPanel
-        properties: {spacing_above: medium, spacing_below: medium, background: '', foreground: '', border: '', visible: true, role: null, tooltip: ''}
-        name: grid_panel_1
-        layout_properties: {grid_position: 'KMOCOF,KTTOED'}
-        components:
-        - type: Label
-          properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Liquid Balance, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_2
-          layout_properties: {row: WSREZW, width_xs: 5, col_xs: 0, width: 144.156}
-        - type: Label
-          properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: 0 PARTY, font_size: null, font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_party_balance
-          layout_properties: {row: WSREZW, width_xs: 6, col_xs: 6, width: 179}
-        - type: Label
-          properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Staked Balance, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_3
-          layout_properties: {grid_position: 'SHLDMS,YWWBRS', row: TJTIDE, width_xs: 5, col_xs: 0, width: 144.156}
-        - type: Label
-          properties: {role: body, align: right, tooltip: '', border: '', foreground: '', visible: true, text: 0 PARTY, font_size: null, font: '', spacing_above: small, icon_align: right, spacing_below: none, italic: false, background: '', bold: false, underline: false, icon: ''}
-          name: label_staked_party_balance
-          layout_properties: {row: TJTIDE, width_xs: 6, col_xs: 6, width: 179}
-      - type: form:max_text_box
-        properties: {}
-        name: custom_1
-        layout_properties: {grid_position: 'LKMHYW,WVIELF'}
-        event_bindings: {text_change: custom_1_text_change}
-    - type: DropDown
-      properties:
-        role: null
-        align: full
-        tooltip: ''
-        placeholder: Select Days and Yield
-        border: ''
-        enabled: true
-        foreground: ''
-        items: []
-        visible: true
-        font_size: null
-        font: ''
-        spacing_above: small
-        spacing_below: small
-        italic: false
-        background: ''
-        bold: false
-        underline: false
-        include_placeholder: true
-      name: drop_down_days
-      layout_properties: {grid_position: 'VTBAKD,ILGOHD'}
-      event_bindings: {change: drop_down_days_change}
-    - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: false, foreground: '', visible: true, text: Stake, font_size: null, font: '', spacing_above: medium, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: button_stake
-      layout_properties: {grid_position: 'YEXHWD,AORLUJ'}
-      event_bindings: {click: button_stake_click}
-    - type: Label
-      properties: {}
-      name: label_yield
-      layout_properties: {grid_position: 'QBMELC,AQUKBY'}
-- type: Label
-  properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: false, text: Stake Record, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: column_panel_2
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: mid-width, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'EXVKWQ,TJBYBG'}
   name: label_stake_record
-  layout_properties: {grid_position: 'EXVKWQ,TJBYBG'}
-- type: DataGrid
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Stake Record, tooltip: '', underline: false, visible: false}
+  type: Label
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties: {item_template: stake_party.RowTemplate2, spacing_above: none, spacing_below: none}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'HEMPZD,UUXUTV'}
+  name: data_grid_1
   properties:
-    role: null
-    columns:
-    - {id: EQNUHM, title: Principal, data_key: Principal, $$hashKey: 'object:3354'}
-    - {id: HYWLHI, title: Yield, data_key: Yield, $$hashKey: 'object:3355'}
-    - {id: APHZDG, title: End Value, data_key: End Value, $$hashKey: 'object:3356'}
-    - {id: DEVHAF, title: End Day, data_key: End Day, $$hashKey: 'object:3402'}
-    - {id: BNHZKA, title: Days Remaining, data_key: Days Remaining, $$hashKey: 'object:4206'}
     auto_header: true
-    tooltip: ''
+    background: ''
     border: ''
+    columns:
+    - {$$hashKey: 'object:3354', data_key: Principal, id: EQNUHM, title: Principal}
+    - {$$hashKey: 'object:3355', data_key: Yield, id: HYWLHI, title: Yield}
+    - {$$hashKey: 'object:3356', data_key: End Value, id: APHZDG, title: End Value}
+    - {$$hashKey: 'object:3402', data_key: End Day, id: DEVHAF, title: End Day}
+    - {$$hashKey: 'object:4206', data_key: Days Remaining, id: BNHZKA, title: Days Remaining}
     foreground: ''
+    role: null
     rows_per_page: 1000
-    visible: false
-    wrap_on: mobile
     show_page_controls: false
     spacing_above: small
     spacing_below: small
-    background: ''
-  name: data_grid_1
-  layout_properties: {grid_position: 'HEMPZD,UUXUTV'}
-  components:
-  - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: stake_party.RowTemplate2}
-    name: repeating_panel_1
-    layout_properties: {}
+    tooltip: ''
+    visible: false
+    wrap_on: mobile
+  type: DataGrid
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

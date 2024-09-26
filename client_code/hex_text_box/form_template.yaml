@@ -1,15 +1,15 @@
+components:
+- event_bindings: {change: text_box_1_change}
+  layout_properties: {slot: default}
+  name: text_box_1
+  properties: {}
+  type: TextBox
+- layout_properties: {slot: float}
+  name: label_1
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: small, text: HEX, tooltip: '', underline: false, visible: true}
+  type: Label
 container:
-  type: HtmlTemplate
   properties:
     html: "<div id=\"parent\">\n    <div id=\"child\" class=\"floating\">\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n    top: 0px;\n    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n}\n#child {\n  position:absolute;\n  \n}\n</style><div id=\"parent\">\n    <div id=\"child\" class=\"floating\">\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n    top: 0px;\n    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n}\n#child {\n  position:absolute;\n  \n}\n</style>"
-components:
-- type: TextBox
-  properties: {}
-  name: text_box_1
-  layout_properties: {slot: default}
-  event_bindings: {change: text_box_1_change}
-- type: Label
-  properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: HEX, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-  name: label_1
-  layout_properties: {slot: float}
+  type: HtmlTemplate
 is_package: true

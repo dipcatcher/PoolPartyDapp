@@ -1,26 +1,26 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: Link
-  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: back, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+- layout_properties: {grid_position: 'HTBXSY,LZFVMW'}
   name: link_1
-  layout_properties: {grid_position: 'HTBXSY,LZFVMW'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_1
-  layout_properties: {grid_position: 'JUOXDI,ERMJFT'}
-  components:
-  - type: Label
-    properties: {role: headline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: back, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+  type: Link
+- components:
+  - layout_properties: {grid_position: 'DCHAYJ,BZPIBQ'}
     name: label_name
-    layout_properties: {grid_position: 'DCHAYJ,BZPIBQ'}
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: headline, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'CIYLHI,IBNDHZ'}
     name: label_ticker
-    layout_properties: {grid_position: 'CIYLHI,IBNDHZ'}
-  - type: Label
-    properties: {}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'PKIVJK,DNNOLF'}
     name: label_description
-    layout_properties: {grid_position: 'PKIVJK,DNNOLF'}
+    properties: {}
+    type: Label
+  layout_properties: {grid_position: 'JUOXDI,ERMJFT'}
+  name: card_1
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

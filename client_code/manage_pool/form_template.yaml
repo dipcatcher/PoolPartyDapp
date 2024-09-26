@@ -1,91 +1,91 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: Label
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'These pools are publicly operated and fully trustless, meaning anyone can run the required functions to operate the pool when those functions are eligible to run. Whoever runs these pays the gas on behalf of the pool for that action.'}
+- layout_properties: {grid_position: 'WJOCHP,QNUZAL'}
   name: label_1
-  layout_properties: {grid_position: 'WJOCHP,QNUZAL'}
-- type: ColumnPanel
-  properties: {role: referral-code-contain, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-  name: column_panel_1
-  layout_properties: {grid_position: 'ABYZWN,FPRMDP'}
-  components:
-  - name: button_com_start
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'These pools are publicly operated and fully trustless, meaning anyone can run the required functions to operate the pool when those functions are eligible to run. Whoever runs these pays the gas on behalf of the pool for that action.', tooltip: '', underline: false, visible: true}
+  type: Label
+- components:
+  - event_bindings: {click: button_com_start_click}
+    layout_properties: {grid_position: 'QSBAWZ,HVCFWI'}
+    name: button_com_start
     properties: {text: mint COM start bonus}
     type: Button
-    layout_properties: {grid_position: 'QSBAWZ,HVCFWI'}
-    event_bindings: {click: button_com_start_click}
-  - name: button_com_end_copy
+  - event_bindings: {click: button_com_end_click}
+    layout_properties: {grid_position: 'QNFYXG,JDGVUF'}
+    name: button_com_end_copy
     properties: {text: mint COM end bonus}
     type: Button
-    layout_properties: {grid_position: 'QNFYXG,JDGVUF'}
-    event_bindings: {click: button_com_end_click}
-  - type: Button
-    properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: mint HDRN}
-    name: button_mint_hdrn
+  - event_bindings: {click: button_mint_hdrn_click}
     layout_properties: {grid_position: 'PYKBQE,IFFFMM'}
-    event_bindings: {click: button_mint_hdrn_click}
-  - type: Label
-    properties: {align: center}
+    name: button_mint_hdrn
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: mint HDRN, tooltip: '', underline: false, visible: true}
+    type: Button
+  - layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
     name: label_hdrn_mint_data
-    layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
-  - name: button_claim_bonus
-    properties: {text: claim COM and HDRN rewards}
-    type: Button
-    layout_properties: {grid_position: 'RAYEMS,JOSVUX'}
-    event_bindings: {click: button_claim_bonus_click}
-- name: column_panel_1_copy
-  properties: {role: referral-code-contain, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'LNSCSN,CAKHCJ'}
-  components:
-  - type: Button
-    properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: 0. start stake}
-    name: button_start_stake
-    layout_properties: {grid_position: 'CQBHBN,GRKVSY'}
-    event_bindings: {click: button_start_stake_click}
-  - name: button_start_end
-    properties: {text: 1. Start End Sequence}
-    type: Button
-    layout_properties: {grid_position: 'FLTOJR,LBDFPQ'}
-    event_bindings: {click: button_start_end_click}
-  - name: label_bpd
     properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'UKTULZ,OLGZHM'}
-  - name: button_complete_end
+  - event_bindings: {click: button_claim_bonus_click}
+    layout_properties: {grid_position: 'RAYEMS,JOSVUX'}
+    name: button_claim_bonus
+    properties: {text: claim COM and HDRN rewards}
+    type: Button
+  layout_properties: {grid_position: 'ABYZWN,FPRMDP'}
+  name: column_panel_1
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: referral-code-contain, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+- components:
+  - event_bindings: {click: button_start_stake_click}
+    layout_properties: {grid_position: 'CQBHBN,GRKVSY'}
+    name: button_start_stake
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 0. start stake, tooltip: '', underline: false, visible: true}
+    type: Button
+  - event_bindings: {click: button_start_end_click}
+    layout_properties: {grid_position: 'FLTOJR,LBDFPQ'}
+    name: button_start_end
+    properties: {text: 1. Start End Sequence}
+    type: Button
+  - layout_properties: {grid_position: 'UKTULZ,OLGZHM'}
+    name: label_bpd
+    properties: {align: center}
+    type: Label
+  - event_bindings: {click: button_complete_end_click}
+    layout_properties: {grid_position: 'FSPCHB,EVDEUL'}
+    name: button_complete_end
     properties: {text: 2. Complete End Sequence}
     type: Button
-    layout_properties: {grid_position: 'FSPCHB,EVDEUL'}
-    event_bindings: {click: button_complete_end_click}
-  - type: Button
+  - event_bindings: {click: button_end_stake_click}
+    layout_properties: {grid_position: 'WDZJCP,VBENHB'}
+    name: button_end_stake
     properties:
-      role: null
-      bold: false
       align: center
-      spacing_above: small
       background: ''
-      icon: ''
-      underline: false
-      font: ''
-      icon_align: left
-      foreground: ''
-      spacing_below: small
-      visible: true
+      bold: false
       border: ''
-      italic: false
       enabled: true
+      font: ''
       font_size: null
-      tooltip: ''
+      foreground: ''
+      icon: ''
+      icon_align: left
+      italic: false
+      role: null
+      spacing_above: small
+      spacing_below: small
       text: |
         3. end stake
-    name: button_end_stake
-    layout_properties: {grid_position: 'WDZJCP,VBENHB'}
-    event_bindings: {click: button_end_stake_click}
-- type: Button
-  properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: false, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: contribute to end stake gas pool}
-  name: button_contribute
+      tooltip: ''
+      underline: false
+      visible: true
+    type: Button
+  layout_properties: {grid_position: 'LNSCSN,CAKHCJ'}
+  name: column_panel_1_copy
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: referral-code-contain, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+- event_bindings: {click: button_contribute_click}
   layout_properties: {grid_position: 'FORMYB,BYMHCE'}
-  event_bindings: {click: button_contribute_click}
+  name: button_contribute
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: contribute to end stake gas pool, tooltip: '', underline: false, visible: false}
+  type: Button
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

@@ -1,16 +1,16 @@
-container: {type: DataRowPanel}
 components:
-- type: Button
-  properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: process, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-  name: button_process
+- event_bindings: {click: button_process_click}
   layout_properties: {column: FEERMW}
-  event_bindings: {click: button_process_click}
-- type: Label
-  properties: {}
+  name: button_process
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled, spacing_above: small, spacing_below: small, text: process, tooltip: '', underline: false, visible: true}
+  type: Button
+- layout_properties: {column: AXYETP}
   name: label_name
-  layout_properties: {column: AXYETP}
-- type: Label
   properties: {}
+  type: Label
+- layout_properties: {column: FVDIYC}
   name: label_balance
-  layout_properties: {column: FVDIYC}
+  properties: {}
+  type: Label
+container: {type: DataRowPanel}
 is_package: true

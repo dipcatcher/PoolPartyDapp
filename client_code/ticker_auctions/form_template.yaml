@@ -1,113 +1,113 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: Label
-  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: NFT Auctions, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+- layout_properties: {grid_position: 'FEJOBQ,ETULFS'}
   name: label_1
-  layout_properties: {grid_position: 'FEJOBQ,ETULFS'}
-- name: check_box_1
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: headline, spacing_above: small, spacing_below: small, text: NFT Auctions, tooltip: '', underline: false, visible: true}
+  type: Label
+- event_bindings: {change: check_box_1_change}
+  layout_properties: {grid_position: 'FEJOBQ,FXUVFQ'}
+  name: check_box_1
   properties: {text: show finished auctions}
   type: CheckBox
-  layout_properties: {grid_position: 'FEJOBQ,FXUVFQ'}
-  event_bindings: {change: check_box_1_change}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Pool Party Nametag NFTs are mintable by winning the auction for a name. These are general purpose NFTs linked to a 9 character text string. While holders of these NFTs can choose what to do with them, they were designed to be a unique ticker name registrar for community organized assets launched in the Pool Party ecosystem.', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+- layout_properties: {grid_position: 'HYDVYP,ZZSUMW'}
   name: label_4
-  layout_properties: {grid_position: 'HYDVYP,ZZSUMW'}
-- type: GridPanel
-  properties: {role: main-card, background: '#1B1D26'}
-  name: grid_panel_1
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Pool Party Nametag NFTs are mintable by winning the auction for a name. These are general purpose NFTs linked to a 9 character text string. While holders of these NFTs can choose what to do with them, they were designed to be a unique ticker name registrar for community organized assets launched in the Pool Party ecosystem.', tooltip: '', underline: false, visible: true}
+  type: Label
+- components:
+  - layout_properties: {col_xs: 0, grid_position: 'TLFTSO,WWOAUX', row: YHDWCR, width_xs: 12}
+    name: label_2
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Start New Auction, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {col_xs: 0, row: ATXXJA, width_xs: 11}
+    name: label_5
+    properties: {text: 'Search Nametag NFTs, if the Nametag is available you can start the auction by placing the minimum starting bid.'}
+    type: Label
+  - event_bindings: {change: text_box_search_change, pressed_enter: button_claim_click}
+    layout_properties: {col_xs: 0, full_width_row: false, grid_position: 'LQNSGJ,WHMNYL', row: DKANAA, width: 419.328, width_xs: 8}
+    name: text_box_search
+    properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - event_bindings: {click: button_claim_click}
+    layout_properties: {col_xs: 0, full_width_row: false, grid_position: 'LQNSGJ,TGAOMX', row: DKANAA, width_xs: 4}
+    name: button_claim
+    properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled, spacing_above: small, spacing_below: small, text: Search, tooltip: '', underline: false, visible: true}
+    type: Button
+  - layout_properties: {col_xs: 0, row: KZGGUE, width: 451.328, width_xs: 8}
+    name: label_error
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: false}
+    type: Label
   layout_properties:
     col_widths: {}
     grid_position: LYQMBB,BMOMKO
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Start New Auction, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_2
-    layout_properties: {grid_position: 'TLFTSO,WWOAUX', row: YHDWCR, width_xs: 12, col_xs: 0}
-  - name: label_5
-    properties: {text: 'Search Nametag NFTs, if the Nametag is available you can start the auction by placing the minimum starting bid.'}
-    type: Label
-    layout_properties: {row: ATXXJA, width_xs: 11, col_xs: 0}
-  - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small, italic: false, background: '', bold: false, underline: false}
-    name: text_box_search
-    layout_properties: {grid_position: 'LQNSGJ,WHMNYL', full_width_row: false, row: DKANAA, width_xs: 8, col_xs: 0, width: 419.328}
-    event_bindings: {change: text_box_search_change, pressed_enter: button_claim_click}
-  - type: Button
-    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Search, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: 'theme:Primary', bold: false, underline: false, icon: ''}
-    name: button_claim
-    layout_properties: {grid_position: 'LQNSGJ,TGAOMX', full_width_row: false, row: DKANAA, width_xs: 4, col_xs: 0}
-    event_bindings: {click: button_claim_click}
-  - type: Label
-    properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_error
-    layout_properties: {row: KZGGUE, width_xs: 8, col_xs: 0, width: 451.328}
-- type: ColumnPanel
-  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: false, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-  name: column_panel_results
-  layout_properties:
-    col_widths: {}
-    grid_position: DROADK,LHXMIW
-    full_width_row: false
-  components:
-  - type: ColumnPanel
-    properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-    name: card_1
-    layout_properties: {grid_position: 'YLYFPP,QNPOGW'}
-    components:
-    - type: ColumnPanel
-      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-      name: card_2
-      layout_properties: {grid_position: 'IBNKAG,KHWAHX', row: DJYABP, width_xs: 12, col_xs: 0}
-      components:
-      - type: Label
-        properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Auction Activation, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: grid_panel_1
+  properties: {background: '#1B1D26', role: main-card}
+  type: GridPanel
+- components:
+  - components:
+    - components:
+      - layout_properties: {grid_position: 'FEJAVP,TCDHRN'}
         name: label_3
-        layout_properties: {grid_position: 'FEJAVP,TCDHRN'}
-      - type: Label
-        properties: {}
+        properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Auction Activation, tooltip: '', underline: false, visible: true}
+        type: Label
+      - layout_properties: {grid_position: 'OGDCFN,OQXLBE'}
         name: label_name
-        layout_properties: {grid_position: 'OGDCFN,OQXLBE'}
-      - name: label_minimum_bid
         properties: {}
         type: Label
-        layout_properties: {grid_position: 'BAVAVF,MMHOYF'}
-      - type: form:max_text_box
+      - layout_properties: {grid_position: 'BAVAVF,MMHOYF'}
+        name: label_minimum_bid
         properties: {}
-        name: text_box_bid
+        type: Label
+      - event_bindings: {text_change: text_box_bid_change}
         layout_properties: {grid_position: 'IUXXYC,MDCRDC'}
-        event_bindings: {text_change: text_box_bid_change}
-      - type: Button
-        properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Start Auction, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-        name: button_available
+        name: text_box_bid
+        properties: {}
+        type: form:max_text_box
+      - event_bindings: {click: button_available_click}
         layout_properties: {grid_position: 'BOOCBG,KAHYUA'}
-        event_bindings: {click: button_available_click}
-- type: DataGrid
+        name: button_available
+        properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled, spacing_above: small, spacing_below: small, text: Start Auction, tooltip: '', underline: false, visible: true}
+        type: Button
+      layout_properties: {col_xs: 0, grid_position: 'IBNKAG,KHWAHX', row: DJYABP, width_xs: 12}
+      name: card_2
+      properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'YLYFPP,QNPOGW'}
+    name: card_1
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: mid-width, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties:
+    col_widths: {}
+    full_width_row: false
+    grid_position: DROADK,LHXMIW
+  name: column_panel_results
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: tonal-card, spacing_above: small, spacing_below: small, tooltip: '', visible: false, wrap_on: mobile}
+  type: ColumnPanel
+- components:
+  - layout_properties: {}
+    name: repeating_panel_1
+    properties: {item_template: ticker_auctions.RowTemplate5, spacing_above: none, spacing_below: none}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'ZNQCUG,MNMCTK'}
+  name: data_grid_1
   properties:
-    role: null
-    columns:
-    - {id: FEJYZG, title: Ticker, data_key: ticker, $$hashKey: 'object:97085'}
-    - {id: QLHIAE, title: Current Bid, data_key: bidAmount, $$hashKey: 'object:97086'}
-    - {id: VYYQPJ, title: Time Remaining, data_key: column_1, $$hashKey: 'object:99330'}
-    - {id: XOJZQF, title: Action, data_key: column_2, $$hashKey: 'object:99697'}
     auto_header: true
-    tooltip: ''
+    background: ''
     border: ''
+    columns:
+    - {$$hashKey: 'object:97085', data_key: ticker, id: FEJYZG, title: Ticker}
+    - {$$hashKey: 'object:97086', data_key: bidAmount, id: QLHIAE, title: Current Bid}
+    - {$$hashKey: 'object:99330', data_key: column_1, id: VYYQPJ, title: Time Remaining}
+    - {$$hashKey: 'object:99697', data_key: column_2, id: XOJZQF, title: Action}
     foreground: ''
+    role: null
     rows_per_page: 20
-    visible: true
-    wrap_on: never
     show_page_controls: true
     spacing_above: small
     spacing_below: small
-    background: ''
-  name: data_grid_1
-  layout_properties: {grid_position: 'ZNQCUG,MNMCTK'}
-  components:
-  - type: RepeatingPanel
-    properties: {spacing_above: none, spacing_below: none, item_template: ticker_auctions.RowTemplate5}
-    name: repeating_panel_1
-    layout_properties: {}
+    tooltip: ''
+    visible: true
+    wrap_on: never
+  type: DataGrid
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

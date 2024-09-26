@@ -1,58 +1,58 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: FlowPanel
-  properties: {}
+- layout_properties: {grid_position: 'MFUQQF,DNVPTU'}
   name: flow_panel_1
-  layout_properties: {grid_position: 'MFUQQF,DNVPTU'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_1
-  layout_properties: {grid_position: 'FYOTXI,OERSZZ'}
-  components:
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Your Nametag NFTs, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {}
+  type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'IYFQRD,FTWXZP'}
     name: label_1
-    layout_properties: {grid_position: 'IYFQRD,FTWXZP'}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_rewards
-  layout_properties: {grid_position: 'HBAVGP,POXERG'}
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Liquid PARTY Holder Rewards, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Your Nametag NFTs, tooltip: '', underline: false, visible: true}
+    type: Label
+  layout_properties: {grid_position: 'FYOTXI,OERSZZ'}
+  name: card_1
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'XQAXMM,XLSGEB'}
     name: label_2
-    layout_properties: {grid_position: 'XQAXMM,XLSGEB'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Holding liquid PARTY allows you to earn revenue from Pool Party. Every 2 weeks, a snapshot is recorded and your earnings are determined by the percent of the total liquid supply that you hold at that time. ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Liquid PARTY Holder Rewards, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'VITWNV,NATTTU'}
     name: label_3
-    layout_properties: {grid_position: 'VITWNV,NATTTU'}
-  - type: DataGrid
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Holding liquid PARTY allows you to earn revenue from Pool Party. Every 2 weeks, a snapshot is recorded and your earnings are determined by the percent of the total liquid supply that you hold at that time. ', tooltip: '', underline: false, visible: true}
+    type: Label
+  - components:
+    - layout_properties: {}
+      name: repeating_panel_1
+      properties: {item_template: user_wallet.RowTemplate10, spacing_above: none, spacing_below: none}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'CYMXMU,WJSZGO'}
+    name: data_grid_1
     properties:
-      role: null
-      columns:
-      - {id: CPJXRK, title: Snapshot Period, data_key: Snapshot Period, $$hashKey: 'object:59289'}
-      - {id: NFLHYA, title: Balance, data_key: Balance, $$hashKey: 'object:59290'}
-      - {id: IREXIL, title: Total Supply, data_key: Supply, $$hashKey: 'object:59291'}
-      - {id: PZVNMW, title: Percent, data_key: Percent, $$hashKey: 'object:98024'}
-      - {id: LNBVEJ, title: Rewards, data_key: column_1, $$hashKey: 'object:63236'}
       auto_header: true
-      tooltip: ''
+      background: ''
       border: ''
+      columns:
+      - {$$hashKey: 'object:59289', data_key: Snapshot Period, id: CPJXRK, title: Snapshot Period}
+      - {$$hashKey: 'object:59290', data_key: Balance, id: NFLHYA, title: Balance}
+      - {$$hashKey: 'object:59291', data_key: Supply, id: IREXIL, title: Total Supply}
+      - {$$hashKey: 'object:98024', data_key: Percent, id: PZVNMW, title: Percent}
+      - {$$hashKey: 'object:63236', data_key: column_1, id: LNBVEJ, title: Rewards}
       foreground: ''
+      role: null
       rows_per_page: 20
-      visible: true
-      wrap_on: never
       show_page_controls: true
       spacing_above: small
       spacing_below: small
-      background: ''
-    name: data_grid_1
-    layout_properties: {grid_position: 'CYMXMU,WJSZGO'}
-    components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: user_wallet.RowTemplate10}
-      name: repeating_panel_1
-      layout_properties: {}
+      tooltip: ''
+      visible: true
+      wrap_on: never
+    type: DataGrid
+  layout_properties: {grid_position: 'HBAVGP,POXERG'}
+  name: card_rewards
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

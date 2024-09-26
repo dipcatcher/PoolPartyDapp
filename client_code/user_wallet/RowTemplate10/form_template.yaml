@@ -1,16 +1,16 @@
-container: {type: DataRowPanel}
 components:
-- type: Button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: claim, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-  name: button_claim
+- event_bindings: {click: button_claim_click}
   layout_properties: {column: LNBVEJ}
-  event_bindings: {click: button_claim_click}
-- name: label_supply
+  name: button_claim
+  properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: claim, tooltip: '', underline: false, visible: true}
+  type: Button
+- layout_properties: {column: IREXIL}
+  name: label_supply
   properties: {}
   type: Label
-  layout_properties: {column: IREXIL}
-- name: label_balance
+- layout_properties: {column: NFLHYA}
+  name: label_balance
   properties: {}
   type: Label
-  layout_properties: {column: NFLHYA}
+container: {type: DataRowPanel}
 is_package: true

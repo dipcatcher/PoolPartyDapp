@@ -1,30 +1,30 @@
-container:
-  type: DataRowPanel
-  event_bindings: {show: form_show}
 components:
-- type: Image
-  properties: {role: null, vertical_align: center, height: '32', tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: '', spacing_below: small, background: '', horizontal_align: center}
+- layout_properties: {column: PTATRF}
   name: image_1
-  layout_properties: {column: PTATRF}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {background: '', border: '', display_mode: shrink_to_fit, foreground: '', height: '32', horizontal_align: center, role: null, source: '', spacing_above: small, spacing_below: small, tooltip: '', vertical_align: center, visible: true}
+  type: Image
+- layout_properties: {column: OENAYH}
   name: label_ticker
-  layout_properties: {column: OENAYH}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Label
+- layout_properties: {column: LDHHSQ}
   name: label_length
-  layout_properties: {column: LDHHSQ}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Label
+- layout_properties: {column: UZHXTA}
   name: label_pooled_hex
-  layout_properties: {column: UZHXTA}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Label
+- layout_properties: {column: XHLPBH}
   name: label_organizer_fee
-  layout_properties: {column: XHLPBH}
-- type: Link
-  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: View, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
-  name: link_join
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
+  type: Label
+- event_bindings: {click: link_join_click}
   layout_properties: {column: IQMTTG}
-  event_bindings: {click: link_join_click}
+  name: link_join
+  properties: {align: left, background: '', bold: true, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: View, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+  type: Link
+container:
+  event_bindings: {show: form_show}
+  type: DataRowPanel
 is_package: true

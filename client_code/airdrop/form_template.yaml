@@ -1,34 +1,34 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
-  event_bindings: {show: form_show}
 components:
-- type: ColumnPanel
-  properties: {role: mid-width, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: ''}
-  name: column_panel_1
-  layout_properties: {grid_position: 'DGJCOF,ZNISTB'}
-  components:
-  - type: ColumnPanel
-    properties: {role: main-card, col_widths: '{}'}
-    name: card_1
-    layout_properties: {grid_position: 'ELNZXW,QUDSXQ'}
-    components:
-    - type: Label
-      properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Claim Airdrop, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+- components:
+  - components:
+    - layout_properties: {grid_position: 'EIMUZL,VJNMBF'}
       name: label_1
-      layout_properties: {grid_position: 'EIMUZL,VJNMBF'}
-    - type: Label
-      properties: {}
+      properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Claim Airdrop, tooltip: '', underline: false, visible: true}
+      type: Label
+    - layout_properties: {grid_position: 'ZADQVJ,PRQJTB'}
       name: label_status
-      layout_properties: {grid_position: 'ZADQVJ,PRQJTB'}
-    - type: Button
-      properties: {role: filled, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: false, text: claim airdrop, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-      name: button_1
+      properties: {}
+      type: Label
+    - event_bindings: {click: button_1_click}
       layout_properties: {grid_position: 'XIOSHM,JSORUY'}
-      event_bindings: {click: button_1_click}
-    - name: link_add
-      properties: {text: Add PARTY To Wallet, icon: '', align: center, visible: true}
-      type: Link
+      name: button_1
+      properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: filled, spacing_above: small, spacing_below: small, text: claim airdrop, tooltip: '', underline: false, visible: false}
+      type: Button
+    - event_bindings: {click: link_add_click}
       layout_properties: {grid_position: 'MCDPUE,ADGQPM'}
-      event_bindings: {click: link_add_click}
+      name: link_add
+      properties: {align: center, icon: '', text: Add PARTY To Wallet, visible: true}
+      type: Link
+    layout_properties: {grid_position: 'ELNZXW,QUDSXQ'}
+    name: card_1
+    properties: {col_widths: '{}', role: main-card}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'DGJCOF,ZNISTB'}
+  name: column_panel_1
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: mid-width, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+container:
+  event_bindings: {show: form_show}
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

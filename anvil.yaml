@@ -1,332 +1,331 @@
+allow_embedding: false
 correct_dependency_ids: {CY6SHX5TPGTSZ6UY: CY6SHX5TPGTSZ6UY}
-scheduled_tasks:
-- task_name: check_pools
-  time_spec:
-    n: 6
-    every: minute
-    at: {}
-  job_id: QRYIQXQA
+db_schema:
+  contract:
+    client: search
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: address
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: abi
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: contract
+  media:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: media
+      type: media
+    - admin_ui: {width: 200}
+      name: Column1
+      type: number
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    server: full
+    title: media
+  party_merkle_host:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: file
+      type: media
+    - admin_ui: {width: 373}
+      name: proofs
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: root
+      type: string
+    - admin_ui: {width: 200}
+      name: proofs_string
+      type: string
+    - admin_ui: {width: 200}
+      name: tree
+      type: simpleObject
+    server: full
+    title: party_merkle_host
+  party_supply_merkle:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: address
+      type: string
+    - admin_ui: {width: 200}
+      name: proof
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: amount
+      type: string
+    - admin_ui: {width: 200}
+      name: root
+      type: string
+    server: search
+    title: party_supply_merkle
+  pool_data:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: address
+      type: string
+    - admin_ui: {width: 200}
+      name: ticker
+      type: string
+    - admin_ui: {width: 200}
+      name: logo
+      type: media
+    - admin_ui: {width: 200}
+      name: description
+      type: string
+    - admin_ui: {width: 200}
+      name: chain
+      type: string
+    server: full
+    title: pool_data
+  pool_party_merkle:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: address
+      type: string
+    - admin_ui: {width: 322}
+      name: party_mintable
+      type: number
+    - admin_ui: {width: 200}
+      name: merkle_proof
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: merkle_root
+      type: string
+    server: search
+    title: pool_party_merkle
+  table_1:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: data
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: value
+      type: number
+    - admin_ui: {width: 200}
+      name: Column3
+      type: string
+    - admin_ui: {width: 200}
+      name: text
+      type: string
+    server: full
+    title: Table 1
+  table_10:
+    client: none
+    columns: []
+    server: full
+    title: Table 10
+  table_2:
+    client: none
+    columns: []
+    server: full
+    title: Table 2
+  table_4:
+    client: none
+    columns: []
+    server: full
+    title: Table 4
+  table_5:
+    client: none
+    columns: []
+    server: full
+    title: Table 5
+  ticker_nfts:
+    client: search
+    columns:
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: image
+      type: media
+    - admin_ui: {width: 200}
+      name: owner
+      type: string
+    - admin_ui: {width: 200}
+      name: nft_id
+      type: number
+    - admin_ui: {width: 200}
+      name: path
+      type: string
+    - admin_ui: {width: 200}
+      name: chain
+      type: string
+    server: full
+    title: ticker_nfts
+  user_record:
+    client: search
+    columns:
+    - admin_ui: {}
+      name: team_staked_p1
+      type: number
+    - admin_ui: {width: 200}
+      name: address
+      type: string
+    - admin_ui: {}
+      name: lucky_staked_total
+      type: number
+    - admin_ui: {width: 200}
+      name: maxi_liquid
+      type: number
+    - admin_ui: {}
+      name: lucky_staked_p1
+      type: number
+    - admin_ui: {width: 200}
+      name: poly_liquid
+      type: number
+    - admin_ui: {}
+      name: trio_liquid
+      type: number
+    - admin_ui: {width: 200}
+      name: water_liquid
+      type: number
+    - admin_ui: {}
+      name: deci_staked_p2
+      type: number
+    - admin_ui: {}
+      name: lucky_staked
+      type: number
+    - admin_ui: {}
+      name: trio_staked
+      type: number
+    - admin_ui: {}
+      name: team_staked_total
+      type: number
+    - admin_ui: {width: 200}
+      name: base_liquid
+      type: number
+    - admin_ui: {}
+      name: bridge_relays
+      type: number
+    - admin_ui: {}
+      name: base_staked_p2
+      type: number
+    - admin_ui: {}
+      name: lucky_staked_p2
+      type: number
+    - admin_ui: {width: 200}
+      name: base_staked
+      type: number
+    - admin_ui: {}
+      name: trio_staked_p1
+      type: number
+    - admin_ui: {}
+      name: dca_liquid
+      type: number
+    - admin_ui: {}
+      name: base_staked_p1
+      type: number
+    - admin_ui: {}
+      name: team_staked_p2
+      type: number
+    - admin_ui: {}
+      name: lucky_liquid
+      type: number
+    - admin_ui: {}
+      name: trio_staked_p2
+      type: number
+    - admin_ui: {}
+      name: team_liquid
+      type: number
+    - admin_ui: {}
+      name: points
+      type: number
+    - admin_ui: {}
+      name: deci_staked_total
+      type: number
+    - admin_ui: {}
+      name: points_breakdown
+      type: simpleObject
+    - admin_ui: {}
+      name: deci_staked_p1
+      type: number
+    - admin_ui: {}
+      name: dca_member
+      type: number
+    - admin_ui: {}
+      name: trio_staked_total
+      type: number
+    - admin_ui: {}
+      name: team_staked
+      type: number
+    - admin_ui: {}
+      name: deci_liquid
+      type: number
+    - admin_ui: {}
+      name: deci_staked
+      type: number
+    - admin_ui: {}
+      name: bridge_liquid
+      type: number
+    - admin_ui: {width: 200}
+      name: merkle_points
+      type: number
+    - admin_ui: {width: 200}
+      name: merkle_proof
+      type: simpleObject
+    server: search
+    title: user_record
 dependencies:
 - app_id: CY6SHX5TPGTSZ6UY
   version: {dev: false}
 - dep_id: dep_gaeopub3ujbru
-  version: {dev: false}
   resolution_hints: {app_id: M5VAKGC7ZJP4L7CY, name: Pool Party image generator, package_name: Pool_Party_image_generator}
-- dep_id: dep_o7u9cxbd2zihg
   version: {dev: false}
+- dep_id: dep_o7u9cxbd2zihg
   resolution_hints: {app_id: 4TWMMIN6FHFQ5474, name: WalletConnectComponent, package_name: MetaMask_Button}
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {auto_create_missing_columns: true}
-- source: /runtime/services/anvil/secrets.yml
-  client_config: {}
-  server_config: {}
-startup: {type: form, module: _home}
-package_name: Pool_Party
-allow_embedding: false
+  version: {dev: false}
+metadata: {description: Earn rewards and stake hex together!, logo_img: 'asset:link image 2.png', title: Maximus Pool Party}
 name: Maximus Pool Party
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-full
-  server_spec: null
-  server_spec_disabled: {requirements: PIL, base: python310-standard}
-metadata: {title: Maximus Pool Party, logo_img: 'asset:link image 2.png', description: Earn rewards and stake hex together!}
-startup_form: null
 native_deps:
   head_html: |-
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Poppins&display=swap');
     </style>
-
-    <script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>
-db_schema:
-  table_4:
-    title: Table 4
-    client: none
-    server: full
-    columns: []
-  media:
-    title: media
-    client: search
-    server: full
-    columns:
-    - name: media
-      admin_ui: {width: 200}
-      type: media
-    - name: Column1
-      admin_ui: {width: 200}
-      type: number
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-  table_1:
-    title: Table 1
-    client: search
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: data
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: value
-      admin_ui: {width: 200}
-      type: number
-    - name: Column3
-      admin_ui: {width: 200}
-      type: string
-    - name: text
-      admin_ui: {width: 200}
-      type: string
-  party_merkle_host:
-    title: party_merkle_host
-    client: search
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: file
-      admin_ui: {width: 200}
-      type: media
-    - name: proofs
-      admin_ui: {width: 373}
-      type: simpleObject
-    - name: root
-      admin_ui: {width: 200}
-      type: string
-    - name: proofs_string
-      admin_ui: {width: 200}
-      type: string
-    - name: tree
-      admin_ui: {width: 200}
-      type: simpleObject
-  table_10:
-    title: Table 10
-    client: none
-    server: full
-    columns: []
-  table_5:
-    title: Table 5
-    client: none
-    server: full
-    columns: []
-  contract:
-    client: search
-    server: full
-    columns:
-    - name: address
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: abi
-      admin_ui: {order: 1, width: 200}
-      type: simpleObject
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    title: contract
-  user_record:
-    title: user_record
-    client: search
-    server: search
-    columns:
-    - name: team_staked_p1
-      admin_ui: {}
-      type: number
-    - name: address
-      admin_ui: {width: 200}
-      type: string
-    - name: lucky_staked_total
-      admin_ui: {}
-      type: number
-    - name: maxi_liquid
-      admin_ui: {width: 200}
-      type: number
-    - name: lucky_staked_p1
-      admin_ui: {}
-      type: number
-    - name: poly_liquid
-      admin_ui: {width: 200}
-      type: number
-    - name: trio_liquid
-      admin_ui: {}
-      type: number
-    - name: water_liquid
-      admin_ui: {width: 200}
-      type: number
-    - name: deci_staked_p2
-      admin_ui: {}
-      type: number
-    - name: lucky_staked
-      admin_ui: {}
-      type: number
-    - name: trio_staked
-      admin_ui: {}
-      type: number
-    - name: team_staked_total
-      admin_ui: {}
-      type: number
-    - name: base_liquid
-      admin_ui: {width: 200}
-      type: number
-    - name: bridge_relays
-      admin_ui: {}
-      type: number
-    - name: base_staked_p2
-      admin_ui: {}
-      type: number
-    - name: lucky_staked_p2
-      admin_ui: {}
-      type: number
-    - name: base_staked
-      admin_ui: {width: 200}
-      type: number
-    - name: trio_staked_p1
-      admin_ui: {}
-      type: number
-    - name: dca_liquid
-      admin_ui: {}
-      type: number
-    - name: base_staked_p1
-      admin_ui: {}
-      type: number
-    - name: team_staked_p2
-      admin_ui: {}
-      type: number
-    - name: lucky_liquid
-      admin_ui: {}
-      type: number
-    - name: trio_staked_p2
-      admin_ui: {}
-      type: number
-    - name: team_liquid
-      admin_ui: {}
-      type: number
-    - name: points
-      admin_ui: {}
-      type: number
-    - name: deci_staked_total
-      admin_ui: {}
-      type: number
-    - name: points_breakdown
-      admin_ui: {}
-      type: simpleObject
-    - name: deci_staked_p1
-      admin_ui: {}
-      type: number
-    - name: dca_member
-      admin_ui: {}
-      type: number
-    - name: trio_staked_total
-      admin_ui: {}
-      type: number
-    - name: team_staked
-      admin_ui: {}
-      type: number
-    - name: deci_liquid
-      admin_ui: {}
-      type: number
-    - name: deci_staked
-      admin_ui: {}
-      type: number
-    - name: bridge_liquid
-      admin_ui: {}
-      type: number
-    - name: merkle_points
-      admin_ui: {width: 200}
-      type: number
-    - name: merkle_proof
-      admin_ui: {width: 200}
-      type: simpleObject
-  ticker_nfts:
-    title: ticker_nfts
-    client: search
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: image
-      admin_ui: {width: 200}
-      type: media
-    - name: owner
-      admin_ui: {width: 200}
-      type: string
-    - name: nft_id
-      admin_ui: {width: 200}
-      type: number
-    - name: path
-      admin_ui: {width: 200}
-      type: string
-    - name: chain
-      admin_ui: {width: 200}
-      type: string
-  party_supply_merkle:
-    title: party_supply_merkle
-    client: search
-    server: search
-    columns:
-    - name: address
-      admin_ui: {width: 200}
-      type: string
-    - name: proof
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: amount
-      admin_ui: {width: 200}
-      type: string
-    - name: root
-      admin_ui: {width: 200}
-      type: string
-  pool_party_merkle:
-    title: pool_party_merkle
-    client: search
-    server: search
-    columns:
-    - name: address
-      admin_ui: {width: 200}
-      type: string
-    - name: party_mintable
-      admin_ui: {width: 322}
-      type: number
-    - name: merkle_proof
-      admin_ui: {width: 200}
-      type: simpleObject
-    - name: merkle_root
-      admin_ui: {width: 200}
-      type: string
-  table_2:
-    client: none
-    server: full
-    columns: []
-    title: Table 2
-  pool_data:
-    title: pool_data
-    client: search
-    server: full
-    columns:
-    - name: address
-      admin_ui: {width: 200}
-      type: string
-    - name: ticker
-      admin_ui: {width: 200}
-      type: string
-    - name: logo
-      admin_ui: {width: 200}
-      type: media
-    - name: description
-      admin_ui: {width: 200}
-      type: string
-    - name: chain
-      admin_ui: {width: 200}
-      type: string
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" integrity="sha512-FDcVY+g7vc5CXANbrTSg1K5qLyriCsGDYCE02Li1tXEYdNQPvLPHNE+rT2Mjei8N7fZbe0WLhw27j2SrGRpdMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+package_name: Pool_Party
+runtime_options:
+  client_version: '3'
+  server_spec: null
+  server_spec_disabled: {base: python310-standard, requirements: PIL}
+  server_version: python3-full
+  version: 2
+scheduled_tasks:
+- job_id: QRYIQXQA
+  task_name: check_pools
+  time_spec:
+    at: {}
+    every: minute
+    n: 6
 secrets:
-  moralis:
-    value: {? '' : /iQTQWUK0H3/QsR06f0B3d5rDvXNGBgTLhzZ/F7hn8JoYdw8b5sjnzDMHQXAjZkJtuM43V0SWmqeJwBeAwqweL6tIsl6BhdRyNAN7HBpPlWSZtKAx7/bjkVHoOLe2l6ATOuqFTlnjiJc4ghv4i38JlZbfBNc3RrqpgKNO1nq0JD03Wtf7jdfecEOS7f0ZcDfZVDJYlAAtTKqW6WTwqF8t9emT/Gvu03TxiKMUmd1yAuhsQ+Ou9FiGfSSy3/zPRwAGnoRs46Chknl+HlvTwgQOCI3D1OkBRQ8Z+emq8FYva2XJqqyvBF/Y61FT+FvzPQ9ZVOT1YYOi97kFBW8ZWZ1I6pHJwP9abQ5afmIlFYhIXUQqqDccPkKf6sJ7hOmNlBViO+AnXc+WfFespCr4qBV8DK+l/2LCAiTQ8m9TktPfRHYE2ELLIoOlnOwrjFYn0U7LUce/eq6VotrEb6Mec48ylbHyvwnvFvYu97B2HxOWW3OgbS1geqb98ClwXQLicAgBTnEHCqbzeMeqcvz26rVxJktX0uVywIqrK3iQ1jCLMSeJYI=}
-    type: secret
   imagegenerator:
-    value: {OGJ4EYM5LGOSQD2I: tr5tWUtbxP+qcXVy1Aur9N0sV/q5hVQyvNPqZI8yXLFvYjQxRS84Bz1M7M8xHeaxkDH6HV5Mhd1T7Dv/A6rerRamZsLuS4btJ91HI4mPL87yyfu+M3KBYJgYyvMKl8gcNEQs6tyxZpomR2331OibjxvZMLLQlAM=}
     type: secret
+    value: {OGJ4EYM5LGOSQD2I: tr5tWUtbxP+qcXVy1Aur9N0sV/q5hVQyvNPqZI8yXLFvYjQxRS84Bz1M7M8xHeaxkDH6HV5Mhd1T7Dv/A6rerRamZsLuS4btJ91HI4mPL87yyfu+M3KBYJgYyvMKl8gcNEQs6tyxZpomR2331OibjxvZMLLQlAM=}
+  moralis:
+    type: secret
+    value: {? '' : /iQTQWUK0H3/QsR06f0B3d5rDvXNGBgTLhzZ/F7hn8JoYdw8b5sjnzDMHQXAjZkJtuM43V0SWmqeJwBeAwqweL6tIsl6BhdRyNAN7HBpPlWSZtKAx7/bjkVHoOLe2l6ATOuqFTlnjiJc4ghv4i38JlZbfBNc3RrqpgKNO1nq0JD03Wtf7jdfecEOS7f0ZcDfZVDJYlAAtTKqW6WTwqF8t9emT/Gvu03TxiKMUmd1yAuhsQ+Ou9FiGfSSy3/zPRwAGnoRs46Chknl+HlvTwgQOCI3D1OkBRQ8Z+emq8FYva2XJqqyvBF/Y61FT+FvzPQ9ZVOT1YYOi97kFBW8ZWZ1I6pHJwP9abQ5afmIlFYhIXUQqqDccPkKf6sJ7hOmNlBViO+AnXc+WfFespCr4qBV8DK+l/2LCAiTQ8m9TktPfRHYE2ELLIoOlnOwrjFYn0U7LUce/eq6VotrEb6Mec48ylbHyvwnvFvYu97B2HxOWW3OgbS1geqb98ClwXQLicAgBTnEHCqbzeMeqcvz26rVxJktX0uVywIqrK3iQ1jCLMSeJYI=}
+services:
+- client_config: {}
+  server_config: {auto_create_missing_columns: true}
+  source: /runtime/services/tables.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/secrets.yml
+startup: {module: _home, type: form}
+startup_form: null

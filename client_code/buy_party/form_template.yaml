@@ -1,12 +1,12 @@
-container: {type: ColumnPanel}
 components:
-- name: link_1
-  properties: {text: Buy on PulseChain, role: stylecard}
-  type: Link
+- components: []
   layout_properties: {grid_position: 'HAYLBQ,SPJLZP'}
-  components: []
-- name: link_1_copy
-  properties: {text: Buy on Ethereum, role: stylecard}
+  name: link_1
+  properties: {role: stylecard, text: Buy on PulseChain}
   type: Link
-  layout_properties: {grid_position: 'HAYLBQ,ZVAJHJ'}
+- layout_properties: {grid_position: 'HAYLBQ,ZVAJHJ'}
+  name: link_1_copy
+  properties: {role: stylecard, text: Buy on Ethereum}
+  type: Link
+container: {type: ColumnPanel}
 is_package: true

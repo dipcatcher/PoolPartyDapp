@@ -1,119 +1,119 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
-  event_bindings: {show: form_show}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: column_panel_2
-  layout_properties: {slot: left-nav}
-  components:
-  - name: button_buy
-    properties: {text: BUY PARTY, role: filled}
-    type: Button
+- components:
+  - event_bindings: {click: button_buy_click}
     layout_properties: {grid_position: 'JOXHBF,DJSDLE'}
-    event_bindings: {click: button_buy_click}
-  - type: Label
-    properties: {role: underline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: PARTY, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
+    name: button_buy
+    properties: {role: filled, text: BUY PARTY}
+    type: Button
+  - layout_properties: {grid_position: 'GYGHUV,FDALYI'}
     name: label_2
-    layout_properties: {grid_position: 'GYGHUV,FDALYI'}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: My Wallet, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:bank'}
-    name: link_wallet
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: underline, spacing_above: small, spacing_below: small, text: PARTY, tooltip: '', underline: false, visible: true}
+    type: Label
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'UGURNB,PXNJDB'}
+    name: link_wallet
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:bank', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: My Wallet, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - components: []
     event_bindings: {click: menu_click}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Claim Airdrop, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:bolt'}
-    name: link_claim
     layout_properties: {grid_position: 'WAOCAU,LWHCDB'}
-    event_bindings: {click: menu_click}
-    components: []
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Stake Party, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:lock'}
-    name: link_stake
+    name: link_claim
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '{}', font: '', font_size: null, foreground: '', icon: 'fa:bolt', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Claim Airdrop, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'CUPKEX,KSRIGP'}
-    event_bindings: {click: menu_click}
-  - type: Label
-    properties: {role: underline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Nametag NFTs, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
+    name: link_stake
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:lock', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Stake Party, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - layout_properties: {grid_position: 'EQLYMY,MSQYFW'}
     name: label_2_copy
-    layout_properties: {grid_position: 'EQLYMY,MSQYFW'}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Mint Nametag NFT, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:ticket'}
-    name: link_mint_nft
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: underline, spacing_above: small, spacing_below: small, text: Nametag NFTs, tooltip: '', underline: false, visible: true}
+    type: Label
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'CWXNNZ,EQFVDW'}
-    event_bindings: {click: menu_click}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Nametag NFT Auctions, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:line-chart'}
-    name: link_ticker_auctions
+    name: link_mint_nft
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:ticket', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Mint Nametag NFT, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'CKTTRC,ESOCOO'}
-    event_bindings: {click: menu_click}
-  - type: Label
-    properties: {role: underline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: HEX Stake Pools, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
+    name: link_ticker_auctions
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:line-chart', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Nametag NFT Auctions, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - layout_properties: {grid_position: 'OBQAVF,IAQFPH'}
     name: label_2_copy_2
-    layout_properties: {grid_position: 'OBQAVF,IAQFPH'}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Create Stake Pool, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:user-plus'}
-    name: link_create_stake_pool
+    properties: {align: left, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: underline, spacing_above: small, spacing_below: small, text: HEX Stake Pools, tooltip: '', underline: false, visible: true}
+    type: Label
+  - components: []
+    event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'NNJBZM,KYXXIB'}
-    event_bindings: {click: menu_click}
-    components: []
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Join Stake Pool, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:clock-o'}
-    name: button_pools
+    name: link_create_stake_pool
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '{}', font: '', font_size: null, foreground: '', icon: 'fa:user-plus', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Create Stake Pool, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'GJKMTT,AXLHCS'}
-    event_bindings: {click: menu_click}
-  - type: Label
-    properties: {role: underline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Resources, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    name: button_pools
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:clock-o', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Join Stake Pool, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - layout_properties: {grid_position: 'PFPUIZ,RTRINQ'}
     name: label_2_copy_3
-    layout_properties: {grid_position: 'PFPUIZ,RTRINQ'}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: DAO Operations, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:money'}
-    name: link_party_rewards_manage
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: underline, spacing_above: small, spacing_below: small, text: Resources, tooltip: '', underline: false, visible: true}
+    type: Label
+  - event_bindings: {click: menu_click}
     layout_properties: {grid_position: 'EISOOB,ORAHLV'}
-    event_bindings: {click: menu_click}
-  - type: Link
-    properties: {role: null, url: 'https://docs.hexpool.party', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Docs, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:book'}
+    name: link_party_rewards_manage
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:money', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: DAO Operations, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - layout_properties: {grid_position: 'RKSHSM,TDXECT'}
     name: link_6
-    layout_properties: {grid_position: 'RKSHSM,TDXECT'}
-  - type: Link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '', visible: true, text: Disclaimer, font_size: null, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:balance-scale'}
-    name: link_disclaimer
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:book', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Docs, tooltip: '', underline: false, url: 'https://docs.hexpool.party', visible: true, wrap_on: mobile}
+    type: Link
+  - event_bindings: {click: link_disclaimer_click}
     layout_properties: {grid_position: 'QUHHPM,XSXGVD'}
-    event_bindings: {click: link_disclaimer_click}
-  - type: ColumnPanel
-    properties: {}
+    name: link_disclaimer
+    properties: {align: left, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: 'fa:balance-scale', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Disclaimer, tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
+    type: Link
+  - layout_properties: {grid_position: 'JZJKNE,ODGUKJ'}
     name: pool_router
-    layout_properties: {grid_position: 'JZJKNE,ODGUKJ'}
-- type: Label
-  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Pool Party, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-  name: label_1
-  layout_properties: {slot: logo}
-- type: FlowPanel
-  properties: {role: null, spacing: medium, align: right, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
-  name: flow_panel_1
-  layout_properties: {slot: float, grid_position: 'RWLOOW,TFOVYH'}
-  components:
-  - name: metamask
-    properties: {project_id: 03f4fc86117e7b57a2db790fd98541a4, name: Maximus Pool Party, icon: 'https://app.hexpool.party/_/theme/party%20small.svg', description: Trustless HEX stake pooling and more.}
-    type: form:dep_o7u9cxbd2zihg:WalletConnect
-    event_bindings: {connect: metamask_connect}
-    layout_properties: {}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: false, text: PLS, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: button_switch
-    layout_properties: {grid_position: 'ZTVOWR,BSPXRK'}
-    event_bindings: {click: button_switch_click}
-- type: ColumnPanel
+    properties: {}
+    type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  name: column_panel_2
   properties: {col_widths: '{}'}
-  name: page_panel
-  layout_properties: {slot: default, grid_position: 'YEEYDT,IIBZSM'}
-  components:
-  - type: ColumnPanel
-    properties: {spacing_above: large}
+  type: ColumnPanel
+- layout_properties: {slot: logo}
+  name: label_1
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: headline, spacing_above: small, spacing_below: small, text: Pool Party, tooltip: '', underline: false, visible: true}
+  type: Label
+- components:
+  - event_bindings: {connect: metamask_connect}
+    layout_properties: {}
+    name: metamask
+    properties: {description: Trustless HEX stake pooling and more., icon: 'https://app.hexpool.party/_/theme/party%20small.svg', name: Maximus Pool Party, project_id: 03f4fc86117e7b57a2db790fd98541a4}
+    type: form:dep_o7u9cxbd2zihg:WalletConnect
+  - event_bindings: {click: button_switch_click}
+    layout_properties: {grid_position: 'ZTVOWR,BSPXRK'}
+    name: button_switch
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: PLS, tooltip: '', underline: false, visible: false}
+    type: Button
+  layout_properties: {grid_position: 'RWLOOW,TFOVYH', slot: float}
+  name: flow_panel_1
+  properties: {align: right, background: '', border: '', foreground: '', role: null, spacing: medium, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
+  type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'JOIARF,AQSLCT'}
     name: content_panel
-    layout_properties: {grid_position: 'JOIARF,AQSLCT'}
-  - type: ColumnPanel
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '', spacing_below: small, background: ''}
+    properties: {spacing_above: large}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'KATSCG,XFAPVW'}
     name: pool_panel
-    layout_properties: {grid_position: 'KATSCG,XFAPVW'}
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '', foreground: '', role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'YEEYDT,IIBZSM', slot: default}
+  name: page_panel
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+container:
+  event_bindings: {show: form_show}
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

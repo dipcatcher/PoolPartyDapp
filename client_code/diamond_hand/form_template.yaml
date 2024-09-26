@@ -1,100 +1,100 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
 components:
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_1
-  layout_properties: {grid_position: 'JUJXFJ,GFFZTQ'}
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Timelock, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+- components:
+  - layout_properties: {grid_position: 'PWWPKC,LJDXJY'}
     name: label_2
-    layout_properties: {grid_position: 'PWWPKC,LJDXJY'}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Timelock tokens and earn HDRN plus early unlock penalties., font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Timelock, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'JOQYQO,RCKHKC'}
     name: label_1
-    layout_properties: {grid_position: 'JOQYQO,RCKHKC'}
-  - type: form:max_text_box
-    properties: {}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: Timelock tokens and earn HDRN plus early unlock penalties., tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'RDZIYS,SXHMTI'}
     name: custom_1
-    layout_properties: {grid_position: 'RDZIYS,SXHMTI'}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: timelock, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: button_timelock
+    properties: {}
+    type: form:max_text_box
+  - event_bindings: {click: button_timelock_click}
     layout_properties: {grid_position: 'TMBSNB,BTQJQG'}
-    event_bindings: {click: button_timelock_click}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_2
-  layout_properties: {grid_position: 'FSJXTF,HFMTPW'}
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Early Unlock, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_2_copy
-    layout_properties:
+    name: button_timelock
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: timelock, tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'JUJXFJ,GFFZTQ'}
+  name: card_1
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+- components:
+  - layout_properties:
       col_widths: {}
       grid_position: FQKAEX,DXFLHO
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'If you early unlock, you experience a 20% penalty on the amount you unlock early. Your total token-days for this period are scaled down proportional to the amount of coins you are early unlocking relative to the total.', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_1_copy
-    layout_properties:
+    name: label_2_copy
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Early Unlock, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties:
       col_widths: {}
       grid_position: ESJBMC,RQQVWZ
-  - type: form:max_text_box
-    properties: {}
-    name: custom_1_copy
-    layout_properties:
+    name: label_1_copy
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'If you early unlock, you experience a 20% penalty on the amount you unlock early. Your total token-days for this period are scaled down proportional to the amount of coins you are early unlocking relative to the total.', tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties:
       col_widths: {}
       grid_position: PTEQZR,QYERNV
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: early unlock, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: button_early_unlock
+    name: custom_1_copy
+    properties: {}
+    type: form:max_text_box
+  - event_bindings: {click: button_early_unlock_click}
     layout_properties: {grid_position: 'FDLNJK,KJHFJB'}
-    event_bindings: {click: button_early_unlock_click}
-- type: ColumnPanel
-  properties: {role: card, col_widths: '{}'}
-  name: card_2_copy
-  layout_properties:
-    col_widths: {}
-    grid_position: MDOVCJ,BVLNNY
-  components:
-  - type: Label
-    properties: {role: title, align: left, tooltip: '', border: '', foreground: '', visible: true, text: Claim Rewards, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_2_copy_2
-    layout_properties:
+    name: button_early_unlock
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: early unlock, tooltip: '', underline: false, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'FSJXTF,HFMTPW'}
+  name: card_2
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+- components:
+  - layout_properties:
       col_widths: {}
       grid_position: FQKAEX,DXFLHO
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Claim your principal, your portion of the early unlock penalty, and your portion of the HDRN.', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
-    name: label_1_copy_2
-    layout_properties:
+    name: label_2_copy_2
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: title, spacing_above: small, spacing_below: small, text: Claim Rewards, tooltip: '', underline: false, visible: true}
+    type: Label
+  - layout_properties:
       col_widths: {}
       grid_position: ESJBMC,RQQVWZ
-  - type: DataGrid
+    name: label_1_copy_2
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Claim your principal, your portion of the early unlock penalty, and your portion of the HDRN.', tooltip: '', underline: false, visible: true}
+    type: Label
+  - components:
+    - layout_properties: {}
+      name: repeating_panel_1
+      properties: {item_template: diamond_hand.RowTemplate9, spacing_above: none, spacing_below: none}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'KNEQZR,ERXFAA'}
+    name: data_grid_1
     properties:
-      role: null
-      columns:
-      - {id: ZLLLJI, title: Period, data_key: Period, $$hashKey: 'object:107894'}
-      - {id: RLHUEO, title: HDRN Rewards, data_key: HDRN Rewards, $$hashKey: 'object:119417'}
-      - {id: GMWECG, title: Penalty Rewards, data_key: Penalty Rewards, $$hashKey: 'object:119419', width: ''}
-      - {id: BADNDD, title: '', data_key: column_3, $$hashKey: 'object:107896'}
       auto_header: true
-      tooltip: ''
+      background: ''
       border: ''
+      columns:
+      - {$$hashKey: 'object:107894', data_key: Period, id: ZLLLJI, title: Period}
+      - {$$hashKey: 'object:119417', data_key: HDRN Rewards, id: RLHUEO, title: HDRN Rewards}
+      - {$$hashKey: 'object:119419', data_key: Penalty Rewards, id: GMWECG, title: Penalty Rewards, width: ''}
+      - {$$hashKey: 'object:107896', data_key: column_3, id: BADNDD, title: ''}
       foreground: ''
+      role: null
       rows_per_page: 200
-      visible: true
-      wrap_on: never
       show_page_controls: false
       spacing_above: small
       spacing_below: small
-      background: ''
-    name: data_grid_1
-    layout_properties: {grid_position: 'KNEQZR,ERXFAA'}
-    components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: diamond_hand.RowTemplate9}
-      name: repeating_panel_1
-      layout_properties: {}
+      tooltip: ''
+      visible: true
+      wrap_on: never
+    type: DataGrid
+  layout_properties:
+    col_widths: {}
+    grid_position: MDOVCJ,BVLNNY
+  name: card_2_copy
+  properties: {col_widths: '{}', role: card}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

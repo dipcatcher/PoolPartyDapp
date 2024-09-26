@@ -1,29 +1,29 @@
-properties: []
-is_package: true
-events:
-- {name: text_change, default_event: true, description: when the text box changes}
-custom_component: true
 components:
-- type: TextBox
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: black, bold: false, underline: false}
-  name: text_box_1
+- event_bindings: {change: text_box_1_change}
   layout_properties: {slot: default}
-  event_bindings: {change: text_box_1_change}
-- type: FlowPanel
-  properties: {}
-  name: flow_panel_1
-  layout_properties: {slot: float}
-  components:
-  - type: Button
-    properties: {role: link-b, align: center, tooltip: '', border: '', enabled: true, foreground: '#06132D', visible: false, text: MAX, font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small, italic: false, background: '#7C7F91', bold: false, underline: false, icon: ''}
+  name: text_box_1
+  properties: {align: left, background: black, bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', type: number, underline: false, visible: true}
+  type: TextBox
+- components:
+  - event_bindings: {click: button_max_click}
+    layout_properties: {}
     name: button_max
-    layout_properties: {}
-    event_bindings: {click: button_max_click}
-  - type: Label
-    properties: {role: body, align: left, tooltip: '', border: '', foreground: '', visible: true, text: ETH, font_size: null, font: '', spacing_above: none, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
+    properties: {align: center, background: '#7C7F91', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '#06132D', icon: '', icon_align: left, italic: false, role: link-b, spacing_above: none, spacing_below: small, text: MAX, tooltip: '', underline: false, visible: false}
+    type: Button
+  - layout_properties: {}
     name: label_1
-    layout_properties: {}
+    properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: body, spacing_above: none, spacing_below: small, text: ETH, tooltip: '', underline: false, visible: true}
+    type: Label
+  layout_properties: {slot: float}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
 container:
-  type: HtmlTemplate
   properties:
     html: "<div id=\"parent\">\n    <div id=\"child\" class=\"floating\">\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n    top: 0px;\n    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n}\n#child {\n  position:absolute;\n  \n}\n</style><div id=\"parent\">\n    <div id=\"child\" class=\"floating\">\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\n\n\n  .floating {\n    position: fixed;\n    right: 10px;\n    top: 0px;\n    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n}\n#child {\n  position:absolute;\n  \n}\n</style>"
+  type: HtmlTemplate
+custom_component: true
+events:
+- {default_event: true, description: when the text box changes, name: text_change}
+is_package: true
+properties: []
