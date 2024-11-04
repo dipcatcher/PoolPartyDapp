@@ -161,7 +161,7 @@ class manage_pool(manage_poolTemplate):
     try:
         a = anvil.js.await_promise(self.contract_write.claimBonus())
         a.wait()
-        Notification("Bonus Sequence Ended").show()
+        Notification("Bonus Minted").show()
         self.refresh()
     except Exception as e:
       alert(e)

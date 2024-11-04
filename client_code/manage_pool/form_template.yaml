@@ -1,43 +1,43 @@
 components:
 - layout_properties: {grid_position: 'WJOCHP,QNUZAL'}
   name: label_1
-  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'These pools are publicly operated and fully trustless, meaning anyone can run the required functions to operate the pool when those functions are eligible to run. Whoever runs these pays the gas on behalf of the pool for that action.', tooltip: '', underline: false, visible: true}
+  properties:
+    align: left
+    background: ''
+    bold: false
+    border: ''
+    font: ''
+    font_size: null
+    foreground: ''
+    icon: ''
+    icon_align: left
+    italic: false
+    role: null
+    spacing_above: small
+    spacing_below: small
+    text: "These pools are publicly operated and fully trustless, meaning anyone can run the required functions to operate the pool when those functions are eligible to run. Whoever runs these pays the gas on behalf of the pool for that action. \n\nTIP: When in doubt, hit the \"REFRESH POOLS\" button on the feed to re-sync data or simply wait for the HEX day to tick forward. \n"
+    tooltip: ''
+    underline: false
+    visible: true
   type: Label
 - components:
-  - event_bindings: {click: button_com_start_click}
-    layout_properties: {grid_position: 'QSBAWZ,HVCFWI'}
-    name: button_com_start
-    properties: {text: mint COM start bonus}
-    type: Button
-  - event_bindings: {click: button_com_end_click}
-    layout_properties: {grid_position: 'QNFYXG,JDGVUF'}
-    name: button_com_end_copy
-    properties: {text: mint COM end bonus}
-    type: Button
-  - event_bindings: {click: button_mint_hdrn_click}
-    layout_properties: {grid_position: 'PYKBQE,IFFFMM'}
-    name: button_mint_hdrn
-    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: mint HDRN, tooltip: '', underline: false, visible: true}
-    type: Button
-  - layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
-    name: label_hdrn_mint_data
-    properties: {align: center}
+  - layout_properties: {grid_position: 'GIDMYA,XLHTHF'}
+    name: label_2
+    properties: {role: title, text: Stake Management}
     type: Label
-  - event_bindings: {click: button_claim_bonus_click}
-    layout_properties: {grid_position: 'RAYEMS,JOSVUX'}
-    name: button_claim_bonus
-    properties: {text: claim COM and HDRN rewards}
-    type: Button
-  layout_properties: {grid_position: 'ABYZWN,FPRMDP'}
-  name: column_panel_1
-  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: referral-code-contain, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
-  type: ColumnPanel
-- components:
+  - layout_properties: {grid_position: 'XOGNLV,XHUTGV'}
+    name: label_3_copy
+    properties: {text: Run this to start the stake when the day ticks over on The Redemption Period End Day}
+    type: Label
   - event_bindings: {click: button_start_stake_click}
     layout_properties: {grid_position: 'CQBHBN,GRKVSY'}
     name: button_start_stake
     properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 0. start stake, tooltip: '', underline: false, visible: true}
     type: Button
+  - layout_properties: {grid_position: 'MDWIBL,YLEAZG'}
+    name: label_3
+    properties: {text: 'When the underlying HEX stake is complete, start the End Sequence to kick off a 6 Hour period for the contract to collect the COM and HDRN it earned.'}
+    type: Label
   - event_bindings: {click: button_start_end_click}
     layout_properties: {grid_position: 'FLTOJR,LBDFPQ'}
     name: button_start_end
@@ -46,6 +46,10 @@ components:
   - layout_properties: {grid_position: 'UKTULZ,OLGZHM'}
     name: label_bpd
     properties: {align: center}
+    type: Label
+  - layout_properties: {grid_position: 'VBXHIT,KNTZVP'}
+    name: label_6
+    properties: {text: 6 Hours later the End Sequence can be completed which enables the ending of the HEX stake and opening of the new Redemption Period.}
     type: Label
   - event_bindings: {click: button_complete_end_click}
     layout_properties: {grid_position: 'FSPCHB,EVDEUL'}
@@ -78,6 +82,47 @@ components:
     type: Button
   layout_properties: {grid_position: 'LNSCSN,CAKHCJ'}
   name: column_panel_1_copy
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: referral-code-contain, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'TRYWQS,JYJDIE'}
+    name: label_2_copy
+    properties: {role: title, text: HDRN and COM Management}
+    type: Label
+  - layout_properties: {grid_position: 'PPZRBC,MZHXNU'}
+    name: label_4
+    properties: {text: 'Run this after a new HEX stake has started: '}
+    type: Label
+  - event_bindings: {click: button_com_start_click}
+    layout_properties: {grid_position: 'QSBAWZ,HVCFWI'}
+    name: button_com_start
+    properties: {text: mint COM start bonus}
+    type: Button
+  - layout_properties: {grid_position: 'RIBZIW,QNXJZF'}
+    name: label_5
+    properties: {text: Mint COM and HDRN once stake end day ticks over after End Sequence has been started.}
+    type: Label
+  - event_bindings: {click: button_com_end_click}
+    layout_properties: {grid_position: 'QNFYXG,JDGVUF'}
+    name: button_com_end_copy
+    properties: {text: mint COM end bonus}
+    type: Button
+  - event_bindings: {click: button_mint_hdrn_click}
+    layout_properties: {grid_position: 'PYKBQE,IFFFMM'}
+    name: button_mint_hdrn
+    properties: {align: center, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: mint HDRN, tooltip: '', underline: false, visible: true}
+    type: Button
+  - layout_properties: {grid_position: 'CAXMNW,DGUWIP'}
+    name: label_hdrn_mint_data
+    properties: {align: center}
+    type: Label
+  - event_bindings: {click: button_claim_bonus_click}
+    layout_properties: {grid_position: 'RAYEMS,JOSVUX'}
+    name: button_claim_bonus
+    properties: {text: claim your COM and HDRN rewards}
+    type: Button
+  layout_properties: {grid_position: 'HKQHBX,OAPFGA'}
+  name: column_panel_1
   properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: referral-code-contain, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
   type: ColumnPanel
 - event_bindings: {click: button_contribute_click}
